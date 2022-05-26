@@ -23,6 +23,8 @@ const Home: Component = () => {
         (coming soon, in the mean time use the web interface{" "}
         <Link href={`/${uuid()}`}>https://kit.rtirl.com/{uuid()}</Link>)
       </div>
+      <div>Make a new app with the API</div>
+      <div>Ask on discord, documentation isn't done yet.</div>
     </div>
   );
 };
