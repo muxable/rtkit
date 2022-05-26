@@ -26,7 +26,21 @@ const DebugAgent: Component<{ channelId: string }> = ({ channelId }) => {
   return (
     <div>
       <div>This is a debug page for {channelId}</div>
-      <pre>{JSON.stringify(state(), Object.keys(state() ?? {}).sort(), 4)}</pre>
+      <pre>
+        {JSON.stringify(
+          state(),
+          (key, value) =>
+            value instanceof Object && !(value instanceof Array)
+              ? Object.keys(value)
+                  .sort()
+                  .reduce((sorted: any, key) => {
+                    sorted[key] = value[key];
+                    return sorted;
+                  }, {})
+              : value,
+          4
+        )}
+      </pre>
       <div>Switch Scenes</div>
       <For each={(state()?.obsScenes as string[]) || []}>
         {(item) => {
