@@ -8,6 +8,7 @@ import {
   orderBy,
   query,
   setDoc,
+  serverTimestamp,
   updateDoc,
   where,
 } from "@firebase/firestore";
@@ -100,37 +101,51 @@ function synchronize(ref: DocumentReference) {
     });
   };
   const onObsStreamingStarting = () =>
-    updateDoc(ref, { obsStreaming: "starting" });
+    updateDoc(ref, { obsStreaming: "starting", updatedAt: serverTimestamp() });
   const onObsStreamingStarted = () =>
-    updateDoc(ref, { obsStreaming: "started" });
+    updateDoc(ref, { obsStreaming: "started", updatedAt: serverTimestamp() });
   const onObsStreamingStopping = () =>
-    updateDoc(ref, { obsStreaming: "stopping" });
+    updateDoc(ref, { obsStreaming: "stopping", updatedAt: serverTimestamp() });
   const onObsStreamingStopped = () =>
-    updateDoc(ref, { obsStreaming: "stopped" });
+    updateDoc(ref, { obsStreaming: "stopped", updatedAt: serverTimestamp() });
   const onObsRecordingStarting = () =>
-    updateDoc(ref, { obsRecording: "starting" });
+    updateDoc(ref, { obsRecording: "starting", updatedAt: serverTimestamp() });
   const onObsRecordingStarted = () =>
-    updateDoc(ref, { obsRecording: "started" });
-  const onObsRecordingPaused = () => updateDoc(ref, { obsRecording: "paused" });
+    updateDoc(ref, { obsRecording: "started", updatedAt: serverTimestamp() });
+  const onObsRecordingPaused = () =>
+    updateDoc(ref, { obsRecording: "paused", updatedAt: serverTimestamp() });
   const onObsRecordingUnpaused = () =>
-    updateDoc(ref, { obsRecording: "started" });
+    updateDoc(ref, { obsRecording: "started", updatedAt: serverTimestamp() });
   const onObsRecordingStopping = () =>
-    updateDoc(ref, { obsRecording: "stopping" });
+    updateDoc(ref, { obsRecording: "stopping", updatedAt: serverTimestamp() });
   const onObsRecordingStopped = () =>
-    updateDoc(ref, { obsRecording: "stopped" });
+    updateDoc(ref, { obsRecording: "stopped", updatedAt: serverTimestamp() });
   const onObsReplaybufferStarting = () =>
-    updateDoc(ref, { obsReplaybuffer: "starting" });
+    updateDoc(ref, {
+      obsReplaybuffer: "starting",
+      updatedAt: serverTimestamp(),
+    });
   const onObsReplaybufferStarted = () =>
-    updateDoc(ref, { obsReplaybuffer: "started" });
+    updateDoc(ref, {
+      obsReplaybuffer: "started",
+      updatedAt: serverTimestamp(),
+    });
   const onObsReplaybufferStopping = () =>
-    updateDoc(ref, { obsReplaybuffer: "stopping" });
+    updateDoc(ref, {
+      obsReplaybuffer: "stopping",
+      updatedAt: serverTimestamp(),
+    });
   const onObsReplaybufferStopped = () =>
-    updateDoc(ref, { obsReplaybuffer: "stopped" });
+    updateDoc(ref, {
+      obsReplaybuffer: "stopped",
+      updatedAt: serverTimestamp(),
+    });
   const onObsVirtualcamStarted = () =>
-    updateDoc(ref, { obsVirtualcam: "started" });
+    updateDoc(ref, { obsVirtualcam: "started", updatedAt: serverTimestamp() });
   const onObsVirtualcamStopped = () =>
-    updateDoc(ref, { obsVirtualcam: "stopped" });
-  const onObsExit = () => updateDoc(ref, { activeAgentId: null });
+    updateDoc(ref, { obsVirtualcam: "stopped", updatedAt: serverTimestamp() });
+  const onObsExit = () =>
+    updateDoc(ref, { activeAgentId: null, updatedAt: serverTimestamp() });
 
   window.addEventListener("obsSceneChanged", onObsSceneChanged);
   window.addEventListener("obsSourceVisibleChanged", onObsSourceVisibleChanged);
