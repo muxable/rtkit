@@ -1,0 +1,14 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /channels/{channelId} {
+      allow get: if true;
+      allow list: if false;
+      allow write: if false;
+      match /commands/{document=**} {
+        allow read: if true;
+        allow write: if false;
+      }
+    }
+  }
+}
