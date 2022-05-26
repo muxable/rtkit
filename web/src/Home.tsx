@@ -9,7 +9,7 @@ const Home: Component = () => {
     return (
       <div>
         <div>RealtimeKit</div>
-        <div>Add a browser source in OBS: kit.rtirl.com/{uuid()}</div>
+        <div>Add a browser source in OBS: https://kit.rtirl.com/{uuid()}</div>
         <img
           src={`https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${url()}`}
           alt="qr code"
