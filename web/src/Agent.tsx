@@ -35,7 +35,7 @@ const Agent: Component = () => {
   return (
     <div>
       <div>This is a debug page for {params.id}</div>
-      <pre>{JSON.stringify(state(), undefined, 4)}</pre>
+      <pre>{JSON.stringify(state(), Object.keys(state()).sort(), 4)}</pre>
       <div>Switch Scenes</div>
       <For each={(state()?.obsScenes as string[]) || []}>
         {(item) => {
