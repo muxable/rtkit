@@ -1,3 +1,4 @@
+import { Link } from "solid-app-router";
 import { Component, createMemo } from "solid-js";
 import { v4 as uuidv4 } from "uuid";
 import obsSettingsImg from "./assets/obs-settings.png";
@@ -20,10 +21,7 @@ const Home: Component = () => {
       <div>Download a control app.</div>
       <div>
         (coming soon, in the mean time use the web interface{" "}
-        <a href="https://kit.rtirl.com/{uuid()}">
-          https://kit.rtirl.com/{uuid()}
-        </a>
-        )
+        <Link href={`/${uuid()}`}>https://kit.rtirl.com/{uuid()}</Link>)
       </div>
     </div>
   );
