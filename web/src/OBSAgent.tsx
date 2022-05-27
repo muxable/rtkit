@@ -317,39 +317,52 @@ function listen(ref: DocumentReference, agentId: string) {
               await updateDoc(change.doc.ref, {
                 success: false,
                 error: "CONTROL_LEVEL",
+                updatedAt: serverTimestamp(),
               });
               break;
             }
             window.obsstudio.saveReplayBuffer();
-            await updateDoc(change.doc.ref, { success: true });
+            await updateDoc(change.doc.ref, {
+              success: true,
+              updatedAt: serverTimestamp(),
+            });
             break;
           case "startReplayBuffer":
             if (level < 4) {
               await updateDoc(change.doc.ref, {
                 success: false,
                 error: "CONTROL_LEVEL",
+                updatedAt: serverTimestamp(),
               });
               break;
             }
             window.obsstudio.startReplayBuffer();
-            await updateDoc(change.doc.ref, { success: true });
+            await updateDoc(change.doc.ref, {
+              success: true,
+              updatedAt: serverTimestamp(),
+            });
             break;
           case "stopReplayBuffer":
             if (level < 4) {
               await updateDoc(change.doc.ref, {
                 success: false,
                 error: "CONTROL_LEVEL",
+                updatedAt: serverTimestamp(),
               });
               break;
             }
             window.obsstudio.stopReplayBuffer();
-            await updateDoc(change.doc.ref, { success: true });
+            await updateDoc(change.doc.ref, {
+              success: true,
+              updatedAt: serverTimestamp(),
+            });
             break;
           case "setCurrentScene": {
             if (change.doc.get("args")?.length != 1) {
               await updateDoc(change.doc.ref, {
                 success: false,
                 error: "INVALID_ARGUMENT",
+                updatedAt: serverTimestamp(),
               });
               break;
             }
@@ -358,6 +371,7 @@ function listen(ref: DocumentReference, agentId: string) {
               await updateDoc(change.doc.ref, {
                 success: false,
                 error: "INVALID_ARGUMENT",
+                updatedAt: serverTimestamp(),
               });
               break;
             }
@@ -365,11 +379,15 @@ function listen(ref: DocumentReference, agentId: string) {
               await updateDoc(change.doc.ref, {
                 success: false,
                 error: "CONTROL_LEVEL",
+                updatedAt: serverTimestamp(),
               });
               break;
             }
             window.obsstudio.setCurrentScene(arg);
-            await updateDoc(change.doc.ref, { success: true });
+            await updateDoc(change.doc.ref, {
+              success: true,
+              updatedAt: serverTimestamp(),
+            });
             break;
           }
           case "setCurrentTransition": {
@@ -377,6 +395,7 @@ function listen(ref: DocumentReference, agentId: string) {
               await updateDoc(change.doc.ref, {
                 success: false,
                 error: "INVALID_ARGUMENT",
+                updatedAt: serverTimestamp(),
               });
               break;
             }
@@ -385,6 +404,7 @@ function listen(ref: DocumentReference, agentId: string) {
               await updateDoc(change.doc.ref, {
                 success: false,
                 error: "INVALID_ARGUMENT",
+                updatedAt: serverTimestamp(),
               });
               break;
             }
@@ -392,11 +412,15 @@ function listen(ref: DocumentReference, agentId: string) {
               await updateDoc(change.doc.ref, {
                 success: false,
                 error: "CONTROL_LEVEL",
+                updatedAt: serverTimestamp(),
               });
               break;
             }
             window.obsstudio.setCurrentTransition(arg);
-            await updateDoc(change.doc.ref, { success: true });
+            await updateDoc(change.doc.ref, {
+              success: true,
+              updatedAt: serverTimestamp(),
+            });
             break;
           }
           case "startStreaming":
@@ -404,88 +428,120 @@ function listen(ref: DocumentReference, agentId: string) {
               await updateDoc(change.doc.ref, {
                 success: false,
                 error: "CONTROL_LEVEL",
+                updatedAt: serverTimestamp(),
               });
               break;
             }
             window.obsstudio.startStreaming();
-            await updateDoc(change.doc.ref, { success: true });
+            await updateDoc(change.doc.ref, {
+              success: true,
+              updatedAt: serverTimestamp(),
+            });
             break;
           case "stopStreaming":
             if (level < 5) {
               await updateDoc(change.doc.ref, {
                 success: false,
                 error: "CONTROL_LEVEL",
+                updatedAt: serverTimestamp(),
               });
               break;
             }
             window.obsstudio.stopStreaming();
-            await updateDoc(change.doc.ref, { success: true });
+            await updateDoc(change.doc.ref, {
+              success: true,
+              updatedAt: serverTimestamp(),
+            });
             break;
           case "startRecording":
             if (level < 5) {
               await updateDoc(change.doc.ref, {
                 success: false,
                 error: "CONTROL_LEVEL",
+                updatedAt: serverTimestamp(),
               });
               break;
             }
             window.obsstudio.startRecording();
-            await updateDoc(change.doc.ref, { success: true });
+            await updateDoc(change.doc.ref, {
+              success: true,
+              updatedAt: serverTimestamp(),
+            });
             break;
           case "stopRecording":
             if (level < 5) {
               await updateDoc(change.doc.ref, {
                 success: false,
                 error: "CONTROL_LEVEL",
+                updatedAt: serverTimestamp(),
               });
               break;
             }
             window.obsstudio.stopRecording();
-            await updateDoc(change.doc.ref, { success: true });
+            await updateDoc(change.doc.ref, {
+              success: true,
+              updatedAt: serverTimestamp(),
+            });
             break;
           case "pauseRecording":
             if (level < 5) {
               await updateDoc(change.doc.ref, {
                 success: false,
                 error: "CONTROL_LEVEL",
+                updatedAt: serverTimestamp(),
               });
               break;
             }
             window.obsstudio.pauseRecording();
-            await updateDoc(change.doc.ref, { success: true });
+            await updateDoc(change.doc.ref, {
+              success: true,
+              updatedAt: serverTimestamp(),
+            });
             break;
           case "unpauseRecording":
             if (level < 5) {
               await updateDoc(change.doc.ref, {
                 success: false,
                 error: "CONTROL_LEVEL",
+                updatedAt: serverTimestamp(),
               });
               break;
             }
             window.obsstudio.unpauseRecording();
-            await updateDoc(change.doc.ref, { success: true });
+            await updateDoc(change.doc.ref, {
+              success: true,
+              updatedAt: serverTimestamp(),
+            });
             break;
           case "startVirtualcam":
             if (level < 5) {
               await updateDoc(change.doc.ref, {
                 success: false,
                 error: "CONTROL_LEVEL",
+                updatedAt: serverTimestamp(),
               });
               break;
             }
             window.obsstudio.startVirtualcam();
-            await updateDoc(change.doc.ref, { success: true });
+            await updateDoc(change.doc.ref, {
+              success: true,
+              updatedAt: serverTimestamp(),
+            });
             break;
           case "stopVirtualcam":
             if (level < 5) {
               await updateDoc(change.doc.ref, {
                 success: false,
                 error: "CONTROL_LEVEL",
+                updatedAt: serverTimestamp(),
               });
               break;
             }
             window.obsstudio.stopVirtualcam();
-            await updateDoc(change.doc.ref, { success: true });
+            await updateDoc(change.doc.ref, {
+              success: true,
+              updatedAt: serverTimestamp(),
+            });
             break;
         }
       }
