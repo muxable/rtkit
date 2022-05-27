@@ -48,10 +48,11 @@ const validCommands = [
 app.post("/api/:channelId/:command", async (req, res) => {
   const channelId = req.params.channelId;
   const command = req.params.command;
+  const args = req.body || [];
   if (
     !validate(channelId) ||
     !validCommands.includes(command) ||
-    !Array.isArray(req.body)
+    !Array.isArray(args)
   ) {
     res.status(400).send();
     return;
@@ -74,7 +75,7 @@ app.post("/api/:channelId/:command", async (req, res) => {
     .add({
       agentId,
       command,
-      args: req.body,
+      args,
       createdAt: admin.firestore.FieldValue.serverTimestamp(),
     });
   const unsubscribe = ref.onSnapshot((doc) => {
