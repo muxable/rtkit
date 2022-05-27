@@ -10,6 +10,7 @@ import {
   setDoc,
   serverTimestamp,
   updateDoc,
+  DocumentChangeType,
   where,
 } from "@firebase/firestore";
 import {
@@ -308,6 +309,12 @@ function listen(ref: DocumentReference, agentId: string) {
     ),
     async (snapshot) => {
       for (const change of snapshot.docChanges()) {
+        if (
+          change.type !== "added" ||
+          change.doc.get("success") !== undefined
+        ) {
+          continue;
+        }
         const level = await new Promise<OBSControlLevel>((resolve) =>
           window.obsstudio.getControlLevel(resolve)
         );
