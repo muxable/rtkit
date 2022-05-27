@@ -83,7 +83,7 @@ const DebugAgent: Component<{ channelId: string }> = ({ channelId }) => {
           return (
             <button
               onClick={() => {
-                fetch(`/api/${channelId}/${commands}`, { method: "POST" });
+                fetch(`/api/${channelId}/${item}`, { method: "POST" });
               }}
             >
               {item}
