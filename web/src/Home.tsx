@@ -24,7 +24,7 @@ const Home: Component = () => {
         <Link href={`/${uuid()}`}>https://kit.rtirl.com/{uuid()}</Link>)
       </div>
       <div>Make a new app with the API</div>
-      <div>Ask on discord, documentation isn't done yet.</div>
+      <div>Ask on <a href="https://discord.gg/UKHJMQs74u">discord</a>{" "}, documentation isn't done yet.</div>
     </div>
   );
 };
