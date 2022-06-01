@@ -10,6 +10,7 @@ const commands = [
   "startRecording",
   "pauseRecording",
   "unpauseRecording",
+  "stopRecording",
   "startVirtualcam",
   "stopVirtualcam",
 ];
