@@ -47,19 +47,19 @@ var items = [{'name':'obs','value':0}, {'name':'stream_labs','value':1}, {'name'
        SpeedDialChild(
             
           child: IconButton(iconSize:100.0,
-          icon:Image.asset('assets/images/obs.png'),
+          icon:Image.asset('images/obs.png'),
            tooltip: 'obs',
           onPressed: ()=>print("obs"))
         ),
         SpeedDialChild(
           child: IconButton(iconSize:100.0,
-          icon:Image.asset('assets/images/streamlabs_obs.png'),
+          icon:Image.asset('images/streamlabs_obs.png'),
            tooltip: 'obs',
           onPressed: ()=>print("streamlabs_obs"))
         ),
         SpeedDialChild(
            child: IconButton(iconSize:100.0,
-          icon:Image.asset('assets/images/manual.png'),
+          icon:Image.asset('images/manual.png'),
            tooltip: 'obs',
           onPressed: ()=>print("manual"))
         ),
@@ -92,7 +92,7 @@ var items = [{'name':'obs','value':0}, {'name':'stream_labs','value':1}, {'name'
             children: <Widget>[  
               Container(alignment: Alignment.topRight,height:100,width:100,
               child:Center(
-              child: Image.asset('assets/images/obs.png',height:80,width:80), ), ),
+              child: Image.asset('images/obs.png',height:80,width:80), ), ),
 
              
               Flexible(fit: FlexFit.tight, child: SizedBox()),
@@ -128,7 +128,7 @@ var items = [{'name':'obs','value':0}, {'name':'stream_labs','value':1}, {'name'
             children: <Widget>[  
               Container(alignment: Alignment.topRight,height:100,width:100,
               child:Center(
-              child: Image.asset('assets/images/streamlabs_obs.png',height:80,width:80), ), ),
+              child: Image.asset('images/streamlabs_obs.png',height:80,width:80), ), ),
 
              
               Flexible(fit: FlexFit.tight, child: SizedBox()),
