@@ -70,7 +70,7 @@ var items = [{'name':'obs','value':0}, {'name':'stream_labs','value':1}, {'name'
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        appBar: AppBar(title: Text("ReaLTime Kit"),backgroundColor: Colors.amber[400],
+        appBar: AppBar(title: Text("Realtime Kit"),backgroundColor: Colors.amber[400],
             actions: <Widget>[
               PopupMenuButton<String>(
                   onSelected: onSelect,
