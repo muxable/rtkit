@@ -35,7 +35,7 @@ class MyApp extends StatelessWidget {
 
     }
   }
-var items = [{'name':'obs','value':0}, {'name':'stream_labs','value':1}, {'name':'manual','value':2}];
+//var items = [{'name':'obs','value':0}, {'name':'stream_labs','value':1}, {'name':'manual','value':2}];
   SpeedDial buildSpeedDial() {
     return SpeedDial(
       animatedIcon: AnimatedIcons.menu_close,
@@ -54,13 +54,13 @@ var items = [{'name':'obs','value':0}, {'name':'stream_labs','value':1}, {'name'
         SpeedDialChild(
           child: IconButton(iconSize:100.0,
           icon:Image.asset('images/streamlabs_obs.png'),
-           tooltip: 'obs',
+           tooltip: 'streamlabs_obs',
           onPressed: ()=>print("streamlabs_obs"))
         ),
         SpeedDialChild(
            child: IconButton(iconSize:100.0,
           icon:Image.asset('images/manual.png'),
-           tooltip: 'obs',
+           tooltip: 'manual',
           onPressed: ()=>print("manual"))
         ),
       ],
@@ -70,7 +70,7 @@ var items = [{'name':'obs','value':0}, {'name':'stream_labs','value':1}, {'name'
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        appBar: AppBar(title: Text("ReaLTime Kit"),backgroundColor: Colors.amber[400],
+        appBar: AppBar(title: Text("Realtime Kit"),backgroundColor: Colors.amber[400],
             actions: <Widget>[
               PopupMenuButton<String>(
                   onSelected: onSelect,
@@ -163,19 +163,20 @@ var items = [{'name':'obs','value':0}, {'name':'stream_labs','value':1}, {'name'
       BottomAppBar(
           child: new Row(
             mainAxisSize: MainAxisSize.max,
+            
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
               IconButton(iconSize: 30.0,
-                padding: EdgeInsets.only(left: 28.0),icon: Icon(Icons.home), onPressed: () {},),
+                icon: Icon(Icons.home), onPressed: () {},),
               
          IconButton(iconSize: 30.0,
-                padding: EdgeInsets.only(left: 28.0),icon: Icon(Icons.volume_down), onPressed: () {},),
+                icon: Icon(Icons.volume_down), onPressed: () {},),
                 IconButton(iconSize: 30.0,
-                padding: EdgeInsets.only(left: 28.0),icon: Icon(Icons.featured_video), onPressed: () {},),
+               icon: Icon(Icons.featured_video), onPressed: () {},),
                 IconButton(iconSize: 30.0,
-                padding: EdgeInsets.only(left: 28.0),icon: Icon(Icons.remove_red_eye),onPressed: () {},),
+                icon: Icon(Icons.remove_red_eye),onPressed: () {},),
                 IconButton(iconSize: 30.0,
-                padding: EdgeInsets.only(left: 28.0),icon: Icon(Icons.chat), onPressed: () {},),
+                icon: Icon(Icons.chat), onPressed: () {},),
 
             ],
           ),
