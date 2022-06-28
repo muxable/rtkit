@@ -68,6 +68,8 @@ flutter:
     - images/obs.png
     - images/streamlabs_obs.png
     - images/manual.png
+    - images/qr_code.png
+    - images/obs_ins.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
