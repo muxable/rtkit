@@ -1,30 +1,38 @@
+// ignore_for_file: must_be_immutable, use_key_in_widget_constructors, prefer_final_fields, deprecated_member_use, unnecessary_new, prefer_const_constructors, unnecessary_const, library_private_types_in_public_api
+
 import 'package:flutter/material.dart';
 import 'package:flutter_speed_dial/flutter_speed_dial.dart';
-import 'settings.dart';
-import 'scenes.dart';
-import 'home.dart';
-import 'alert.dart';
+import 'package:remote/scenes.dart';
 import 'home.dart';
 import 'sources.dart';
 import 'chat.dart';
-
+import 'package:provider/provider.dart';
+import 'theme_model.dart';
 void main() => runApp(MyApp());
 
-class MyApp extends StatelessWidget {
-  static final String title = 'Real Time Kit';
-bool darkTheme=false;
 
-
- 
+class MyApp extends StatefulWidget {
   @override
-  Widget build(BuildContext context) => MaterialApp(
+  _MyAppState createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  @override
+  Widget build(BuildContext context) {
+  
+     return ChangeNotifierProvider(create:(_)=>ThemeModel(),
+    child:Consumer( 
+      builder: (context,ThemeModel themeNotifier,child){ 
+        return MaterialApp(
+          theme:themeNotifier.isDark?ThemeData.dark() : ThemeData.light(),
         debugShowCheckedModeBanner: false,
-        title: title,
-        theme: ThemeData(primarySwatch: Colors.blue),
+        title:'Real Time Kit',
+        //title: Center(child: const Text('Real Time Kit'));
+       
         home: MainPage(),
        
-      );
-      
+        );},));
+  }
 }
 
 class MainPage extends StatelessWidget {
@@ -34,12 +42,12 @@ TextEditingController _textFieldController = TextEditingController();
         context: context,
         builder: (context) {
           return AlertDialog(
-            title: Text('OBS Studio Connection'),
+            title: const Text('OBS Studio Connection'),
             content: TextField(
               controller: _textFieldController,
               textInputAction: TextInputAction.go,
-              keyboardType: TextInputType.numberWithOptions(),
-              decoration: InputDecoration(hintText: "If your obs-websocket differs from default(4444),enter it below.Please ensure any firewalls are disabled"),
+              keyboardType: const TextInputType.numberWithOptions(),
+              decoration: const InputDecoration(hintText: "If your obs-websocket differs from default(4444),enter it below.Please ensure any firewalls are disabled"),
             ),
             actions: <Widget>[
               new FlatButton(
@@ -60,15 +68,15 @@ TextEditingController _textFieldController = TextEditingController();
   @override
   Widget build(BuildContext context) => Scaffold(
         appBar: AppBar(
-          title: Text(MyApp.title),
+          title: Text('Real Time kit'),
           centerTitle: true,
           actions: [
               
              Theme(
               data: Theme.of(context).copyWith(
                 dividerColor: Colors.white,
-                iconTheme: IconThemeData(color: Colors.white),
-                textTheme: TextTheme().apply(bodyColor: Colors.white),
+                iconTheme: const IconThemeData(color: Colors.white),
+                textTheme: const TextTheme().apply(bodyColor: Colors.white),
               ),
                child: PopupMenuButton<int>(
                 color: Colors.indigo,
@@ -76,29 +84,29 @@ TextEditingController _textFieldController = TextEditingController();
                 itemBuilder: (context) => [
                  
                   
-                       PopupMenuItem<int>(
+                       const PopupMenuItem<int>(
                         value:0,
-                        child:Text('Settings'),
+                        child:const Text('Settings'),
                       ),
-                    PopupMenuItem<int>(
+                    const PopupMenuItem<int>(
                         value:1,
                         child:Text('Remove Ads'),
                       ),
-                       PopupMenuItem<int>(
+                       const PopupMenuItem<int>(
                         value:2,
                         child:Text('Feature Requests'),
                       ),
-                       PopupMenuItem<int>(
+                       const PopupMenuItem<int>(
                         value:3,
                         child:Text('Error Log'),
                       ),
-                        PopupMenuItem<int>(
+                        const PopupMenuItem<int>(
                         value:4,
-                        child:Text('Licenses'),
+                        child:const Text('Licenses'),
                       ),
-                        PopupMenuItem<int>(
+                        const PopupMenuItem<int>(
                         value:5,
-                        child:Text('About'),
+                        child:const Text('About'),
                       ),
                 ],
               ),
@@ -116,15 +124,14 @@ TextEditingController _textFieldController = TextEditingController();
               child: Image.asset('images/obs.png',height:80,width:80), ), ),
 
              
-              Flexible(fit: FlexFit.tight, child: SizedBox()),
+              const Flexible(fit: FlexFit.tight, child: const SizedBox()),
               Container(alignment: Alignment.topCenter,height: 100,width:100,
-                child:Center(child: Text
+                child:const Center(child: Text
                 (  
-                  'obs studio',  
-                  style: TextStyle(fontSize: 20.0),
-                   textAlign: TextAlign.center,  
+                  'OBS studio',  
+                   style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)
               ), ),), 
-              Flexible(fit: FlexFit.tight, child: SizedBox()),
+              const Flexible(fit: FlexFit.tight, child: const SizedBox()),
               Container(alignment: Alignment.topRight,height: 100,width:100,
                 child:Center(
            child: PopupMenuButton<int>(
@@ -133,14 +140,14 @@ TextEditingController _textFieldController = TextEditingController();
                 itemBuilder: (context) => [
                  
                   
-                       PopupMenuItem<int>(
+                       const PopupMenuItem<int>(
                         value:6,
                         child:Text('Remove'),
                         
                       ),
-                    PopupMenuItem<int>(
+                    const PopupMenuItem<int>(
                         value:7,
-                        child:Text('Edit'),
+                        child:const Text('Edit'),
                       ),
                       
                 ],
@@ -150,11 +157,11 @@ TextEditingController _textFieldController = TextEditingController();
           ), 
         
               // on selected we show the dialog box
-           Divider(
+           const Divider(
               height: 15,
               thickness: 2,
             ),
-            SizedBox(
+            const SizedBox(
               height: 30,
             ),
           
@@ -167,15 +174,14 @@ TextEditingController _textFieldController = TextEditingController();
               child: Image.asset('images/streamlabs_obs.png',height:80,width:80), ), ),
 
              
-              Flexible(fit: FlexFit.tight, child: SizedBox()),
+              const Flexible(fit: FlexFit.tight, child: SizedBox()),
               Container(alignment: Alignment.topCenter,height: 100,width:100,
-                child:Center(child: Text
+                child:const Center(child: Text
                 (  
-                  'streamlabs_obs',  
-                  style: TextStyle(fontSize: 20.0),
-                   textAlign: TextAlign.center,  
+                  'Streamlabs',  
+                   style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold) 
               ), ),), 
-             Flexible(fit: FlexFit.tight, child: SizedBox()),
+             const Flexible(fit: FlexFit.tight, child: SizedBox()),
               Container(alignment: Alignment.topRight,height: 100,width:100,
                 child:Center(
            child: PopupMenuButton<int>(
@@ -184,12 +190,12 @@ TextEditingController _textFieldController = TextEditingController();
                 itemBuilder: (context) => [
                  
                   
-                       PopupMenuItem<int>(
+                       const PopupMenuItem<int>(
                         value:10,
-                        child:Text('Remove'),
+                        child:const Text('Remove'),
                         
                       ),
-                    PopupMenuItem<int>(
+                    const PopupMenuItem<int>(
                         value:11,
                         child:Text('Edit'),
                       ),
@@ -201,18 +207,18 @@ TextEditingController _textFieldController = TextEditingController();
             
             ],  
           ), 
-             Divider(
+             const Divider(
               height: 15,
               thickness: 2,
             ),
-            SizedBox(
+            const SizedBox(
               height: 30,
             ),
              ]  ), ),
         
 
     floatingActionButton: SpeedDial( animatedIcon: AnimatedIcons.menu_close,
-      animatedIconTheme: IconThemeData(size: 28.0),
+      animatedIconTheme: const IconThemeData(size: 28.0),
       backgroundColor: Colors.orange[900],
       visible: true,
       curve: Curves.bounceInOut,
@@ -220,7 +226,7 @@ TextEditingController _textFieldController = TextEditingController();
        SpeedDialChild(
             
           child: IconButton(iconSize:100.0,
-          icon:Image.asset('images/obs.png'),
+          icon:Image.asset('assets/images/obs.png'),
            tooltip: 'obs',
          
                 onPressed: () => _displayDialog(context),
@@ -229,7 +235,7 @@ TextEditingController _textFieldController = TextEditingController();
         ),),
        SpeedDialChild(
           child: IconButton(iconSize:100.0,
-          icon:Image.asset('images/streamlabs_obs.png'),
+          icon:Image.asset('assets/images/streamlabs_obs.png'),
            tooltip: 'stream_labs',
           onPressed: (){ 
             
@@ -240,7 +246,7 @@ TextEditingController _textFieldController = TextEditingController();
         SpeedDialChild(
            
            child: IconButton(iconSize:100.0,
-          icon:Image.asset('images/manual.png'),
+          icon:Image.asset('assets/images/manual.png'),
            tooltip: 'manual',
            
           onPressed: () {}/*{}
@@ -258,38 +264,39 @@ TextEditingController _textFieldController = TextEditingController();
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
               IconButton(iconSize: 30.0,
-                padding: EdgeInsets.only(left: 28.0),icon: Icon(Icons.home), onPressed: () { 
+                padding: const EdgeInsets.only(left: 28.0),icon: const Icon(Icons.home), onPressed: () { 
                    Navigator.push(context,
           MaterialPageRoute(builder: (context) => class1()));
                 },),
               
          IconButton(iconSize: 30.0,
-                padding: EdgeInsets.only(left: 28.0),icon: Icon(Icons.volume_down), onPressed: () {
+                padding: const EdgeInsets.only(left: 28.0),icon: const Icon(Icons.volume_down), onPressed: () {
 
 
                 },),
                 IconButton(iconSize: 30.0,
-                padding: EdgeInsets.only(left: 28.0),icon: Icon(Icons.featured_video), onPressed: () {  
+                padding: const EdgeInsets.only(left: 28.0),icon: const Icon(Icons.featured_video), onPressed: () {  
                     Navigator.push(context,
           MaterialPageRoute(builder: (context) => scenes()));
                 },),
                 IconButton(iconSize: 30.0,
-                padding: EdgeInsets.only(left: 28.0),icon: Icon(Icons.remove_red_eye),onPressed: () { 
+                padding: const EdgeInsets.only(left: 28.0),icon: const Icon(Icons.remove_red_eye),onPressed: () { 
 
                   Navigator.push(context,
           MaterialPageRoute(builder: (context) => sources()));
                 },),
                 IconButton(iconSize: 30.0,
-                padding: EdgeInsets.only(left: 28.0),icon: Icon(Icons.chat), onPressed: () {
+                padding: const EdgeInsets.only(left: 28.0),icon: const Icon(Icons.chat), onPressed: () {
                    Navigator.push(context,
-          MaterialPageRoute(builder: (context) => chat()));
+          MaterialPageRoute(builder: (context) => const chat()));
                 },),
 
             ],
           ),
         )
         
-       );}
+       );
+}
 /*
 void main() => runApp(MyApp());
   
