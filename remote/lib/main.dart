@@ -83,6 +83,7 @@ TextEditingController _textFieldController = TextEditingController();
                 onSelected: (item) => onSelected(context, item),
                 itemBuilder: (context) => [
                  
+
                   
                        const PopupMenuItem<int>(
                         value:0,
@@ -226,7 +227,7 @@ TextEditingController _textFieldController = TextEditingController();
        SpeedDialChild(
             
           child: IconButton(iconSize:100.0,
-          icon:Image.asset('assets/images/obs.png'),
+          icon:Image.asset('images/obs.png'),
            tooltip: 'obs',
          
                 onPressed: () => _displayDialog(context),
@@ -235,7 +236,7 @@ TextEditingController _textFieldController = TextEditingController();
         ),),
        SpeedDialChild(
           child: IconButton(iconSize:100.0,
-          icon:Image.asset('assets/images/streamlabs_obs.png'),
+          icon:Image.asset('images/streamlabs_obs.png'),
            tooltip: 'stream_labs',
           onPressed: (){ 
             
@@ -246,7 +247,7 @@ TextEditingController _textFieldController = TextEditingController();
         SpeedDialChild(
            
            child: IconButton(iconSize:100.0,
-          icon:Image.asset('assets/images/manual.png'),
+          icon:Image.asset('images/manual.png'),
            tooltip: 'manual',
            
           onPressed: () {}/*{}
