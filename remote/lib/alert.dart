@@ -1,7 +1,8 @@
-import 'package:flutter/cupertino.dart';
+
+// ignore_for_file: use_key_in_widget_constructors, camel_case_types
+
 import 'package:flutter/material.dart';
-import 'settings.dart';
-import 'home.dart';
+
 class class3 extends StatelessWidget {
   //const MyApp({Key? key}) : super(key: key);
 
