@@ -37,6 +37,7 @@ Currently, the API only supports these commands:
 	- `stopStreaming`
 - Recording
 	- `startRecording`
+	- `stopRecording`
 	- `pauseRecording`
 	- `unpauseRecording`
 - Virtual Camera
