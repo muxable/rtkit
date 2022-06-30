@@ -1,8 +1,8 @@
-import 'package:flutter/cupertino.dart';
+
+// ignore_for_file: camel_case_types, prefer_const_constructors
+
 import 'package:flutter/material.dart';
-import 'settings.dart';
-import 'alert.dart';
-import 'home.dart';
+
 class chat extends StatelessWidget {
   const chat({Key? key}) : super(key: key);
 
@@ -11,7 +11,7 @@ class chat extends StatelessWidget {
     => Scaffold(
          appBar: AppBar(
        
-       title: const Text("Twitch chat"),
+       title: Text("Twitch chat"),
       
       ),
       body: Center( 
