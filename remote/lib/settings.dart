@@ -1,6 +1,9 @@
+// ignore_for_file: use_key_in_widget_constructors, library_private_types_in_public_api, prefer_const_constructors
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
+import 'package:provider/provider.dart';
+import 'theme_model.dart';
 
 class SettingsPage extends StatefulWidget {
   @override
@@ -10,12 +13,13 @@ class SettingsPage extends StatefulWidget {
 class _SettingsPageState extends State<SettingsPage> {
   @override
   Widget build(BuildContext context) {
-
-
-
+   
+    
+  return Consumer(
+    builder:(context,ThemeModel themeNotifier,child){
     
     return Scaffold(
-      appBar: AppBar(
+      appBar: AppBar(/*
         backgroundColor: Theme.of(context).scaffoldBackgroundColor,
         elevation: 1,
         leading: IconButton(
@@ -26,20 +30,16 @@ class _SettingsPageState extends State<SettingsPage> {
             Icons.arrow_back,
             color: Colors.green,
           ),
-        ),
+        ),*/title: Center(child: Text('Settings')),
       ),
+      
       body: Container(
         padding: EdgeInsets.only(left: 16, top: 25, right: 16),
         child: ListView(
           children: [
-            Text(
-              "Settings",
-              style: TextStyle(fontSize: 25, fontWeight: FontWeight.w500),
-            ),
-            SizedBox(
-              height: 40,
-            ),
+         
             Row(
+              // ignore: prefer_const_literals_to_create_immutables
               children: [
                 
                 Text(
@@ -55,17 +55,27 @@ class _SettingsPageState extends State<SettingsPage> {
             SizedBox(
               height: 10,
             ),
-            /*
-            Row( 
-                children: [Switch(value: darkTheme,
-              onChanged:(changed){
-                setState((){
-                  darkTheme=changed;
-                });
-              }) ]
-             );
-          */
-            buildAccountOptionRow(context, "Change theme"),
+           
+        Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        Text(
+          'Change theme',
+          style: TextStyle(
+              fontSize: 18,
+              fontWeight: FontWeight.w500,
+              color: Colors.grey[600]),
+        ),
+        Transform.scale(
+            scale: 0.7,
+           child:IconButton(onPressed:  (){ 
+          themeNotifier.isDark
+          ? themeNotifier.isDark=false:themeNotifier.isDark=true;
+        }, icon: Icon(themeNotifier.isDark?Icons.wb_sunny:Icons.nightlight_round)))
+      ],
+    ),
+
+            //buildAccountOptionRow(context, "Change theme"),
             buildNotificationOptionRow("Wake lock", true),
             buildNotificationOptionRow("Confirm before starting stream", true),
            
@@ -73,15 +83,9 @@ class _SettingsPageState extends State<SettingsPage> {
               height: 40,
             ),
             Row(
+              // ignore: prefer_const_literals_to_create_immutables
               children: [
-                /*
-                Icon(
-                  Icons.volume_up_outlined,
-                  color: Colors.green,
-                ),
-                SizedBox(
-                  width: 8,
-                ),*/
+               
                 Text(
                   "Appearance/Colors",
                   style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
@@ -99,15 +103,17 @@ class _SettingsPageState extends State<SettingsPage> {
             buildNotificationOptionRow("Enable Twitch chat emotes", true),
           
             SizedBox(
-              height: 50,
+              height: 10,
             ),
             Row(
+              // ignore: prefer_const_literals_to_create_immutables
               children: [
                 
                 Text(
                   "Other",
                   style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                 ),
+               
               ],
             ),
             Divider(
@@ -138,7 +144,7 @@ class _SettingsPageState extends State<SettingsPage> {
               height: 10,
                width:10,
             ),
-            buildNotificationOptionRow("Suppress errors", true),]),
+            buildNotificationOptionRow("Suppress errors ", true),]),
              Row(mainAxisAlignment: MainAxisAlignment.start,
               children: [
                Icon(
@@ -152,9 +158,9 @@ class _SettingsPageState extends State<SettingsPage> {
         
           ],
         ),
-      ),
-    );
-  }
+      )
+    );});}
+  
 
   Row buildNotificationOptionRow(String title, bool isActive) {
     return Row(
@@ -195,7 +201,11 @@ class _SettingsPageState extends State<SettingsPage> {
                  
                 ),
                 actions: [
-                  FlatButton(
+                  
+                
+                  
+
+                TextButton(
                       onPressed: () {
                         Navigator.of(context).pop();
                       },
