@@ -1,7 +1,9 @@
-import 'package:flutter/cupertino.dart';
+
+// ignore_for_file: camel_case_types, must_be_immutable, use_key_in_widget_constructors, prefer_const_constructors, avoid_print
+
 import 'package:flutter/material.dart';
 import 'settings.dart';
-import 'alert.dart';
+
   
 
 class class1 extends StatelessWidget {
