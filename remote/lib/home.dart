@@ -58,19 +58,152 @@ class class1 extends StatelessWidget {
           ],
         ),
         body:Column( mainAxisAlignment: MainAxisAlignment.spaceEvenly,crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [ 
-            Text(  "Add a browser source in OBS: https://kit.rtirl.com/b210343d-60da-418c-a824-1def9907afcd"
+        children: [
+
+          Text(  "Add a browser source in OBS: https://kit.rtirl.com/b210343d-60da-418c-a824-1def9907afcd"
 
             ),
-        Image.asset('images/qr_code.png',height:200,width:200),
+        Image.asset('images/qr_code.png',height:150,width:150),
         Text(  
           "Make sure it's configured like this:"
         ),
         Image.asset('images/obs_ins.png',height:100,width:200),
+          Row(children: [
+            SizedBox(width:15),
+             ElevatedButton.icon(
+                      onPressed: (){
+                        
+                      }, 
+                      
+                      icon: Icon(Icons.settings_input_antenna),  //icon data for elevated button
+                      label: Text("Start Streaming"), //label text 
+                      style: ElevatedButton.styleFrom(
+                         primary: Colors.green, minimumSize: const Size(175, 40),
+    maximumSize: const Size(175, 40),
+              ) ),
+                           SizedBox(height:10,width:10),
+            ElevatedButton.icon(
+                      onPressed: (){
+                        
+                      }, 
+                      icon: Icon(Icons.settings_input_antenna),  //icon data for elevated button
+                      label: Text("Stop Streaming"), //label text 
+                      style: ElevatedButton.styleFrom(
+                         primary: Colors.redAccent,minimumSize: const Size(175, 40),
+    maximumSize: const Size(175, 40),)),
+                       
+                        
+
+
+                         
+          ],),
+          Row(children: [ SizedBox(width:15),
+             ElevatedButton.icon(
+                      onPressed: (){
+                        
+                      }, 
+                      icon: Icon(Icons.fiber_manual_record),  //icon data for elevated button
+                      label: Text("Start Recording"), //label text 
+                      style: ElevatedButton.styleFrom(
+                         primary: Colors.green,minimumSize: const Size(175, 40),
+    maximumSize: const Size(175, 40),)),
+                           SizedBox(height:10,width:10),
+            ElevatedButton.icon(
+                      onPressed: (){
+                        
+                      }, 
+                      icon: Icon(Icons.stop),  //icon data for elevated button
+                      label: Text("Stop Recording"), //label text 
+                      style: ElevatedButton.styleFrom(
+                         primary: Colors.redAccent,minimumSize: const Size(175, 40),
+    maximumSize: const Size(175, 40),)),
+                       
+                        SizedBox(height:10,width:10),
+             
+          ],),
+            Row(children: [ SizedBox(width:15),
+             ElevatedButton.icon(
+                      onPressed: (){
+                        
+                      }, 
+                      icon: Icon(Icons.save_alt_rounded),  //icon data for elevated button
+                      label: Text("Save replay buffer"), //label text 
+                      style: ElevatedButton.styleFrom(
+                         primary: Colors.lightGreen,minimumSize: const Size(175, 40),
+    maximumSize: const Size(175, 40),)),
+                           SizedBox(height:10,width:10),
+            ElevatedButton.icon(
+                      onPressed: (){
+                        
+                      }, 
+                      icon: Icon(Icons.replay_10_outlined),  //icon data for elevated button
+                      label: Text("Start replay buffer"), //label text 
+                      style: ElevatedButton.styleFrom(
+                         primary: Colors.lightGreen,minimumSize: const Size(175, 40),
+    maximumSize: const Size(175, 40),)),
+                       
+                        SizedBox(height:10,width:10),
+        ],),
+        Row(children: [ SizedBox(width:15),
+          ElevatedButton.icon(
+                      onPressed: (){
+                        
+                      }, 
+                      icon: Icon(Icons.pause),  //icon data for elevated button
+                      label: Text("Pause Recording"), //label text 
+                      style: ElevatedButton.styleFrom(
+                         primary: Colors.amberAccent,minimumSize: const Size(175, 40),
+    maximumSize: const Size(175, 40),)),
+
+  SizedBox(height:10,width:10),
+            ElevatedButton.icon(
+                      onPressed: (){
+                        
+                      }, 
+                      icon: Icon(Icons.play_arrow), //icon data for elevated button
+                      label: Text("Unpause Recording"), //label text 
+                      style: ElevatedButton.styleFrom(
+                         primary: Colors.orangeAccent,minimumSize: const Size(175, 40),
+    maximumSize: const Size(175, 40),)),
+                        
+        ],),
+        Row(children: [ SizedBox(width:20),
+             ElevatedButton.icon(
+                      onPressed: (){
+                        
+                      }, 
+                      icon: Icon(Icons.camera_alt_sharp),  //icon data for elevated button
+                      label: Text("Start Virtual Camera"), //label text 
+                      style: ElevatedButton.styleFrom(
+                         primary: Colors.green,minimumSize: const Size(175, 40),
+    maximumSize: const Size(175, 40),)),
+                           SizedBox(height:10,width:10),
+            ElevatedButton.icon(
+                      onPressed: (){
+                        
+                      }, 
+                      icon: Icon(Icons.visibility_off),  //icon data for elevated button
+                      label: Text("Stop Virtual Camera"), //label text 
+                      style: ElevatedButton.styleFrom(
+                         primary: Colors.redAccent,minimumSize: const Size(175, 40),
+    maximumSize: const Size(175, 40),)),
+                       
+                        SizedBox(height:10,width:10),
+        ],)],
+        /*children: [ 
+            Text(  "Add a browser source in OBS: https://kit.rtirl.com/b210343d-60da-418c-a824-1def9907afcd"
+
+            ),
+        Image.asset('assets/images/qr_code.png',height:200,width:200),
+        Text(  
+          "Make sure it's configured like this:"
+        ),
+        Image.asset('assets/images/obs_ins.png',height:100,width:200),
         
 
           ],
-        ),
+        ),*/
+  ),
   );
 }
 void onSelected(BuildContext context, int item) {
