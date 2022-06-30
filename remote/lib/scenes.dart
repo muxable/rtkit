@@ -1,10 +1,8 @@
-import 'package:flutter/cupertino.dart';
+// ignore_for_file: camel_case_types, library_private_types_in_public_api, prefer_const_constructors
+
 import 'package:flutter/material.dart';
-import 'settings.dart';
-import 'alert.dart';
-import 'home.dart';
 class scenes extends StatefulWidget {
-  //const scenes({Key? key}) : super(key: key);
+const scenes({Key? key}) : super(key: key);
 
   @override
   _scenesState createState() => _scenesState();
@@ -14,6 +12,7 @@ class _scenesState extends State<scenes>{
 
 
   String dropdownvalue = 'Webcam';  
+  String dropdownvalue1 = 'cut';  
  
   // List of items in our dropdown menu
   var items = [   
@@ -34,10 +33,16 @@ class _scenesState extends State<scenes>{
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.stretch,
+         
           children: [
-            Text( " Switch scenes"),
+          SizedBox(height:40,width:20),
+            Text( " Switch scenes",  style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold)),
+            SizedBox(height:40,width:20),
             DropdownButton(
-               
+               focusColor: Colors.blue[900],
+               dropdownColor: Colors.lightBlueAccent,
+               iconEnabledColor: Colors.blueAccent,
+               iconDisabledColor: Colors.blueAccent[700],
               // Initial Value
               value: dropdownvalue,
                
@@ -60,8 +65,35 @@ class _scenesState extends State<scenes>{
               },
             ),
 
-            
-            
+            SizedBox(height:40,width:20),
+             Text( " Transitions",  style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold)),
+               SizedBox(height:40,width:20),
+              DropdownButton(
+               focusColor: Colors.black87,
+               dropdownColor: Colors.lightBlueAccent,
+               iconEnabledColor: Colors.blueAccent,
+               iconDisabledColor: Colors.blueAccent[700],
+              // Initial Value
+              value: dropdownvalue1,
+               
+              // Down Arrow Icon
+              icon: const Icon(Icons.keyboard_arrow_down),   
+               
+              // Array list of items
+              items: items1.map((String items1) {
+                return DropdownMenuItem(
+                  value: items1,
+                  child: Text(items1),
+                );
+              }).toList(),
+              // After selecting the desired option,it will
+              // change button value to selected value
+              onChanged: (String? newValue) {
+                setState(() {
+                  dropdownvalue1 = newValue!;
+                });
+              },
+            ),
 
           ],
         ),
