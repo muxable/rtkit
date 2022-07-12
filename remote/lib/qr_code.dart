@@ -1,4 +1,4 @@
-// ignore_for_file: camel_case_types
+// ignore_for_file: camel_case_types, avoid_print
 
 import 'dart:io';
 import 'package:flutter/foundation.dart';
@@ -59,7 +59,7 @@ class _qr_codeState extends State<qr_code> {
 
   Future<void> _onQRViewCreated(QRViewController controller) async {
     this.controller = controller;
-    String res;
+    
     controller.scannedDataStream.listen((scanData) {
       setState(()  {
         result = scanData;
