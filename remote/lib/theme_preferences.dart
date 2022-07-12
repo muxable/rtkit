@@ -1,5 +1,5 @@
 // ignore_for_file: constant_identifier_names
-
+import 'qr_code.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 class ThemePreferences{ 
   static const PREF_KEY ='pref_key';
@@ -11,4 +11,9 @@ class ThemePreferences{
      SharedPreferences sharedPreferences=await SharedPreferences.getInstance();
     sharedPreferences.getBool(PREF_KEY);
   }
+
+
 }
+
+
+
