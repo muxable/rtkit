@@ -1,13 +1,53 @@
 
-// ignore_for_file: camel_case_types, must_be_immutable, use_key_in_widget_constructors, prefer_const_constructors, avoid_print
+// ignore_for_file: camel_case_types, must_be_immutable, use_key_in_widget_constructors, prefer_const_constructors, avoid_print, import_of_legacy_library_into_null_safe
 
 import 'package:flutter/material.dart';
+
 import 'settings.dart';
 
-  
+import 'qr_code.dart';
 
-class class1 extends StatelessWidget {
+
+
+class class1 extends StatefulWidget {
+  @override
+  State<class1> createState() => _class1State();
+}
+
+class _class1State extends State<class1> {
+  
+/*
+String result = "Hey there !";
+Future _scanQR() async {
+  
+    try {
+      ScanResult qrResult = await BarcodeScanner.scan();
+      setState(() {
+        result = qrResult as String;
+      });
+    } on PlatformException catch (ex) {
+      if (ex.code == BarcodeScanner.cameraAccessDenied) {
+        setState(() {
+          result = "Camera permission was denied";
+        });
+      } else {
+        setState(() {
+          result = "Unknown Error $ex";
+        });
+      }
+    } on FormatException {
+      setState(() {
+        result = "You pressed the back button before scanning anything";
+      });
+    } catch (ex) {
+      setState(() {
+        result = "Unknown Error $ex";
+      });
+    }
+  }*/
+ 
   TextEditingController textFieldController = TextEditingController();
+ 
   @override
   Widget build(BuildContext context) => Scaffold(
         appBar: AppBar(
@@ -63,10 +103,21 @@ class class1 extends StatelessWidget {
           Text(  "Add a browser source in OBS: https://kit.rtirl.com/b210343d-60da-418c-a824-1def9907afcd"
 
             ),
-        Image.asset('images/qr_code.png',height:150,width:150),
-        Text(  
-          "Make sure it's configured like this:"
-        ),
+           
+            SizedBox(height: 10),
+           FloatingActionButton.extended(icon:Icon(Icons.camera_alt),
+           label:Text("Scan"),
+           onPressed:() { 
+           
+                     Navigator.push(context,
+          MaterialPageRoute(builder: (context) => qr_code()));
+           
+           },),
+           
+
+       Image.asset('images/qr_code.png',height:150,width:150),
+      
+     
         Image.asset('images/obs_ins.png',height:100,width:200),
           Row(children: [
             SizedBox(width:15),
