@@ -1,10 +1,10 @@
 
-// ignore_for_file: use_key_in_widget_constructors, camel_case_types
+
 
 import 'package:flutter/material.dart';
 
-class class3 extends StatelessWidget {
-  //const MyApp({Key? key}) : super(key: key);
+class Class3 extends StatelessWidget {
+  const Class3({Key? key}) : super(key: key);
 
  // static const String _title = 'Flutter Code Sample';
 
