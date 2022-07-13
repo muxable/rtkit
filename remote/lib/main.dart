@@ -1,4 +1,4 @@
-// ignore_for_file: must_be_immutable, use_key_in_widget_constructors, prefer_final_fields, deprecated_member_use, unnecessary_new, prefer_const_constructors, unnecessary_const, library_private_types_in_public_api
+
 
 import 'package:flutter/material.dart';
 import 'package:flutter_speed_dial/flutter_speed_dial.dart';
@@ -9,12 +9,14 @@ import 'chat.dart';
 import 'package:provider/provider.dart';
 import 'theme_model.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(const MyApp());
 
 
 class MyApp extends StatefulWidget {
+  const MyApp({Key? key}) : super(key: key);
+
   @override
-  _MyAppState createState() => _MyAppState();
+  State<MyApp> createState() => _MyAppState();
 }
 
 class _MyAppState extends State<MyApp> {
@@ -37,7 +39,9 @@ class _MyAppState extends State<MyApp> {
 }
 
 class MainPage extends StatelessWidget {
-TextEditingController _textFieldController = TextEditingController();
+final TextEditingController _textFieldController = TextEditingController();
+
+  MainPage({Key? key}) : super(key: key);
    _displayDialog(BuildContext context) async {
     return showDialog(
         context: context,
@@ -51,14 +55,14 @@ TextEditingController _textFieldController = TextEditingController();
               decoration: const InputDecoration(hintText: "If your obs-websocket differs from default(4444),enter it below.Please ensure any firewalls are disabled"),
             ),
             actions: <Widget>[
-              new FlatButton(
-                child: new Text('ok'),
+              ElevatedButton(
+                child:  const Text('ok'),
                 onPressed: () {
                   Navigator.of(context).pop();
                 },
               ),
-               new FlatButton(
-                child: new Text('Cancel'),
+               ElevatedButton(
+                child: const Text('Cancel'),
                 onPressed: () {
                   Navigator.of(context).pop();
                 },
@@ -69,7 +73,7 @@ TextEditingController _textFieldController = TextEditingController();
   @override
   Widget build(BuildContext context) => Scaffold(
         appBar: AppBar(
-          title: Text('Real Time kit'),
+          title: const Text('Real Time kit'),
           centerTitle: true,
           actions: [
               
@@ -88,7 +92,7 @@ TextEditingController _textFieldController = TextEditingController();
                   
                        const PopupMenuItem<int>(
                         value:0,
-                        child:const Text('Settings'),
+                        child:Text('Settings'),
                       ),
                     const PopupMenuItem<int>(
                         value:1,
@@ -104,11 +108,11 @@ TextEditingController _textFieldController = TextEditingController();
                       ),
                         const PopupMenuItem<int>(
                         value:4,
-                        child:const Text('Licenses'),
+                        child:Text('Licenses'),
                       ),
                         const PopupMenuItem<int>(
                         value:5,
-                        child:const Text('About'),
+                        child:Text('About'),
                       ),
                 ],
               ),
@@ -126,14 +130,14 @@ TextEditingController _textFieldController = TextEditingController();
               child: Image.asset('images/obs.png',height:80,width:80), ), ),
 
              
-              const Flexible(fit: FlexFit.tight, child: const SizedBox()),
+              const Flexible(fit: FlexFit.tight, child: SizedBox()),
               Container(alignment: Alignment.topCenter,height: 100,width:100,
                 child:const Center(child: Text
                 (  
                   'OBS studio',  
                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)
               ), ),), 
-              const Flexible(fit: FlexFit.tight, child: const SizedBox()),
+              const Flexible(fit: FlexFit.tight, child: SizedBox()),
               Container(alignment: Alignment.topRight,height: 100,width:100,
                 child:Center(
            child: PopupMenuButton<int>(
@@ -149,7 +153,7 @@ TextEditingController _textFieldController = TextEditingController();
                       ),
                     const PopupMenuItem<int>(
                         value:7,
-                        child:const Text('Edit'),
+                        child:Text('Edit'),
                       ),
                       
                 ],
@@ -194,7 +198,7 @@ TextEditingController _textFieldController = TextEditingController();
                   
                        const PopupMenuItem<int>(
                         value:10,
-                        child:const Text('Remove'),
+                        child:Text('Remove'),
                         
                       ),
                     const PopupMenuItem<int>(
@@ -261,14 +265,14 @@ TextEditingController _textFieldController = TextEditingController();
     ),
       bottomNavigationBar: 
       BottomAppBar(
-          child: new Row(
+          child: Row(
             mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
               IconButton(iconSize: 30.0,
                 padding: const EdgeInsets.only(left: 28.0),icon: const Icon(Icons.home), onPressed: () { 
                    Navigator.push(context,
-          MaterialPageRoute(builder: (context) => class1()));
+          MaterialPageRoute(builder: (context) => const Class1()));
                 },),
               
          IconButton(iconSize: 30.0,
@@ -279,18 +283,18 @@ TextEditingController _textFieldController = TextEditingController();
                 IconButton(iconSize: 30.0,
                 padding: const EdgeInsets.only(left: 28.0),icon: const Icon(Icons.featured_video), onPressed: () {  
                     Navigator.push(context,
-          MaterialPageRoute(builder: (context) => scenes()));
+          MaterialPageRoute(builder: (context) => const Scenes()));
                 },),
                 IconButton(iconSize: 30.0,
                 padding: const EdgeInsets.only(left: 28.0),icon: const Icon(Icons.remove_red_eye),onPressed: () { 
 
                   Navigator.push(context,
-          MaterialPageRoute(builder: (context) => sources()));
+          MaterialPageRoute(builder: (context) => const Sources()));
                 },),
                 IconButton(iconSize: 30.0,
                 padding: const EdgeInsets.only(left: 28.0),icon: const Icon(Icons.chat), onPressed: () {
                    Navigator.push(context,
-          MaterialPageRoute(builder: (context) => const chat()));
+          MaterialPageRoute(builder: (context) => const Chat()));
                 },),
 
             ],
