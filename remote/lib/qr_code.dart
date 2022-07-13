@@ -1,18 +1,18 @@
-// ignore_for_file: camel_case_types, avoid_print
+
 
 import 'dart:io';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-class qr_code extends StatefulWidget {
-  const qr_code({Key? key}) : super(key: key);
+class Qrcode extends StatefulWidget {
+  const Qrcode({Key? key}) : super(key: key);
 
   @override
-  State<qr_code> createState() => _qr_codeState();
+  State<Qrcode> createState() => _QrcodeState();
 }
 
-class _qr_codeState extends State<qr_code> {
+class _QrcodeState extends State<Qrcode> {
 
   final GlobalKey qrKey = GlobalKey(debugLabel: 'QR');
   Barcode? result;
@@ -78,6 +78,7 @@ class _qr_codeState extends State<qr_code> {
     super.dispose();
   }
 }
+/*
 Future<void> qr (Barcode result) async {
   String res;
   res=result.toString();
@@ -85,7 +86,8 @@ Future<void> qr (Barcode result) async {
     pref.setString("backendURL",res); 
     print("the backend url is");
     print(res);
-}
+*/
+
 Future<void> qr1(Barcode result) async { 
   String type=describeEnum(result.format);
   String data=result.code.toString();
@@ -93,6 +95,6 @@ Future<void> qr1(Barcode result) async {
     pref.setString("Barcode type",type); 
     SharedPreferences pref1 = await SharedPreferences.getInstance();
     pref1.setString("data",data); 
-print(type);
-print(data);
+//print(type);
+//print(data);
 }
