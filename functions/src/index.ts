@@ -39,6 +39,7 @@ const validCommands = [
   "startStreaming",
   "stopStreaming",
   "startRecording",
+  "stopRecording",
   "pauseRecording",
   "unpauseRecording",
   "startVirtualcam",
