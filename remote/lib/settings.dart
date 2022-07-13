@@ -1,4 +1,4 @@
-// ignore_for_file: use_key_in_widget_constructors, library_private_types_in_public_api, prefer_const_constructors
+
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -6,8 +6,10 @@ import 'package:provider/provider.dart';
 import 'theme_model.dart';
 
 class SettingsPage extends StatefulWidget {
+  const SettingsPage({Key? key}) : super(key: key);
+
   @override
-  _SettingsPageState createState() => _SettingsPageState();
+ State<SettingsPage> createState() => _SettingsPageState();
 }
 
 class _SettingsPageState extends State<SettingsPage> {
@@ -30,11 +32,11 @@ class _SettingsPageState extends State<SettingsPage> {
             Icons.arrow_back,
             color: Colors.green,
           ),
-        ),*/title: Center(child: Text('Settings')),
+        ),*/title: const Center(child: Text('Settings')),
       ),
       
       body: Container(
-        padding: EdgeInsets.only(left: 16, top: 25, right: 16),
+        padding: const EdgeInsets.only(left: 16, top: 25, right: 16),
         child: ListView(
           children: [
          
@@ -42,17 +44,17 @@ class _SettingsPageState extends State<SettingsPage> {
               // ignore: prefer_const_literals_to_create_immutables
               children: [
                 
-                Text(
+                const Text(
                   "General",
                   style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                 ),
               ],
             ),
-            Divider(
+            const Divider(
               height: 15,
               thickness: 2,
             ),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
            
@@ -79,58 +81,58 @@ class _SettingsPageState extends State<SettingsPage> {
             buildNotificationOptionRow("Wake lock", true),
             buildNotificationOptionRow("Confirm before starting stream", true),
            
-            SizedBox(
+            const SizedBox(
               height: 40,
             ),
             Row(
               // ignore: prefer_const_literals_to_create_immutables
               children: [
                
-                Text(
+                const Text(
                   "Appearance/Colors",
                   style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                 ),
               ],
             ),
-            Divider(
+            const Divider(
               height: 15,
               thickness: 2,
             ),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
 
             buildNotificationOptionRow("Enable Twitch chat emotes", true),
           
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
             Row(
               // ignore: prefer_const_literals_to_create_immutables
               children: [
                 
-                Text(
+                const Text(
                   "Other",
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                  style:  TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                 ),
                
               ],
             ),
-            Divider(
+            const Divider(
               height: 15,
               thickness: 2,
             ),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
             Row( mainAxisAlignment: MainAxisAlignment.start,
               children: [
-               Icon(
+               const Icon(
       Icons.timer_outlined,
       
       size: 30.0,
     ),
-       SizedBox(
+       const SizedBox(
               height: 10,
               width:10,
             ),
@@ -138,18 +140,18 @@ class _SettingsPageState extends State<SettingsPage> {
             Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-               Icon(
+               const Icon(
       Icons.support_rounded,size:30.0,),
-         SizedBox(
+         const SizedBox(
               height: 10,
                width:10,
             ),
             buildNotificationOptionRow("Suppress errors ", true),]),
              Row(mainAxisAlignment: MainAxisAlignment.start,
               children: [
-               Icon(
+               const Icon(
       Icons.picture_in_picture,size:30.0,),
-         SizedBox(
+         const SizedBox(
               height: 10,
                width:10,
             ),
@@ -209,7 +211,7 @@ class _SettingsPageState extends State<SettingsPage> {
                       onPressed: () {
                         Navigator.of(context).pop();
                       },
-                      child: Text("Close")),
+                      child: const Text("Close")),
                 ],
               );
             });
@@ -227,7 +229,7 @@ class _SettingsPageState extends State<SettingsPage> {
                 color: Colors.grey[600],
               ),
             ),
-            Icon(
+            const Icon(
               Icons.arrow_forward_ios,
               color: Colors.grey,
             ),
