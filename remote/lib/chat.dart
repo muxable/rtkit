@@ -1,11 +1,11 @@
 
-// ignore_for_file: camel_case_types, prefer_const_constructors, unnecessary_const
+
 
 import 'package:flutter/material.dart';
 import 'package:remote/home.dart';
 
-class chat extends StatelessWidget {
-  const chat({Key? key}) : super(key: key);
+class Chat extends StatelessWidget {
+  const Chat({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context)
@@ -18,7 +18,7 @@ class chat extends StatelessWidget {
                   
                        const PopupMenuItem<int>(
                         value:0,
-                        child:const Text('Settings'),
+                        child: Text('Settings'),
                       ),
                     const PopupMenuItem<int>(
                         value:1,
@@ -34,23 +34,23 @@ class chat extends StatelessWidget {
                       ),
                         const PopupMenuItem<int>(
                         value:4,
-                        child:const Text('Licenses'),
+                        child:Text('Licenses'),
                       ),
                         const PopupMenuItem<int>(
                         value:5,
-                        child:const Text('About'),
+                        child:Text('About'),
                       ),
                 ],
               ),],
        
-       title: Text("Twitch chat"),
+       title: const Text("Twitch Chat"),
       
       ),
       body: Center( 
         child:
       
            IconButton(  
-            icon: Icon(Icons.chat,
+            icon: const Icon(Icons.chat,
             size: 50,  
             color: Colors.brown,  
             
