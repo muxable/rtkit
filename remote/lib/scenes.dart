@@ -1,15 +1,15 @@
-// ignore_for_file: camel_case_types, library_private_types_in_public_api, prefer_const_constructors, unnecessary_const
+
 
 import 'package:flutter/material.dart';
 
-import 'home.dart';
-class scenes extends StatefulWidget {
-const scenes({Key? key}) : super(key: key);
+import 'package:remote/home.dart';
+class Scenes extends StatefulWidget {
+const Scenes({Key? key}) : super(key: key);
 
   @override
-  _scenesState createState() => _scenesState();
+  State<Scenes> createState() => _ScenesState();
 }
-class _scenesState extends State<scenes>{ 
+class _ScenesState extends State<Scenes>{ 
 
 
 
@@ -38,7 +38,7 @@ class _scenesState extends State<scenes>{
                   
                        const PopupMenuItem<int>(
                         value:0,
-                        child:const Text('Settings'),
+                        child:Text('Settings'),
                       ),
                     const PopupMenuItem<int>(
                         value:1,
@@ -54,11 +54,11 @@ class _scenesState extends State<scenes>{
                       ),
                         const PopupMenuItem<int>(
                         value:4,
-                        child:const Text('Licenses'),
+                        child:Text('Licenses'),
                       ),
                         const PopupMenuItem<int>(
                         value:5,
-                        child:const Text('About'),
+                        child:Text('About'),
                       ),
                 ],
               ),],
@@ -69,9 +69,9 @@ class _scenesState extends State<scenes>{
           crossAxisAlignment: CrossAxisAlignment.stretch,
          
           children: [
-          SizedBox(height:40,width:20),
-            Text( " Switch scenes",  style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold)),
-            SizedBox(height:40,width:20),
+          const SizedBox(height:40,width:20),
+            const Text( " Switch scenes",  style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold)),
+            const SizedBox(height:40,width:20),
             DropdownButton(
                focusColor: Colors.blue[900],
                dropdownColor: Colors.lightBlueAccent,
@@ -99,9 +99,9 @@ class _scenesState extends State<scenes>{
               },
             ),
 
-            SizedBox(height:40,width:20),
-             Text( " Transitions",  style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold)),
-               SizedBox(height:40,width:20),
+            const SizedBox(height:40,width:20),
+             const Text( " Transitions",  style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold)),
+               const SizedBox(height:40,width:20),
               DropdownButton(
                focusColor: Colors.black87,
                dropdownColor: Colors.lightBlueAccent,
