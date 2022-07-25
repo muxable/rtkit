@@ -71,7 +71,7 @@ class _QrcodeState extends State<Qrcode> {
        controller.pauseCamera();
         result = scanData;
         //res=scanData.toString();
-        print(result);
+      //  print(result);
         qr1(result!);
        
         //if(result!.code==)
