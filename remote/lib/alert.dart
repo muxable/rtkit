@@ -3,8 +3,8 @@
 
 import 'package:flutter/material.dart';
 
-class Class3 extends StatelessWidget {
-  const Class3({Key? key}) : super(key: key);
+class Alert extends StatelessWidget {
+  const Alert({Key? key}) : super(key: key);
 
  // static const String _title = 'Flutter Code Sample';
 
