@@ -11,6 +11,24 @@ const app = express();
 app.use(cors({ origin: true }));
 app.use(express.json());
 
+app.get("/api/:channelId", async (req, res) => {
+    const channelId = req.params.channelId;
+    if (!validate(channelId)) {
+      res.status(400).send();
+      return;
+    }
+    const doc = await admin
+      .firestore()
+      .collection("channels")
+      .doc(channelId)
+      .get();
+    res.status(200).send(doc);
+    if(doc === undefined){
+        res.status(400).send();
+        return;
+    }
+});
+
 app.get("/api/:channelId/:fieldName", async (req, res) => {
   const channelId = req.params.channelId;
   const fieldName = req.params.fieldName;
@@ -39,6 +57,7 @@ const validCommands = [
   "startStreaming",
   "stopStreaming",
   "startRecording",
+  "stopRecording",
   "pauseRecording",
   "unpauseRecording",
   "startVirtualcam",
