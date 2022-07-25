@@ -1,55 +1,20 @@
 
 
 import 'package:flutter/material.dart';
-import 'package:remote/operations.dart';
-
-
-
 import 'settings.dart';
-
 import 'qr_code.dart';
 
 
 
-class Class1 extends StatefulWidget {
-  const Class1({Key? key}) : super(key: key);
+class Home extends StatefulWidget {
+  const Home({Key? key}) : super(key: key);
 
   @override
-  State<Class1> createState() => _Class1State();
+  State<Home> createState() => _HomeState();
 }
 
-class _Class1State extends State<Class1> {
+class _HomeState extends State<Home> {
   
-/*
-String result = "Hey there !";
-Future _scanQR() async {
-  
-    try {
-      ScanResult qrResult = await BarcodeScanner.scan();
-      setState(() {
-        result = qrResult as String;
-      });
-    } on PlatformException catch (ex) {
-      if (ex.code == BarcodeScanner.cameraAccessDenied) {
-        setState(() {
-          result = "Camera permission was denied";
-        });
-      } else {
-        setState(() {
-          result = "Unknown Error $ex";
-        });
-      }
-    } on FormatException {
-      setState(() {
-        result = "You pressed the back button before scanning anything";
-      });
-    } catch (ex) {
-      setState(() {
-        result = "Unknown Error $ex";
-      });
-    }
-  }*/
- 
   TextEditingController textFieldController = TextEditingController();
  
   @override
@@ -104,9 +69,7 @@ Future _scanQR() async {
         body:Column( mainAxisAlignment: MainAxisAlignment.spaceEvenly,crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
 
-          const Text(  "Add a browser source in OBS: https://kit.rtirl.com/b210343d-60da-418c-a824-1def9907afcd"
-
-            ),
+         
            
             const SizedBox(height: 10),
            FloatingActionButton.extended(icon:const Icon(Icons.camera_alt),
@@ -118,7 +81,7 @@ Future _scanQR() async {
            
            },),
             const SizedBox(height: 10),
-          ElevatedButton.icon(
+         /* ElevatedButton.icon(
                       onPressed: (){
                         Navigator.push(context,
           MaterialPageRoute(builder: (context) => const Operations()));
@@ -127,11 +90,12 @@ Future _scanQR() async {
                       label: const Text("Operations"), //label text 
                       style: ElevatedButton.styleFrom(
                          primary: Colors.amberAccent,minimumSize: const Size(175, 40),
-    maximumSize: const Size(175, 40),)),
+    maximumSize: const Size(175, 40),)),*/
             const SizedBox(height: 10),
-       Image.asset('images/qr_code.png',height:150,width:150),
-      
-      const SizedBox(height: 10),
+       //Image.asset('images/qr_code.png',height:150,width:150),
+      //const SizedBox(height: 10),
+          const Text('Make sure its configured like this:'),
+
         Image.asset('images/obs_ins.png',height:100,width:200),/*
           Row(children: [
             SizedBox(width:15),
