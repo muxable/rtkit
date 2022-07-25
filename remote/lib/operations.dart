@@ -1,3 +1,5 @@
+// ignore_for_file: unused_local_variable
+
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:http/http.dart';
@@ -70,6 +72,7 @@ _displayDialog(context);
 
                       Uri uri = Uri.parse(u);
 
+                      
                       Response res = await http.post(uri,
                           body: "[]",
                           headers: {"content-type": "application/json"});
@@ -91,14 +94,14 @@ _displayDialog(context);
                     var x = r.split('/');
                     //print(x);
                     String u = "${x[0]}//${x[2]}/api/${x[3]}/startRecording";
-                    print(u);
+                  // print(u);
                     //String u=r+"/startStreaming";
                     Uri uri = Uri.parse(u);
                     //print(uri);
                     Response res = await http.post(uri,
                         body: "[]",
                         headers: {"content-type": "application/json"});
-                    print(res.statusCode);
+                   // print(res.statusCode);
                   },
                   icon: const Icon(Icons
                       .fiber_manual_record), //icon data for elevated button
@@ -116,14 +119,14 @@ _displayDialog(context);
                       var x = r.split('/');
 
                       String u = "${x[0]}//${x[2]}/api/${x[3]}/stopRecording";
-                      print(u);
+                     // print(u);
 
                       Uri uri = Uri.parse(u);
 
                       Response res = await http.post(uri,
                           body: "[]",
                           headers: {"content-type": "application/json"});
-                      print(res.statusCode);
+                     // print(res.statusCode);
                     },
                     icon:
                         const Icon(Icons.stop), //icon data for elevated button
@@ -140,20 +143,20 @@ _displayDialog(context);
                       var x = r.split('/');
 
                       String u = "${x[0]}//${x[2]}/api/${x[3]}/pauseRecording";
-                      print(u);
+                     // print(u);
 
                       Uri uri = Uri.parse(u);
 
                       Response res = await http.post(uri,
                           body: "[]",
                           headers: {"content-type": "application/json"});
-                      print(res.statusCode);
+                   //   print(res.statusCode);
                     },
                     icon:
                         const Icon(Icons.pause), //icon data for elevated button
                     label: const Text("Pause Recording"), //label text
                     style: ElevatedButton.styleFrom(
-                      primary: Color.fromARGB(255, 231, 188, 32),
+                      primary: const Color.fromARGB(255, 231, 188, 32),
                     //  minimumSize: const Size(175, 40),
                      // maximumSize: const Size(175, 40),
                     )),
@@ -164,20 +167,20 @@ _displayDialog(context);
                       var x = r.split('/');
 
                       String u = "${x[0]}//${x[2]}/api/${x[3]}/unpauseRecording";
-                      print(u);
+                   //   print(u);
 
                       Uri uri = Uri.parse(u);
 
                       Response res = await http.post(uri,
                           body: "[]",
                           headers: {"content-type": "application/json"});
-                      print(res.statusCode);
+                  //    print(res.statusCode);
                     },
                     icon: const Icon(
                         Icons.play_arrow), //icon data for elevated button
                     label: const Text("Unpause Recording"), //label text
                     style: ElevatedButton.styleFrom(
-                      primary: Color.fromARGB(255, 231, 156, 58),
+                      primary: const Color.fromARGB(255, 231, 156, 58),
                      // minimumSize: const Size(175, 40),
                      // maximumSize: const Size(175, 40),
                     )),
@@ -192,14 +195,14 @@ _displayDialog(context);
                       var x = r.split('/');
 
                       String u = "${x[0]}//${x[2]}/api/${x[3]}/saveReplayBuffer";
-                      print(u);
+                    //  print(u);
 
                       Uri uri = Uri.parse(u);
 
                       Response res = await http.post(uri,
                           body: "[]",
                           headers: {"content-type": "application/json"});
-                      print(res.statusCode);
+                    //  print(res.statusCode);
                     },
                     icon: const Icon(
                         Icons.save_alt_rounded), //icon data for elevated button
@@ -216,14 +219,14 @@ _displayDialog(context);
                       var x = r.split('/');
 
                       String u = "${x[0]}//${x[2]}/api/${x[3]}/startReplayBuffer";
-                      print(u);
+                     // print(u);
 
                       Uri uri = Uri.parse(u);
 
                       Response res = await http.post(uri,
                           body: "[]",
                           headers: {"content-type": "application/json"});
-                      print(res.statusCode);
+                    //  print(res.statusCode);
                     },
                     icon: const Icon(Icons
                         .replay_10_outlined), //icon data for elevated button
@@ -243,14 +246,14 @@ _displayDialog(context);
                       var x = r.split('/');
 
                       String u = "${x[0]}//${x[2]}/api/${x[3]}/startVirtualcam";
-                      print(u);
+                    //  print(u);
 
                       Uri uri = Uri.parse(u);
 
                       Response res = await http.post(uri,
                           body: "[]",
                           headers: {"content-type": "application/json"});
-                      print(res.statusCode);
+                    //  print(res.statusCode);
                     },
                     icon: const Icon(
                         Icons.camera_alt_sharp), //icon data for elevated button
@@ -268,14 +271,14 @@ _displayDialog(context);
                       var x = r.split('/');
 
                       String u = "${x[0]}//${x[2]}/api/${x[3]}/stopVirtualcam";
-                      print(u);
+                    //  print(u);
 
                       Uri uri = Uri.parse(u);
 
                       Response res = await http.post(uri,
                           body: "[]",
                           headers: {"content-type": "application/json"});
-                      print(res.statusCode);
+                    //  print(res.statusCode);
                     },
                     icon: const Icon(
                         Icons.visibility_off), //icon data for elevated button
@@ -309,14 +312,14 @@ _displayDialog(context);
                       var x = r.split('/');
 
                       String u = "${x[0]}//${x[2]}/api/${x[3]}/setCurrentTransition";
-                      print(u);
+                   //   print(u);
 
                       Uri uri = Uri.parse(u);
 
                       Response res = await http.post(uri,
                           body: "[\"Cut\"]",
                           headers: {"content-type": "application/json"});
-                      print(res.statusCode);
+                   //   print(res.statusCode);
                     },
                     icon: const Icon(
                         Icons.cut_outlined), //icon data for elevated button
@@ -336,14 +339,14 @@ _displayDialog(context);
                       var x = r.split('/');
 
                       String u = "${x[0]}//${x[2]}/api/${x[3]}/setCurrentTransition";
-                      print(u);
+                     // print(u);
 
                       Uri uri = Uri.parse(u);
 
                       Response res = await http.post(uri,
                           body: "[\"Fade\"]",
                           headers: {"content-type": "application/json"});
-                      print(res.statusCode);
+                 //     print(res.statusCode);
                     },
                     icon: const Icon(
                         Icons.rounded_corner),//icon data for elevated button
@@ -359,7 +362,7 @@ _displayDialog(context);
                        ElevatedButton.icon(
                     onPressed: () async {
                    Navigator.push(context,
-          MaterialPageRoute(builder: (context) =>  MainPage()));
+          MaterialPageRoute(builder: (context) =>  const MainPage()));
                     },
                     icon: const Icon(
                         Icons.home_filled),//icon data for elevated button
