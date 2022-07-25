@@ -2,8 +2,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:remote/qr_code.dart';
-import 'home.dart';
 import 'package:provider/provider.dart';
+import 'package:remote/settings.dart';
 import 'theme_model.dart';
 import 'package:remote/storage_util.dart';
 
@@ -68,54 +68,26 @@ class _MainPageState extends State<MainPage> {
   Widget build(BuildContext context) => Scaffold(
 
   
-        appBar: AppBar(
-          title: const Text('Real Time kit'),
-          centerTitle: true,
-          actions: [
-              
-             Theme(
-              data: Theme.of(context).copyWith(
-                dividerColor: Colors.white,
-                iconTheme: const IconThemeData(color: Colors.white),
-                textTheme: const TextTheme().apply(bodyColor: Colors.white),
-              ),
-               child: PopupMenuButton<int>(
-                color: Colors.indigo,
-                onSelected: (item) => onSelected(context, item),
-                itemBuilder: (context) => [
-                 
+    appBar:   AppBar(
+  centerTitle: true,
+  title: const Text('Real Time Kit'),
+  leading: IconButton(
+    onPressed: () {},
+    icon: const Icon(Icons.home),
+  ),
+  actions: [
+    IconButton(
+      onPressed: () {
 
-                  
-                       const PopupMenuItem<int>(
-                        value:0,
-                        child:Text('Settings'),
-                      ),
-                    const PopupMenuItem<int>(
-                        value:1,
-                        child:Text('Remove Ads'),
-                      ),
-                       const PopupMenuItem<int>(
-                        value:2,
-                        child:Text('Feature Requests'),
-                      ),
-                       const PopupMenuItem<int>(
-                        value:3,
-                        child:Text('Error Log'),
-                      ),
-                        const PopupMenuItem<int>(
-                        value:4,
-                        child:Text('Licenses'),
-                      ),
-                        const PopupMenuItem<int>(
-                        value:5,
-                        child:Text('About'),
-                      ),
-                ],
-              ),
+ Navigator.push(context,
+          MaterialPageRoute(builder: (context) =>  const SettingsPage()));
 
-            ),
-          ],
-        ),
+      },
+      icon: const Icon(Icons.settings,
+    ),),
+    
+  ]
+),
           body:Column(    
          mainAxisAlignment: MainAxisAlignment.start,
          crossAxisAlignment: CrossAxisAlignment.stretch,
