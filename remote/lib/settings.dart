@@ -79,7 +79,7 @@ class _SettingsPageState extends State<SettingsPage> {
 
             //buildAccountOptionRow(context, "Change theme"),
             buildNotificationOptionRow("Wake lock", true),
-            buildNotificationOptionRow("Confirm before starting stream", true),
+            buildNotificationOptionRow("Confirm before streaming", true),
            
             const SizedBox(
               height: 40,
