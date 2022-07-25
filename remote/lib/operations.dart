@@ -4,7 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:http/http.dart';
 import 'package:remote/main.dart';
-import 'package:remote/scenes_new.dart';
+import 'package:remote/scenesnew.dart';
+import 'package:remote/settings.dart';
 import 'package:remote/storage_util.dart';
 
 class Operations extends StatefulWidget {
@@ -16,7 +17,7 @@ class Operations extends StatefulWidget {
 
 class _OperationsState extends State<Operations> {
 
-  final TextEditingController _textFieldController = TextEditingController();
+  //final TextEditingController _textFieldController = TextEditingController();
   @override
   Widget build(BuildContext context) => Scaffold(
      appBar: AppBar(
@@ -372,6 +373,37 @@ _displayDialog(context);
                      // minimumSize: const Size(175, 40),
                      // maximumSize: const Size(175, 40),
                     )),
+
+
+
+                           ElevatedButton.icon(
+                    onPressed: () async {
+                   Navigator.push(context,
+          MaterialPageRoute(builder: (context) =>  const SettingsPage()));
+                    },
+                    icon: const Icon(
+                        Icons.settings),//icon data for elevated button
+                    label: const Text("Settings"), //label text
+                    style: ElevatedButton.styleFrom(
+                      primary: const Color.fromARGB(255, 86, 84, 86),
+                     // minimumSize: const Size(175, 40),
+                     // maximumSize: const Size(175, 40),
+                    )),
+
+
+                         ElevatedButton.icon(
+                    onPressed: () {},
+               
+                    icon: const Icon(
+                        Icons.update),//icon data for elevated button
+                    label: const Text("Status"), //label text
+                    style: ElevatedButton.styleFrom(
+                      primary: const Color.fromARGB(255, 86, 84, 86),
+                     // minimumSize: const Size(175, 40),
+                     // maximumSize: const Size(175, 40),
+                    )),
+
+
         ],
       ),
     ),
@@ -387,15 +419,11 @@ _displayDialog(BuildContext context) async {
         builder: (context) {
           return AlertDialog(
             title: const Text('Confirm before Streaming'),
-            content: TextField(
-              controller: _textFieldController,
-              textInputAction: TextInputAction.go,
-              keyboardType: const TextInputType.numberWithOptions(),
-              decoration: const InputDecoration(hintText: "Confirm if you want to start streaming"),
-            ),
+            content: const Text("Are you sure you want to start streaming"),
+           
             actions: <Widget>[
               ElevatedButton(
-                child:  const Text('ok'),
+                child:  const Text('Yes'),
                 onPressed: () async {
                     String r = StorageUtil.getString("url");
 
@@ -422,9 +450,30 @@ _displayDialog(BuildContext context) async {
           );
         });}
 
-}
+/*
+ void _showDialog1(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: const Text("Remove host"),
+          content: const Text("Are you sure you want to remove this connection?"),
+          actions: [
+               TextButton(
+              onPressed: () => Navigator.pop(context, 'NO'),
+              child: const Text('No'),
+            ),
+            TextButton(
+              onPressed: () => Navigator.pop(context, 'YES'),
+              child: const Text('YES'),
+            ),
+          ],
+        );
+      },
+    );
+  }
 
-      
+}  */
       /*
        Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -812,6 +861,6 @@ _displayDialog(BuildContext context) async {
 */
 
                       
-
+}
     
    
