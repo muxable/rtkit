@@ -1,4 +1,4 @@
-// ignore_for_file: empty_catches, empty_statements
+// ignore_for_file: empty_catches, empty_statements, unused_local_variable
 
 import 'dart:convert';
 
@@ -26,10 +26,10 @@ class _ScenesnewState extends State<Scenesnew> {
                       Uri uri = Uri.parse(u);
   void fetchPosts() async{ 
     try{
-      print("hi");
+     // print("hi");
       final response=await get (uri);
-      print(response.body);
-      print(response.statusCode);
+     // print(response.body);
+     // print(response.statusCode);
       final jsonData=jsonDecode(response.body) as List;
       setState(() {
         _postsJson=jsonData;
@@ -70,7 +70,7 @@ class _ScenesnewState extends State<Scenesnew> {
                         Response res = await http.post(uri,
                           body: "[\"$post\"]",
                           headers: {"content-type": "application/json"});
-                      print(res.statusCode);
+                   //   print(res.statusCode);
                      },
                     icon: const Icon(
                         Icons.picture_in_picture_rounded), 
