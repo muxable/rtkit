@@ -2,7 +2,6 @@
 
 import 'package:flutter/material.dart';
 import 'package:remote/qr_code.dart';
-import 'package:remote/variables.dart';
 import 'home.dart';
 import 'package:provider/provider.dart';
 import 'theme_model.dart';
@@ -123,7 +122,7 @@ class _MainPageState extends State<MainPage> {
 
           
           children: <Widget>[   
-           SizedBox(height:20,width:30),
+           const SizedBox(height:20,width:30),
             // const Flexible(fit: FlexFit.tight, child: SizedBox()),
               Container(alignment: Alignment.topRight,height:100,width:100,
               child:Center(
