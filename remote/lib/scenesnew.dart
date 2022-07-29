@@ -7,6 +7,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:http/http.dart';
+import 'package:remote/size.dart';
 import 'package:remote/storage_util.dart';
 
 
@@ -38,11 +39,9 @@ class _ScenesnewState extends State<Scenesnew> {
       });
     }
     catch(err){
-
-     // print("error");
-
-    // ignore: empty_statements
-    };
+throw Exception ("invalid");
+    
+    }
   
   }
     @override initState(){ 
@@ -56,7 +55,13 @@ class _ScenesnewState extends State<Scenesnew> {
         title: const Text("Scenes"),
         centerTitle: true,
       ),
-      body:ListView.builder(
+      body:Column(children: [SizedBox(
+        
+          height:displayHeight(context)-
+                 MediaQuery.of(context).padding.top -
+                 kToolbarHeight,width:displayWidth(context),
+        
+        child:ListView.builder(
         itemCount:_postsJson.length,
       
         
@@ -64,7 +69,7 @@ class _ScenesnewState extends State<Scenesnew> {
 
          String post=_postsJson[i].toString();
 
-         return Row(children:[ElevatedButton.icon(
+         return ElevatedButton.icon(
                     onPressed: () async { 
 
                       String r = StorageUtil.getString("url");
@@ -85,10 +90,9 @@ class _ScenesnewState extends State<Scenesnew> {
                     label: Text( " $post"), //label text
                     style: ElevatedButton.styleFrom(
                       primary: Colors.redAccent,
-                      minimumSize: const Size(175, 40),
-                      maximumSize: const Size(175, 40),
-                    ), ),]);
+                     
+                    ), );
         }
     
-      ));
+      ))]),);
 }
