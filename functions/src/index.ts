@@ -22,11 +22,11 @@ app.get("/api/:channelId", async (req, res) => {
       .collection("channels")
       .doc(channelId)
       .get();
-    res.status(200).send(doc);
-    if(doc === undefined){
+    if(!doc.exists){
         res.status(400).send();
         return;
     }
+    res.status(200).send(doc.data());
 });
 
 app.get("/api/:channelId/:fieldName", async (req, res) => {
