@@ -21,18 +21,7 @@ class _SettingsPageState extends State<SettingsPage> {
     builder:(context,ThemeModel themeNotifier,child){
     
     return Scaffold(
-      appBar: AppBar(/*
-        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-        elevation: 1,
-        leading: IconButton(
-          onPressed: () {
-            Navigator.of(context).pop();
-          },
-          icon: Icon(
-            Icons.arrow_back,
-            color: Colors.green,
-          ),
-        ),*/title: const Center(child: Text('Settings')),
+      appBar: AppBar(title: const Center(child: Text('Settings')),
       ),
       
       body: Container(
@@ -41,10 +30,10 @@ class _SettingsPageState extends State<SettingsPage> {
           children: [
          
             Row(
-              // ignore: prefer_const_literals_to_create_immutables
-              children: [
+           
+              children: const [
                 
-                const Text(
+               Text(
                   "General",
                   style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                 ),
@@ -179,7 +168,9 @@ class _SettingsPageState extends State<SettingsPage> {
             scale: 0.7,
             child: CupertinoSwitch(
               value: isActive,
-              onChanged: (bool val) {},
+              onChanged: (bool val) {
+
+              },
             ))
       ],
     );
