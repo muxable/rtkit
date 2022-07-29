@@ -6,7 +6,6 @@ import 'package:http/http.dart';
 import 'package:remote/main.dart';
 import 'package:remote/scenesnew.dart';
 import 'package:remote/settings.dart';
-import 'package:remote/size.dart';
 import 'package:remote/storage_util.dart';
 import 'package:remote/variables.dart';
 
@@ -65,19 +64,19 @@ _displayDialog(context);
                       Response res = await http.post(uri,
                           body: "[]",
                           headers: {"content-type": "application/json"});
-                          print(res.statusCode);
+                         // print(res.statusCode);
                       }
                       else{ 
                         String r=StorageUtil.getString("uuid");
-                        String u="https://kit.rtirl.com/api/${uuid}/stopStreaming";
-                        print(u);
+                        String u="https://kit.rtirl.com/api/$uuid/stopStreaming";
+                       // print(u);
                           Uri uri = Uri.parse(u);
 
                       
                       Response res = await http.post(uri,
                           body: "[]",
                           headers: {"content-type": "application/json"});
-                          print(res.statusCode);
+                         // print(res.statusCode);
                       }
 
                     
@@ -111,15 +110,15 @@ _displayDialog(context);
                   }
                    else{
                       String r=StorageUtil.getString("uuid");
-                        String u="https://kit.rtirl.com/api/${uuid}/startRecording";
-                        print(u);
+                        String u="https://kit.rtirl.com/api/$uuid/startRecording";
+                       // print(u);
                           Uri uri = Uri.parse(u);
 
                       
                       Response res = await http.post(uri,
                           body: "[]",
                           headers: {"content-type": "application/json"});
-                          print(res.statusCode);
+                       //   print(res.statusCode);
                     }},
                   icon: const Icon(Icons
                       .fiber_manual_record), //icon data for elevated button
@@ -149,15 +148,15 @@ _displayDialog(context);
                     }
                      else{
                       String r=StorageUtil.getString("uuid");
-                        String u="https://kit.rtirl.com/api/${uuid}/stopRecording";
-                        print(u);
+                        String u="https://kit.rtirl.com/api/$uuid/stopRecording";
+                        //print(u);
                           Uri uri = Uri.parse(u);
 
                       
                       Response res = await http.post(uri,
                           body: "[]",
                           headers: {"content-type": "application/json"});
-                          print(res.statusCode);
+                       //   print(res.statusCode);
                     }},
                     icon:
                         const Icon(Icons.stop), //icon data for elevated button
@@ -186,15 +185,15 @@ _displayDialog(context);
                     }
                      else{
                       String r=StorageUtil.getString("uuid");
-                        String u="https://kit.rtirl.com/api/${uuid}/pauseRecording";
-                        print(u);
+                        String u="https://kit.rtirl.com/api/$uuid/pauseRecording";
+                     //   print(u);
                           Uri uri = Uri.parse(u);
 
                       
                       Response res = await http.post(uri,
                           body: "[]",
                           headers: {"content-type": "application/json"});
-                          print(res.statusCode);
+                     //     print(res.statusCode);
                     }},
                     icon:
                         const Icon(Icons.pause), //icon data for elevated button
@@ -223,15 +222,15 @@ _displayDialog(context);
                     }
                      else{
                       String r=StorageUtil.getString("uuid");
-                        String u="https://kit.rtirl.com/api/${uuid}/unpauseRecording";
-                        print(u);
+                        String u="https://kit.rtirl.com/api/$uuid/unpauseRecording";
+                    //    print(u);
                           Uri uri = Uri.parse(u);
 
                       
                       Response res = await http.post(uri,
                           body: "[]",
                           headers: {"content-type": "application/json"});
-                          print(res.statusCode);
+                        //  print(res.statusCode);
                     }},
                     icon: const Icon(
                         Icons.play_arrow), //icon data for elevated button
@@ -264,15 +263,15 @@ _displayDialog(context);
                     }
                      else{
                       String r=StorageUtil.getString("uuid");
-                        String u="https://kit.rtirl.com/api/${uuid}/saveReplayBuffer";
-                        print(u);
+                        String u="https://kit.rtirl.com/api/$uuid/saveReplayBuffer";
+                 //       print(u);
                           Uri uri = Uri.parse(u);
 
                       
                       Response res = await http.post(uri,
                           body: "[]",
                           headers: {"content-type": "application/json"});
-                          print(res.statusCode);
+                       //   print(res.statusCode);
                     }},
                     icon: const Icon(
                         Icons.save_alt_rounded), //icon data for elevated button
@@ -301,15 +300,15 @@ _displayDialog(context);
                     }
                      else{
                       String r=StorageUtil.getString("uuid");
-                        String u="https://kit.rtirl.com/api/${uuid}/startReplayBuffer";
-                        print(u);
+                        String u="https://kit.rtirl.com/api/$uuid/startReplayBuffer";
+                       // print(u);
                           Uri uri = Uri.parse(u);
 
                       
                       Response res = await http.post(uri,
                           body: "[]",
                           headers: {"content-type": "application/json"});
-                          print(res.statusCode);
+                      //    print(res.statusCode);
                     }},
                     icon: const Icon(Icons
                         .replay_10_outlined), //icon data for elevated button
@@ -341,15 +340,15 @@ _displayDialog(context);
                     }
                      else{
                       String r=StorageUtil.getString("uuid");
-                        String u="https://kit.rtirl.com/api/${uuid}/startVirtualcam";
-                        print(u);
+                        String u="https://kit.rtirl.com/api/$uuid/startVirtualcam";
+                      //  print(u);
                           Uri uri = Uri.parse(u);
 
                       
                       Response res = await http.post(uri,
                           body: "[]",
                           headers: {"content-type": "application/json"});
-                          print(res.statusCode);
+                        //  print(res.statusCode);
                     }},
                     icon: const Icon(
                         Icons.camera_alt_sharp), //icon data for elevated button
@@ -379,15 +378,15 @@ _displayDialog(context);
                     }
                      else{
                       String r=StorageUtil.getString("uuid");
-                        String u="https://kit.rtirl.com/api/${uuid}/stopVirtualcam";
-                        print(u);
+                        String u="https://kit.rtirl.com/api/$uuid/stopVirtualcam";
+                     //   print(u);
                           Uri uri = Uri.parse(u);
 
                       
                       Response res = await http.post(uri,
                           body: "[]",
                           headers: {"content-type": "application/json"});
-                          print(res.statusCode);
+                       //   print(res.statusCode);
                     }},
                     
                     icon: const Icon(
@@ -434,15 +433,15 @@ _displayDialog(context);
                     }
                      else{
                       String r=StorageUtil.getString("uuid");
-                        String u="https://kit.rtirl.com/api/${uuid}/setCurrentTransition";
-                        print(u);
+                        String u="https://kit.rtirl.com/api/$uuid/setCurrentTransition";
+                      //  print(u);
                           Uri uri = Uri.parse(u);
 
                       
                       Response res = await http.post(uri,
                           body: "[\"Cut\"]",
                           headers: {"content-type": "application/json"});
-                          print(res.statusCode);
+                       //   print(res.statusCode);
                     }},
                        
           
@@ -476,15 +475,15 @@ _displayDialog(context);
                     }
                     else{
                       String r=StorageUtil.getString("uuid");
-                        String u="https://kit.rtirl.com/api/${uuid}/setCurrentTransition";
-                        print(u);
+                        String u="https://kit.rtirl.com/api/$uuid/setCurrentTransition";
+                      //  print(u);
                           Uri uri = Uri.parse(u);
 
                       
                       Response res = await http.post(uri,
                           body: "[\"Fade\"]",
                           headers: {"content-type": "application/json"});
-                          print(res.statusCode);
+                        //  print(res.statusCode);
                     }},
                     icon: const Icon(
                         Icons.rounded_corner),//icon data for elevated button
@@ -578,15 +577,15 @@ _displayDialog(BuildContext context) async {
                           else
                           {
                             String r=StorageUtil.getString("uuid");
-                        String u="https://kit.rtirl.com/api/${uuid}/startStreaming";
-                        print(u);
+                        String u="https://kit.rtirl.com/api/$uuid/startStreaming";
+                     //   print(u);
                           Uri uri = Uri.parse(u);
 
                       
                       Response res = await http.post(uri,
                           body: "[]",
                           headers: {"content-type": "application/json"});
-                          print(res.statusCode);
+                   //       print(res.statusCode);
                           }
                       //print(res.statusCode);*/
                 },
