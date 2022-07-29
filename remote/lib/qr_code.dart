@@ -147,7 +147,7 @@ void navigate(List<String> arr) {
           MaterialPageRoute(builder: (context) => const Operations()));
 
 }
-
+   
 }
 
 }
