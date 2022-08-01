@@ -1,0 +1,4 @@
+
+
+String? data;
+String? uuid;
