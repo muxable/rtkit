@@ -5,10 +5,10 @@
          to allow setting breakpoints, to provide hot reload, etc.
     -->
 
-      <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.CAMERA"/>
+   <uses-permission android:name="android.permission.INTERNET"/>
+   <uses-permission android:name="android.permission.CAMERA"/>
    <application
-        android:label="remote"
+        android:label="RealtimeKit"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
