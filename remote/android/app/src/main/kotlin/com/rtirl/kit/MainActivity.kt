@@ -1,4 +1,4 @@
-package com.example.remote
+package com.rtirl.kit
 
 import io.flutter.embedding.android.FlutterActivity
 
