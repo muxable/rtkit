@@ -1,8 +1,3 @@
-
-// ignore_for_file: unused_local_variable
-
-// ignore_for_file: unused_local_variable
-
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
@@ -11,8 +6,6 @@ import 'package:http/http.dart';
 import 'package:remote/size.dart';
 import 'package:remote/storage_util.dart';
 import 'package:remote/variables.dart';
-
-
 class Scenesnew extends StatefulWidget {
   const Scenesnew({Key? key}) : super(key: key);
 
