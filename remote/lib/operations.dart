@@ -24,6 +24,7 @@ class _OperationsState extends State<Operations> {
         title: const Text("Operations"),
         centerTitle: true,
         actions: [
+          
           Transform.scale(
               scale: 0.7,
               child: IconButton(
