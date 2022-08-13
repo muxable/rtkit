@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:http/http.dart';
@@ -67,7 +68,7 @@ throw Exception ("invalid");
 
          return ElevatedButton.icon(
                     onPressed: () async { 
-  String r=StorageUtil.getString("uuid");
+  //String r=StorageUtil.getString("uuid");
                         String u="https://kit.rtirl.com/api/$uuid/setCurrentScene";
                  //       print(u);
                           Uri uri = Uri.parse(u);
@@ -87,7 +88,9 @@ throw Exception ("invalid");
                         Response res = await http.post(uri,
                           body: "[\"$post\"]",
                           headers: {"content-type": "application/json"});
-                   //   print(res.statusCode);
+                   if (kDebugMode) {
+                     print(res.statusCode);
+                   }
                      },
                     icon: const Icon(
                         Icons.picture_in_picture_rounded), 
