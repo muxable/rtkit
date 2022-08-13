@@ -28,7 +28,7 @@ class _MainPageState extends State<MainPage> {
         print(uuid);
       }
 
-      // ignore: unnecessary_brace_in_string_interps
+      
     });
   }
 
@@ -71,11 +71,7 @@ class _MainPageState extends State<MainPage> {
                     scale: 0.7,
                     child: IconButton(
                         onPressed: () {
-                          /*
-            ThemeModeHandler.of(context)!.saveThemeMode(ThemeMode.dark); //Dark theme
-ThemeModeHandler.of(context)!.saveThemeMode(ThemeMode.light); //Light theme
-ThemeModeHandler.of(context)!.saveThemeMode(ThemeMode.system); //System theme
-*/
+                         
 
                           themeNotifier.isDark
                               ? themeNotifier.isDark = false
@@ -188,9 +184,9 @@ ThemeModeHandler.of(context)!.saveThemeMode(ThemeMode.system); //System theme
                             width: displayWidth(context) * 0.5,
                             child: ElevatedButton(
                                 onPressed: _setText,
-                                style: ButtonStyle(
+                               /* style: ButtonStyle(
                                   elevation: MaterialStateProperty.all(3),
-                                ),
+                                ),*/
                                 //  backgroundColor: MaterialStateProperty.all(Colors.blue)),
                                 child: const Text('Submit')),
                           ),
