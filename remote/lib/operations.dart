@@ -292,7 +292,7 @@ class _OperationsState extends State<Operations> {
                   Uri uri = Uri.parse(u);
                   Uri uri1 = Uri.parse(u1);
                   Uri uri2 = Uri.parse(u2);
-                  final Response res1 = await get(uri1);
+                  final http.Response res1 = await get(uri1);
                   // print(res1.body);
                   //final jsonData=jsonDecode(res1.body);
                   // print(jsonData);
