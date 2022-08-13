@@ -109,9 +109,7 @@ class _StatusState extends State<Status> {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Status Page',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
+      
       home: Scaffold(
         appBar: AppBar(
           title: const Text("Current Status"),
