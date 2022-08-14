@@ -1,4 +1,4 @@
-import 'package:flutter/foundation.dart';
+
 import 'package:flutter/material.dart';
 import 'package:remote/operations.dart';
 import 'package:remote/qr_code.dart';
@@ -24,9 +24,9 @@ class _MainPageState extends State<MainPage> {
       uuid = uuidController.text;
       StorageUtil.putString("uuid", uuid!);
       fetchuuid();
-      if (kDebugMode) {
-        print(uuid);
-      }
+     // if (kDebugMode) {
+       // print(uuid);
+    //  }
 
       
     });
@@ -184,10 +184,10 @@ class _MainPageState extends State<MainPage> {
                             width: displayWidth(context) * 0.5,
                             child: ElevatedButton(
                                 onPressed: _setText,
-                               /* style: ButtonStyle(
+                               style: ButtonStyle(
                                   elevation: MaterialStateProperty.all(3),
-                                ),*/
-                                //  backgroundColor: MaterialStateProperty.all(Colors.blue)),
+                                ),
+                                 // backgroundColor: MaterialStateProperty.all(Colors.blue)),
                                 child: const Text('Submit')),
                           ),
                         ]),
