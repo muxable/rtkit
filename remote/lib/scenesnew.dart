@@ -1,16 +1,12 @@
-
-
-// ignore_for_file: unused_local_variable
-
 import 'dart:convert';
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:http/http.dart';
 import 'package:remote/size.dart';
-import 'package:remote/storage_util.dart';
-
-
+//import 'package:remote/storage_util.dart';
+import 'package:remote/variables.dart';
 class Scenesnew extends StatefulWidget {
   const Scenesnew({Key? key}) : super(key: key);
 
@@ -20,13 +16,11 @@ class Scenesnew extends StatefulWidget {
 
 class _ScenesnewState extends State<Scenesnew> {
   var _postsJson=[];
-   static String r = StorageUtil.getString("url");
-
-  static var x = r.split('/');
-
-                      static String u = "${x[0]}//${x[2]}/api/${x[3]}/obsScenes";
+  
+ 
+                     
                 
-                      Uri uri = Uri.parse(u);
+Uri uri = Uri.parse("https://kit.rtirl.com/api/$uuid/obsScenes");
   void fetchPosts() async{ 
     try{
      // print("hi");
@@ -71,18 +65,29 @@ throw Exception ("invalid");
 
          return ElevatedButton.icon(
                     onPressed: () async { 
+  //String r=StorageUtil.getString("uuid");
+                        String u="https://kit.rtirl.com/api/$uuid/setCurrentScene";
+                 //       print(u);
+                          Uri uri = Uri.parse(u);
 
-                      String r = StorageUtil.getString("url");
 
- var x = r.split('/');
 
-                       String u = "${x[0]}//${x[2]}/api/${x[3]}/setCurrentScene";
+
+
+
+                     // String r = StorageUtil.getString("url");
+
+ //var x = r.split('/');
+
+                       //String u = "${x[0]}//${x[2]}/api/${x[3]}/setCurrentScene";
                 
-                      Uri uri = Uri.parse(u);
+                     // Uri uri = Uri.parse(u);
                         Response res = await http.post(uri,
                           body: "[\"$post\"]",
                           headers: {"content-type": "application/json"});
-                   //   print(res.statusCode);
+                   if (kDebugMode) {
+                     print(res.statusCode);
+                   }
                      },
                     icon: const Icon(
                         Icons.picture_in_picture_rounded), 
