@@ -1,14 +1,14 @@
 import 'dart:convert';
 import 'dart:core';
-import 'package:remote/operations.dart';
+
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:remote/home.dart';
+import 'package:remote/operations.dart';
 import 'package:remote/size.dart';
 import 'package:remote/variables.dart';
 
 Future<Result> fetchPost() async {
-  //String r=StorageUtil.getString("uuid");
   String u = "https://kit.rtirl.com/api/$uuid";
 
   Uri uri = Uri.parse(u);
@@ -109,7 +109,6 @@ class _StatusState extends State<Status> {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Status Page',
-      
       home: Scaffold(
         appBar: AppBar(
           title: const Text("Current Status"),
@@ -128,13 +127,8 @@ class _StatusState extends State<Status> {
                   onPressed: () {
                     Navigator.of(context).push(MaterialPageRoute(
                         builder: (context) => const Operations()));
-                    /*
-            ThemeModeHandler.of(context)!.saveThemeMode(ThemeMode.dark); //Dark theme
-ThemeModeHandler.of(context)!.saveThemeMode(ThemeMode.light); //Light theme
-ThemeModeHandler.of(context)!.saveThemeMode(ThemeMode.system); //System theme
-*/
                   },
-                  icon: const Icon(Icons.apps), //icon data for elevated button
+                  icon: const Icon(Icons.apps),
                 ))
           ],
         ),
@@ -143,7 +137,6 @@ ThemeModeHandler.of(context)!.saveThemeMode(ThemeMode.system); //System theme
               future: futureResult,
               builder: (context, snapshot) {
                 if (snapshot.hasData) {
-                  //  return Text('${snapshot.data}');
                   return SizedBox(
                       height: displayHeight(context) * 0.8,
                       width: displayWidth(context) * 0.9,
@@ -151,7 +144,6 @@ ThemeModeHandler.of(context)!.saveThemeMode(ThemeMode.system); //System theme
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
                           crossAxisAlignment: CrossAxisAlignment.stretch,
                           children: [
-                            //Center(child: Text(snapshot.data)),
                             Text(
                                 '->activeAgentId: ${snapshot.data!.activeAgentId} \n\n->obsControlLevel: ${snapshot.data!.obsControlLevel}\n\n->obsStreaming: ${snapshot.data!.obsStreaming} \n\n->obsScenes:\n${snapshot.data!.obsScenes} \n\n->obsScene:\n height:${snapshot.data!.obsScene.height}\n name:${snapshot.data!.obsScene.name}\n width:${snapshot.data!.obsScene.width} \n\n->obsVirtualcam: ${snapshot.data!.obsVirtualcam} \n\n->obsControlLevel: ${snapshot.data!.obsControlLevel} \n\n->obsRecording: ${snapshot.data!.obsRecording} \n\n->obsTransitions: ${snapshot.data!.obsTransitions} \n\n->obsReplaybuffer: ${snapshot.data!.obsReplaybuffer}',
                                 style: TextStyle(
@@ -180,7 +172,6 @@ Widget postTemplate(post) {
       child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
-            // Text(post.id.toString()),
             Text(
               post.title,
               style: const TextStyle(
@@ -196,7 +187,6 @@ Widget postTemplate(post) {
                 color: Colors.black,
               ),
             ),
-            // ignore: prefer_const_constructors
           ]),
     ),
   );

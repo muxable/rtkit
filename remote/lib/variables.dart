@@ -1,4 +1,2 @@
-
-
 String? data;
 String? uuid;

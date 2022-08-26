@@ -1,17 +1,13 @@
-
-
-
-
-// ignore_for_file: depend_on_referenced_packages
-
 import 'dart:io';
+
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
 import 'package:qr_code_scanner/qr_code_scanner.dart';
 import 'package:remote/operations.dart';
 import 'package:remote/storage_util.dart';
 import 'package:remote/variables.dart';
-import 'package:http/http.dart' as http;
+
 class Qrcode extends StatefulWidget {
   const Qrcode({Key? key}) : super(key: key);
 
@@ -20,7 +16,6 @@ class Qrcode extends StatefulWidget {
 }
 
 class _QrcodeState extends State<Qrcode> {
-
   final GlobalKey qrKey = GlobalKey(debugLabel: 'QR');
   Barcode? result;
   QRViewController? controller;
@@ -54,7 +49,9 @@ class _QrcodeState extends State<Qrcode> {
             child: Center(
               child: (result != null)
                   ? Text(
-                      'Barcode Type: ${describeEnum(result!.format)}   Data: ${result!.code}',textAlign: TextAlign.center,)
+                      'Barcode Type: ${describeEnum(result!.format)}   Data: ${result!.code}',
+                      textAlign: TextAlign.center,
+                    )
                   // ignore: prefer_const_constructors
                   : Text('Scan a code'),
             ),
@@ -62,32 +59,19 @@ class _QrcodeState extends State<Qrcode> {
         ],
       ),
     );
-
-
-    
   }
 
   Future<void> _onQRViewCreated(QRViewController controller) async {
     this.controller = controller;
-    
+
     controller.scannedDataStream.listen((scanData) {
-      setState(()  {
-      // dispose();
-       controller.pauseCamera();
+      setState(() {
+        controller.pauseCamera();
         result = scanData;
-        //res=scanData.toString();
-      //  print(result);
         qr1(result!);
-       
-        //if(result!.code==)
       });
-    }
-    );
-
-
+    });
   }
-
-
 
   @override
   void dispose() {
@@ -95,55 +79,34 @@ class _QrcodeState extends State<Qrcode> {
     super.dispose();
   }
 
+  Future<void> qr1(Barcode result) async {
+    data = result.code.toString();
+    var arr = data!.split('/');
+    uuid = arr[3];
+    StorageUtil.putString("uuid", uuid!);
+    fetchuuid();
+  }
 
+  fetchuuid() async {
+    String s = "https://kit.rtirl.com/api/$uuid/activeAgentId";
 
+    final response = await http.get(Uri.parse(s));
 
+    if (response.statusCode == 200) {
+      navigate();
 
+      // If the server did return a 200 OK response,
+      // then parse the JSON.
 
+    } else {
+      // If the server did not return a 200 OK response,
+      // then throw an exception.
+      throw Exception('Invalid uuid');
+    }
+  }
 
-  
-
-  Future<void> qr1(Barcode result) async { 
- // String type=describeEnum(result.format);
- data=result.code.toString();
- //print(data);
- var arr=data!.split('/');
-uuid=arr[3];
-// print(uuid);
-  StorageUtil.putString("uuid", uuid!);
-        fetchuuid();
- 
-   
-}
-fetchuuid() async {
-String s = "https://kit.rtirl.com/api/$uuid/activeAgentId";
-
-  final response = await http.get(Uri.parse(s));
-
-  if (response.statusCode == 200) {
-    
-   navigate();
-
-
-    // If the server did return a 200 OK response,
-    // then parse the JSON.
-    
-  } else {
-    // If the server did not return a 200 OK response,
-    // then throw an exception.
-    throw Exception('Invalid uuid');
+  void navigate() {
+    Navigator.push(
+        context, MaterialPageRoute(builder: (context) => const Operations()));
   }
 }
-void navigate(){
- Navigator.push(context,
-          MaterialPageRoute(builder: (context) => const Operations()));
-}
-
-
-}
-
-
-
-
-
-

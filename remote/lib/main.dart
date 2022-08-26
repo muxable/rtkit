@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:remote/home.dart';
 import 'package:provider/provider.dart';
-import 'theme_model.dart';
+import 'package:remote/home.dart';
 import 'package:remote/storage_util.dart';
 
+import 'theme_model.dart';
 
-
-//void main() => runApp(const MyApp());
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
@@ -39,9 +37,3 @@ class _MyAppState extends State<MyApp> {
         ));
   }
 }
-
-
-
-
-
-
