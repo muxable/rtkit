@@ -13,6 +13,4 @@ double displayHeight(BuildContext context) {
 double displayWidth(BuildContext context) {
   debugPrint('Width = ${displaySize(context).width}');
   return displaySize(context).width;
-
 }
-

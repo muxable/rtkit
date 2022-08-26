@@ -1,14 +1,14 @@
-
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
+import 'package:provider/provider.dart';
 import 'package:remote/operations.dart';
 import 'package:remote/qr_code.dart';
-import 'package:provider/provider.dart';
 import 'package:remote/size.dart';
 import 'package:remote/status.dart';
-import 'package:remote/variables.dart';
-import 'theme_model.dart';
 import 'package:remote/storage_util.dart';
-import 'package:http/http.dart' as http;
+import 'package:remote/variables.dart';
+
+import 'theme_model.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({Key? key}) : super(key: key);
@@ -24,11 +24,6 @@ class _MainPageState extends State<MainPage> {
       uuid = uuidController.text;
       StorageUtil.putString("uuid", uuid!);
       fetchuuid();
-     // if (kDebugMode) {
-       // print(uuid);
-    //  }
-
-      
     });
   }
 
@@ -71,8 +66,6 @@ class _MainPageState extends State<MainPage> {
                     scale: 0.7,
                     child: IconButton(
                         onPressed: () {
-                         
-
                           themeNotifier.isDark
                               ? themeNotifier.isDark = false
                               : themeNotifier.isDark = true;
@@ -94,7 +87,6 @@ class _MainPageState extends State<MainPage> {
                       height: displayHeight(context) * 0.05,
                       width: displayWidth(context) * 0.9,
                     ),
-                    // const Flexible(fit: FlexFit.tight, child: SizedBox()),
                     Center(
                       child: Image.asset(
                         'images/logo.png',
@@ -106,7 +98,6 @@ class _MainPageState extends State<MainPage> {
                       height: displayHeight(context) * 0.05,
                       width: displayWidth(context) * 0.9,
                     ),
-                    //const Flexible(fit: FlexFit.tight, child: SizedBox()),
                     Center(
                         child: Text('OBS studio Real time kit',
                             style: TextStyle(
@@ -153,7 +144,6 @@ class _MainPageState extends State<MainPage> {
                       height: displayHeight(context) * 0.01,
                       width: displayWidth(context) * 0.9,
                     ),
-                    // ignore: sized_box_for_whitespace
                     Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
@@ -184,10 +174,9 @@ class _MainPageState extends State<MainPage> {
                             width: displayWidth(context) * 0.5,
                             child: ElevatedButton(
                                 onPressed: _setText,
-                               style: ButtonStyle(
+                                style: ButtonStyle(
                                   elevation: MaterialStateProperty.all(3),
                                 ),
-                                 // backgroundColor: MaterialStateProperty.all(Colors.blue)),
                                 child: const Text('Submit')),
                           ),
                         ]),
