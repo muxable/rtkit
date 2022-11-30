@@ -50,7 +50,7 @@ class _OperationsState extends State<Operations> {
                     icon: const Icon(Icons.settings_input_antenna),
                     label: const Text("Start/Stop Streaming"),
                     style: ElevatedButton.styleFrom(
-                      primary: const Color.fromARGB(255, 233, 82, 71),
+                      backgroundColor: const Color.fromARGB(255, 233, 82, 71),
                     )),
                 ElevatedButton.icon(
                     onPressed: () async {
@@ -77,7 +77,7 @@ class _OperationsState extends State<Operations> {
                     icon: const Icon(Icons.fiber_manual_record),
                     label: const Text("Start/Stop Recording"),
                     style: ElevatedButton.styleFrom(
-                      primary: const Color.fromARGB(255, 7, 198, 109),
+                      backgroundColor: const Color.fromARGB(255, 7, 198, 109),
                     )),
                 ElevatedButton.icon(
                     onPressed: () async {
@@ -105,7 +105,7 @@ class _OperationsState extends State<Operations> {
                     icon: const Icon(Icons.pause),
                     label: const Text("Pause/Unpause Recording"),
                     style: ElevatedButton.styleFrom(
-                      primary: const Color.fromARGB(255, 231, 156, 58),
+                      backgroundColor: const Color.fromARGB(255, 231, 156, 58),
                     )),
                 ElevatedButton.icon(
                     onPressed: () async {
@@ -120,7 +120,7 @@ class _OperationsState extends State<Operations> {
                     icon: const Icon(Icons.save_alt_rounded),
                     label: const Text("Save replay buffer"),
                     style: ElevatedButton.styleFrom(
-                      primary: const Color.fromARGB(255, 88, 120, 218),
+                      backgroundColor: const Color.fromARGB(255, 88, 120, 218),
                     )),
                 ElevatedButton.icon(
                     onPressed: () async {
@@ -135,7 +135,7 @@ class _OperationsState extends State<Operations> {
                     icon: const Icon(Icons.replay_10_outlined),
                     label: const Text("Start replay buffer"),
                     style: ElevatedButton.styleFrom(
-                      primary: const Color.fromARGB(255, 88, 120, 218),
+                      backgroundColor: const Color.fromARGB(255, 88, 120, 218),
                     )),
                 ElevatedButton.icon(
                     onPressed: () async {
@@ -162,7 +162,7 @@ class _OperationsState extends State<Operations> {
                     icon: const Icon(Icons.camera_alt_sharp),
                     label: const Text("Start/Stop Virtual Camera"),
                     style: ElevatedButton.styleFrom(
-                      primary: const Color.fromARGB(255, 233, 82, 71),
+                      backgroundColor: const Color.fromARGB(255, 233, 82, 71),
                     )),
                 ElevatedButton.icon(
                     onPressed: () async {
@@ -174,7 +174,7 @@ class _OperationsState extends State<Operations> {
                     icon: const Icon(Icons.picture_in_picture_alt_rounded),
                     label: const Text("Set Current Scene"),
                     style: ElevatedButton.styleFrom(
-                      primary: const Color.fromARGB(255, 122, 239, 126),
+                      backgroundColor: const Color.fromARGB(255, 122, 239, 126),
                     )),
                 ElevatedButton.icon(
                     onPressed: () async {
@@ -189,7 +189,7 @@ class _OperationsState extends State<Operations> {
                     icon: const Icon(Icons.cut_outlined),
                     label: const Text("Set Current Transition Cut"),
                     style: ElevatedButton.styleFrom(
-                      primary: const Color.fromARGB(255, 219, 131, 241),
+                      backgroundColor: const Color.fromARGB(255, 219, 131, 241),
                     )),
                 ElevatedButton.icon(
                     onPressed: () async {
@@ -204,7 +204,7 @@ class _OperationsState extends State<Operations> {
                     icon: const Icon(Icons.rounded_corner),
                     label: const Text("Set Current Transition Fade"),
                     style: ElevatedButton.styleFrom(
-                      primary: const Color.fromARGB(255, 219, 131, 241),
+                      backgroundColor: const Color.fromARGB(255, 219, 131, 241),
                     )),
                 ElevatedButton.icon(
                     onPressed: () {
@@ -216,7 +216,7 @@ class _OperationsState extends State<Operations> {
                     icon: const Icon(Icons.update),
                     label: const Text("Status"),
                     style: ElevatedButton.styleFrom(
-                      primary: const Color.fromARGB(255, 86, 84, 86),
+                      backgroundColor: const Color.fromARGB(255, 86, 84, 86),
                     )),
               ],
             ),
