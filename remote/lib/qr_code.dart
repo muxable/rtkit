@@ -97,7 +97,6 @@ class _QrcodeState extends State<Qrcode> {
 
       // If the server did return a 200 OK response,
       // then parse the JSON.
-
     } else {
       // If the server did not return a 200 OK response,
       // then throw an exception.

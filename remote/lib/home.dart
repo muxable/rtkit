@@ -39,7 +39,6 @@ class _MainPageState extends State<MainPage> {
 
       // If the server did return a 200 OK response,
       // then parse the JSON.
-
     } else {
       // If the server did not return a 200 OK response,
       // then throw an exception.
@@ -53,7 +52,7 @@ class _MainPageState extends State<MainPage> {
       return Scaffold(
           appBar: AppBar(
               centerTitle: true,
-              title: const Text('Real Time Kit'),
+              title: const Text('RealtimeKit'),
               leading: IconButton(
                 onPressed: () {
                   Navigator.of(context).push(
@@ -99,7 +98,7 @@ class _MainPageState extends State<MainPage> {
                       width: displayWidth(context) * 0.9,
                     ),
                     Center(
-                        child: Text('OBS studio Real time kit',
+                        child: Text('OBS Studio RealtimeKit',
                             style: TextStyle(
                                 fontSize: displayHeight(context) * 0.025,
                                 fontWeight: FontWeight.w500,
