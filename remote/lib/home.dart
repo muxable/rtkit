@@ -152,6 +152,7 @@ class _MainPageState extends State<MainPage> {
                             child: TextField(
                               decoration: const InputDecoration(
                                   labelText: 'Enter the UUID ',
+                                  prefixIcon: Icon(Icons.numbers),
                                   border: OutlineInputBorder(),
                                   contentPadding:
                                       EdgeInsets.symmetric(vertical: 10)),
