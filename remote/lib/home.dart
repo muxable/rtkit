@@ -52,6 +52,7 @@ class _MainPageState extends State<MainPage> {
       return Scaffold(
           appBar: AppBar(
               centerTitle: true,
+              backgroundColor: const Color.fromARGB(255, 0, 0, 0),
               title: const Text('RealtimeKit'),
               leading: IconButton(
                 onPressed: () {
