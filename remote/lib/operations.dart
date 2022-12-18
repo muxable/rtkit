@@ -17,6 +17,7 @@ class _OperationsState extends State<Operations> {
   @override
   Widget build(BuildContext context) => Scaffold(
       appBar: AppBar(
+        backgroundColor: const Color.fromARGB(255, 0, 0, 0),
         title: const Text("Operations"),
         centerTitle: true,
         actions: [
