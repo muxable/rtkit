@@ -30,7 +30,7 @@ class _MyAppState extends State<MyApp> {
               theme:
                   themeNotifier.isDark ? ThemeData.dark() : ThemeData.light(),
               debugShowCheckedModeBanner: false,
-              title: 'Real Time Kit',
+              title: 'RealtimeKit',
               home: const MainPage(),
             );
           },
