@@ -79,9 +79,6 @@ class _SettingsState extends State<Settings> {
                   applicationVersion: 'Version $version ($buildNumber)',
                   applicationLegalese: '\u{a9} 2023 Muxable',
                   dense: true,
-                  aboutBoxChildren: [
-                    const SizedBox(height: 24),
-                  ],
                 );
               })
         ],);
