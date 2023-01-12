@@ -5,6 +5,7 @@ import 'package:remote/operations.dart';
 import 'package:remote/qr_code.dart';
 import 'package:remote/size.dart';
 import 'package:remote/status.dart';
+import 'package:remote/settings.dart';
 import 'package:remote/storage_util.dart';
 import 'package:remote/variables.dart';
 
@@ -181,6 +182,15 @@ class _MainPageState extends State<MainPage> {
                                 child: const Text('Submit')),
                           ),
                         ]),
+                    OutlinedButton(
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const Settings()));
+                          _setText();
+                        },
+                        child: const Text('Settings')),
                   ])));
     });
   }
