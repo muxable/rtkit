@@ -13,8 +13,6 @@ class Settings extends StatefulWidget {
 }
 
 class _SettingsState extends State<Settings> {
-  int _versionTapCount = 0;
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
