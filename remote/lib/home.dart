@@ -39,7 +39,6 @@ class _MainPageState extends State<MainPage> {
 
       // If the server did return a 200 OK response,
       // then parse the JSON.
-
     } else {
       // If the server did not return a 200 OK response,
       // then throw an exception.
@@ -51,9 +50,11 @@ class _MainPageState extends State<MainPage> {
   Widget build(BuildContext context) {
     return Consumer(builder: (context, ThemeModel themeNotifier, child) {
       return Scaffold(
+        resizeToAvoidBottomInset: false,
           appBar: AppBar(
               centerTitle: true,
-              title: const Text('Real Time Kit'),
+              backgroundColor: const Color.fromARGB(255, 0, 0, 0),
+              title: const Text('RealtimeKit'),
               leading: IconButton(
                 onPressed: () {
                   Navigator.of(context).push(
@@ -99,7 +100,7 @@ class _MainPageState extends State<MainPage> {
                       width: displayWidth(context) * 0.9,
                     ),
                     Center(
-                        child: Text('OBS studio Real time kit',
+                        child: Text('OBS Studio RealtimeKit',
                             style: TextStyle(
                                 fontSize: displayHeight(context) * 0.025,
                                 fontWeight: FontWeight.w500,
@@ -153,6 +154,7 @@ class _MainPageState extends State<MainPage> {
                             child: TextField(
                               decoration: const InputDecoration(
                                   labelText: 'Enter the UUID ',
+                                  prefixIcon: Icon(Icons.numbers),
                                   border: OutlineInputBorder(),
                                   contentPadding:
                                       EdgeInsets.symmetric(vertical: 10)),

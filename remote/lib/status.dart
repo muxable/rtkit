@@ -111,6 +111,7 @@ class _StatusState extends State<Status> {
       title: 'Status Page',
       home: Scaffold(
         appBar: AppBar(
+          backgroundColor: const Color.fromARGB(255, 0, 0, 0),
           title: const Text("Current Status"),
           leading: IconButton(
             onPressed: () {
