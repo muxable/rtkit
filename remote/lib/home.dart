@@ -182,15 +182,6 @@ class _MainPageState extends State<MainPage> {
                                 child: const Text('Submit')),
                           ),
                         ]),
-                    OutlinedButton(
-                        onPressed: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => const Settings()));
-                          _setText();
-                        },
-                        child: const Text('Settings')),
                   ])));
     });
   }
