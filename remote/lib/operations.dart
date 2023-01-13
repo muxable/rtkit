@@ -4,6 +4,7 @@ import 'package:http/http.dart';
 import 'package:remote/home.dart';
 import 'package:remote/scenesnew.dart';
 import 'package:remote/status.dart';
+import 'package:remote/settings.dart';
 import 'package:remote/variables.dart';
 
 class Operations extends StatefulWidget {
@@ -216,6 +217,18 @@ class _OperationsState extends State<Operations> {
                     },
                     icon: const Icon(Icons.update),
                     label: const Text("Status"),
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: const Color.fromARGB(255, 86, 84, 86),
+                    )),
+                ElevatedButton.icon(
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const Settings()));
+                    },
+                    icon: const Icon(Icons.settings),
+                    label: const Text("Settings"),
                     style: ElevatedButton.styleFrom(
                       backgroundColor: const Color.fromARGB(255, 86, 84, 86),
                     )),
