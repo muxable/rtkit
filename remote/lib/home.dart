@@ -5,6 +5,7 @@ import 'package:remote/operations.dart';
 import 'package:remote/qr_code.dart';
 import 'package:remote/size.dart';
 import 'package:remote/status.dart';
+import 'package:remote/settings.dart';
 import 'package:remote/storage_util.dart';
 import 'package:remote/variables.dart';
 
@@ -50,6 +51,7 @@ class _MainPageState extends State<MainPage> {
   Widget build(BuildContext context) {
     return Consumer(builder: (context, ThemeModel themeNotifier, child) {
       return Scaffold(
+        resizeToAvoidBottomInset: false,
           appBar: AppBar(
               centerTitle: true,
               backgroundColor: const Color.fromARGB(255, 0, 0, 0),
