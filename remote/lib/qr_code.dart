@@ -35,6 +35,12 @@ class _QrcodeState extends State<Qrcode> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      extendBodyBehindAppBar: true,
+      appBar: AppBar(
+        leading: const BackButton(),
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+      ),
       body: Column(
         children: <Widget>[
           Expanded(
@@ -97,7 +103,6 @@ class _QrcodeState extends State<Qrcode> {
 
       // If the server did return a 200 OK response,
       // then parse the JSON.
-
     } else {
       // If the server did not return a 200 OK response,
       // then throw an exception.

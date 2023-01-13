@@ -68,7 +68,7 @@ class _ScenesnewState extends State<Scenesnew> {
                       icon: const Icon(Icons.picture_in_picture_rounded),
                       label: Text(" $post"),
                       style: ElevatedButton.styleFrom(
-                        primary: Colors.redAccent,
+                        backgroundColor: Colors.redAccent,
                       ),
                     );
                   }))
