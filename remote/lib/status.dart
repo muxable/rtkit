@@ -113,25 +113,6 @@ class _StatusState extends State<Status> {
         appBar: AppBar(
           backgroundColor: const Color.fromARGB(255, 0, 0, 0),
           title: const Text("Current Status"),
-          leading: IconButton(
-            onPressed: () {
-              Navigator.of(context).push(
-                  MaterialPageRoute(builder: (context) => const MainPage()));
-            },
-            icon: const Icon(Icons.home_filled),
-          ),
-          centerTitle: true,
-          actions: [
-            Transform.scale(
-                scale: 0.7,
-                child: IconButton(
-                  onPressed: () {
-                    Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => const Operations()));
-                  },
-                  icon: const Icon(Icons.apps),
-                ))
-          ],
         ),
         body: Center(
           child: FutureBuilder<Result>(

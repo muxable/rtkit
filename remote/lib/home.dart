@@ -4,8 +4,6 @@ import 'package:provider/provider.dart';
 import 'package:remote/operations.dart';
 import 'package:remote/qr_code.dart';
 import 'package:remote/size.dart';
-import 'package:remote/status.dart';
-import 'package:remote/settings.dart';
 import 'package:remote/storage_util.dart';
 import 'package:remote/variables.dart';
 
@@ -59,9 +57,9 @@ class _MainPageState extends State<MainPage> {
               leading: IconButton(
                 onPressed: () {
                   Navigator.of(context).push(
-                      MaterialPageRoute(builder: (context) => const Status()));
+                      MaterialPageRoute(builder: (context) => const Operations()));
                 },
-                icon: const Icon(Icons.space_dashboard_sharp),
+                icon: const Icon(Icons.home),
               ),
               actions: [
                 Transform.scale(

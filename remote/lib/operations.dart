@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:http/http.dart';
-import 'package:remote/home.dart';
 import 'package:remote/scenesnew.dart';
 import 'package:remote/status.dart';
 import 'package:remote/settings.dart';
@@ -29,9 +28,9 @@ class _OperationsState extends State<Operations> {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => const MainPage()));
+                          builder: (context) => const Settings()));
                 },
-                icon: const Icon(Icons.home_filled),
+                icon: const Icon(Icons.settings),
               ))
         ],
       ),
@@ -207,18 +206,6 @@ class _OperationsState extends State<Operations> {
                     label: const Text("Set Current Transition Fade"),
                     style: ElevatedButton.styleFrom(
                       backgroundColor: const Color.fromARGB(255, 219, 131, 241),
-                    )),
-                ElevatedButton.icon(
-                    onPressed: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const Status()));
-                    },
-                    icon: const Icon(Icons.update),
-                    label: const Text("Status"),
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: const Color.fromARGB(255, 86, 84, 86),
                     )),
                 ElevatedButton.icon(
                     onPressed: () {
