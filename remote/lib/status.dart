@@ -112,6 +112,11 @@ class _StatusState extends State<Status> {
           title: const Text("Current Status"),
           centerTitle: true,
           backgroundColor: const Color.fromARGB(255, 0, 0, 0),
+          leading: BackButton(
+            onPressed: () {
+              Navigator.pop(context);
+            },
+          ),
         ),
         body: Center(
           child: FutureBuilder<Result>(
