@@ -39,9 +39,9 @@ class _ScenesnewState extends State<Scenesnew> {
   @override
   Widget build(BuildContext context) => Scaffold(
         appBar: AppBar(
+          title: const Text("Scenes"),
           centerTitle: true,
           backgroundColor: const Color.fromARGB(255, 0, 0, 0),
-          title: const Text("Scenes"),
         ),
         body: Column(children: [
           SizedBox(

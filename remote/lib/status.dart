@@ -3,8 +3,6 @@ import 'dart:core';
 
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-import 'package:remote/home.dart';
-import 'package:remote/operations.dart';
 import 'package:remote/size.dart';
 import 'package:remote/variables.dart';
 
@@ -111,8 +109,9 @@ class _StatusState extends State<Status> {
       title: 'Status Page',
       home: Scaffold(
         appBar: AppBar(
-          backgroundColor: const Color.fromARGB(255, 0, 0, 0),
           title: const Text("Current Status"),
+          centerTitle: true,
+          backgroundColor: const Color.fromARGB(255, 0, 0, 0),
         ),
         body: Center(
           child: FutureBuilder<Result>(

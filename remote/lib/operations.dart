@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:http/http.dart';
 import 'package:remote/scenesnew.dart';
-import 'package:remote/status.dart';
 import 'package:remote/settings.dart';
 import 'package:remote/variables.dart';
 
@@ -20,19 +19,6 @@ class _OperationsState extends State<Operations> {
         backgroundColor: const Color.fromARGB(255, 0, 0, 0),
         title: const Text("Operations"),
         centerTitle: true,
-        actions: [
-          Transform.scale(
-              scale: 0.7,
-              child: IconButton(
-                onPressed: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const Settings()));
-                },
-                icon: const Icon(Icons.settings),
-              ))
-        ],
       ),
       body: CustomScrollView(
         primary: false,
