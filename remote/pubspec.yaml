@@ -41,8 +41,8 @@ dependencies:
   shared_preferences:
   provider: 
   settings_ui: 
-  qr_code_scanner: 
   http: 
+  mobile_scanner: ^2.1.0
   
 
 dev_dependencies:
