@@ -4,20 +4,14 @@ import 'package:remote/operations.dart';
 import 'package:remote/storage_util.dart';
 import 'package:remote/variables.dart';
 
-class Qrcode extends StatefulWidget {
-  const Qrcode({Key? key}) : super(key: key);
-
-  @override
-  State<Qrcode> createState() => _QrcodeState();
-}
-
-class _QrcodeState extends State<Qrcode> {
-  final GlobalKey qrKey = GlobalKey(debugLabel: 'QR');
-  final urlRegEx = RegExp(
-      r'https?:\/\/?kit.rtirl.com\/(?:[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12})');
+class QRScanner extends StatelessWidget {
+  const QRScanner({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final urlRegEx = RegExp(
+        r'https?:\/\/?kit.rtirl.com\/(?:[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12})');
+
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: AppBar(
@@ -32,7 +26,10 @@ class _QrcodeState extends State<Qrcode> {
               final code = barcode.rawValue;
               if (code != null) {
                 if (!urlRegEx.hasMatch(code)) {
-                  _showErrorSnackBar();
+                  ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                    content:
+                        Text('This QR code is not valid, please check again!'),
+                  ));
                 }
 
                 final splitUrl = code.split('/');
@@ -46,11 +43,5 @@ class _QrcodeState extends State<Qrcode> {
             }),
       ),
     );
-  }
-
-  void _showErrorSnackBar() {
-    ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-      content: Text('This QR code is not valid, please check again!'),
-    ));
   }
 }
