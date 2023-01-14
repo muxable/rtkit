@@ -22,7 +22,7 @@ class QRScanner extends StatelessWidget {
       body: Expanded(
         child: MobileScanner(
             allowDuplicates: false,
-            onDetect: (barcode, args) async {
+            onDetect: (barcode, args) {
               final code = barcode.rawValue;
               if (code != null) {
                 if (!urlRegEx.hasMatch(code)) {
@@ -30,6 +30,7 @@ class QRScanner extends StatelessWidget {
                     content:
                         Text('This QR code is not valid, please check again!'),
                   ));
+                  return;
                 }
 
                 final splitUrl = code.split('/');
@@ -38,6 +39,7 @@ class QRScanner extends StatelessWidget {
 
                 Navigator.of(context).push(MaterialPageRoute(
                     builder: (context) => const Operations()));
+                return;
               }
               Navigator.of(context).pop();
             }),
