@@ -49,15 +49,15 @@ class _MainPageState extends State<MainPage> {
   Widget build(BuildContext context) {
     return Consumer(builder: (context, ThemeModel themeNotifier, child) {
       return Scaffold(
-        resizeToAvoidBottomInset: false,
+          resizeToAvoidBottomInset: false,
           appBar: AppBar(
               title: const Text('RealtimeKit'),
               centerTitle: true,
               backgroundColor: const Color.fromARGB(255, 0, 0, 0),
               leading: IconButton(
                 onPressed: () {
-                  Navigator.of(context).push(
-                      MaterialPageRoute(builder: (context) => const Operations()));
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => const Operations()));
                 },
                 icon: const Icon(Icons.home),
               ),
