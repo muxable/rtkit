@@ -36,6 +36,13 @@ class _SettingsState extends State<Settings> {
                 ),
                 const Divider(),
                 ListTile(
+                  title: const Text('RealtimeKit is open source!'),
+                  subtitle: const Text("Find us on GitHub!"),
+                  trailing: const Icon(Icons.terminal),
+                  onTap: () =>
+                      openUrl(Uri.parse("https://github.com/muxable/rtkit")),
+                ),
+                ListTile(
                   title: const Text('Muxable Discord'),
                   subtitle: const Text("Join the Muxable Discord!"),
                   trailing: const Icon(Icons.launch),
