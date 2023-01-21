@@ -43,6 +43,7 @@ dependencies:
   settings_ui: 
   http: 
   mobile_scanner: ^2.1.0
+  flutter_native_splash: ^2.1.6
   
 
 dev_dependencies:
@@ -57,8 +58,8 @@ flutter_icons:
   image_path: "images/logo.png"
   remove_alpha_ios: true
 
-
-  
+flutter_native_splash:
+  background_image: "images/logo.png"  
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
