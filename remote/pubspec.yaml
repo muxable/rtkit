@@ -43,7 +43,7 @@ dependencies:
   settings_ui: 
   http: 
   mobile_scanner: ^2.1.0
-  flutter_native_splash: ^2.1.6
+  flutter_native_splash: ^2.2.16
   
 
 dev_dependencies:
