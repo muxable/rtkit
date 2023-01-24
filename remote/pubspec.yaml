@@ -59,7 +59,7 @@ flutter_icons:
   remove_alpha_ios: true
 
 flutter_native_splash:
-  color: "#ffffff"
+  color: "#000000"
   image: "images/logo.png"  
 
   # The "flutter_lints" package below contains a set of recommended lints to
