@@ -13,7 +13,7 @@ on:
 jobs:
   ipa:
     if: github.event_name != 'release'
-    runs-on: macos
+    runs-on: macos-latest
     env:
       APP_STORE_CONNECT_ISSUER_ID: 863d4663-9217-4c36-9caa-e7b2201ec4f1
       APP_STORE_CONNECT_KEY_IDENTIFIER: PQPDACRFT7
