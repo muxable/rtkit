@@ -89,7 +89,7 @@ class _MainPageState extends State<MainPage> {
                     ),
                     Center(
                       child: Image.asset(
-                        'images/logo.png',
+                        'assets/logo.png',
                         height: displayHeight(context) * 0.1,
                         width: displayWidth(context) * 0.2,
                       ),
