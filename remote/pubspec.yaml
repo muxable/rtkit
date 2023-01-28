@@ -46,10 +46,10 @@ dependencies:
   
 
 dev_dependencies:
+  flutter_lints: ^2.0.1
+  flutter_launcher_icons:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^2.0.0
-  flutter_launcher_icons:
 
 flutter_icons:
   android: "launcer_icon"
