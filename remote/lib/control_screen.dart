@@ -16,11 +16,11 @@ class ControlScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: darkColor,
       body: SafeArea(
-          child: ListView(
-        children: [
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: StreamBuilder<ChannelStatus>(
+        child: ListView(
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: StreamBuilder<ChannelStatus>(
                 stream:
                     ChannelsAdapter.instance.retrieveChannelStatus(channelId),
                 builder: (context, snapshot) {
@@ -127,10 +127,12 @@ class ControlScreen extends StatelessWidget {
                         ],
                       );
                   }
-                }),
-          ),
-        ],
-      )),
+                },
+              ),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
@@ -158,42 +160,48 @@ class _ControlBox extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-        onTap: onTap,
-        child: Container(
-            decoration: BoxDecoration(
-                color: boxColor,
-                borderRadius: BorderRadius.circular(16),
-                border: withBorder != null && withBorder == true
-                    ? Border.all(color: accentColor!, width: 1)
-                    : null),
-            child: Padding(
-                padding:
-                    const EdgeInsets.symmetric(vertical: 8, horizontal: 12),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: [
-                        Icon(
-                          icon,
-                          color: accentColor,
-                        )
-                      ],
-                    ),
-                    if (subtitle != null)
-                      Text(subtitle!,
-                          style: Theme.of(context)
-                              .textTheme
-                              .bodyLarge!
-                              .copyWith(color: accentColor)),
-                    Text(title,
-                        style: Theme.of(context)
-                            .textTheme
-                            .headlineSmall!
-                            .copyWith(color: accentColor)),
-                  ],
-                ))));
+      onTap: onTap,
+      child: Container(
+        decoration: BoxDecoration(
+            color: boxColor,
+            borderRadius: BorderRadius.circular(16),
+            border: withBorder != null && withBorder == true
+                ? Border.all(color: accentColor!, width: 1)
+                : null),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 12),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  Icon(
+                    icon,
+                    color: accentColor,
+                  )
+                ],
+              ),
+              if (subtitle != null)
+                Text(
+                  subtitle!,
+                  style: Theme.of(context)
+                      .textTheme
+                      .bodyLarge!
+                      .copyWith(color: accentColor),
+                ),
+              Text(
+                title,
+                style: Theme.of(context)
+                    .textTheme
+                    .headlineSmall!
+                    .copyWith(color: accentColor),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
   }
 }
