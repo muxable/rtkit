@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:remote/adapter/channels_adapter.dart';
+import 'package:remote/control_api.dart';
 
 const darkColor = Color.fromARGB(255, 38, 38, 38);
 const yellow = Color.fromARGB(255, 223, 251, 38);
@@ -52,7 +53,9 @@ class ControlScreen extends StatelessWidget {
                                 ? yellow
                                 : red,
                             icon: Icons.fiber_manual_record_outlined,
-                            onTap: () {},
+                            onTap: () => channelStatus.obsRecording == 'stopped'
+                                ? startRecording(channelId)
+                                : stopRecording(channelId),
                           ),
                           _ControlBox(
                             title: channelStatus.obsStreaming == 'stopped'
@@ -62,7 +65,9 @@ class ControlScreen extends StatelessWidget {
                                 ? yellow
                                 : red,
                             icon: Icons.emergency_recording_rounded,
-                            onTap: () {},
+                            onTap: () => channelStatus.obsStreaming == 'stopped'
+                                ? startStreaming(channelId)
+                                : stopStreaming(channelId),
                           ),
                           _ControlBox(
                             title: channelStatus.obsReplayBuffer == 'stopped'
@@ -72,7 +77,10 @@ class ControlScreen extends StatelessWidget {
                                 ? yellow
                                 : red,
                             icon: Icons.fast_rewind,
-                            onTap: () {},
+                            onTap: () =>
+                                channelStatus.obsReplayBuffer == 'stopped'
+                                    ? startReplayBuffer(channelId)
+                                    : stopReplayBuffer(channelId),
                           ),
                           _ControlBox(
                             title: 'Save Replay',
@@ -81,10 +89,10 @@ class ControlScreen extends StatelessWidget {
                                     ? 1
                                     : 0.4),
                             icon: Icons.save_alt,
-                            onTap: () {
-                              // TODO One can only save a replay buffed when its started
-                              if (channelStatus.obsReplayBuffer == 'started') {}
-                            },
+                            onTap: () =>
+                                channelStatus.obsReplayBuffer == 'started'
+                                    ? saveReplayBuffer(channelId)
+                                    : null,
                           ),
                           _ControlBox(
                             title: 'Scene',
