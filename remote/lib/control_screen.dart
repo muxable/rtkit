@@ -92,7 +92,7 @@ class ControlScreen extends StatelessWidget {
                             boxColor: channelStatus.obsRecording == 'stopped'
                                 ? yellow
                                 : red,
-                            icon: Icons.fiber_manual_record_outlined,
+                            icon: Icons.camera,
                             onTap: () => channelStatus.obsRecording == 'stopped'
                                 ? startRecording(channelId)
                                 : stopRecording(channelId),
@@ -104,7 +104,7 @@ class ControlScreen extends StatelessWidget {
                             boxColor: channelStatus.obsStreaming == 'stopped'
                                 ? yellow
                                 : red,
-                            icon: Icons.emergency_recording_rounded,
+                            icon: Icons.live_tv,
                             onTap: () => channelStatus.obsStreaming == 'stopped'
                                 ? startStreaming(channelId)
                                 : stopStreaming(channelId),
@@ -116,7 +116,7 @@ class ControlScreen extends StatelessWidget {
                             boxColor: channelStatus.obsReplayBuffer == 'stopped'
                                 ? yellow
                                 : red,
-                            icon: Icons.fast_rewind,
+                            icon: Icons.replay,
                             onTap: () =>
                                 channelStatus.obsReplayBuffer == 'stopped'
                                     ? startReplayBuffer(channelId)
@@ -138,7 +138,7 @@ class ControlScreen extends StatelessWidget {
                             title: 'Scene',
                             subtitle: channelStatus.obsScene.name,
                             boxColor: purple,
-                            icon: Icons.screenshot_monitor,
+                            icon: Icons.switch_video,
                             onTap: () => _dialogBuilder(
                               context,
                               'Select a Scene',
@@ -150,7 +150,7 @@ class ControlScreen extends StatelessWidget {
                             title: 'Transition',
                             subtitle: channelStatus.obsTransition,
                             boxColor: purple,
-                            icon: Icons.copy_all_outlined,
+                            icon: Icons.switch_access_shortcut,
                             onTap: () => _dialogBuilder(
                               context,
                               'Select a Transition',
