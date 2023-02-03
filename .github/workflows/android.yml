@@ -119,10 +119,11 @@ jobs:
       - uses: actions/download-artifact@v3
         with:
           name: mapping.txt
-      - uses: r0adkll/upload-google-play@v1.0.15
+      - uses: r0adkll/upload-google-play@v1.0.19
         with:
           serviceAccountJsonPlainText: ${{ secrets.GOOGLE_PLAY_SERVICE_ACCOUNT_JSON }}
           packageName: com.rtirl.kit
           releaseFiles: app-release.aab
-          track: ${{ github.event_name == 'release' && 'production' || 'alpha' }}
+          track: ${{ github.event_name == 'release' && 'production' || 'internal' }}
+          status: ${{ github.event_name == 'release' && 'completed' || 'draft' }}
           mappingFile: mapping.txt
