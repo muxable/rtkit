@@ -20,20 +20,23 @@ class ControlScreen extends StatelessWidget {
       builder: (BuildContext context) {
         return AlertDialog(
           title: Text(title),
-          content: ListView.builder(
-            shrinkWrap: true,
-            itemCount: options.length,
-            itemBuilder: (context, index) {
-              return ListTile(
-                title: Text(
-                  options[index],
-                ),
-                onTap: () {
-                  onTileTap(channelId, options[index]);
-                  Navigator.of(context).pop();
-                },
-              );
-            },
+          content: SizedBox(
+            width: double.maxFinite,
+            child: ListView.builder(
+              shrinkWrap: true,
+              itemCount: options.length,
+              itemBuilder: (context, index) {
+                return ListTile(
+                  title: Text(
+                    options[index],
+                  ),
+                  onTap: () {
+                    onTileTap(channelId, options[index]);
+                    Navigator.of(context).pop();
+                  },
+                );
+              },
+            ),
           ),
           actions: <Widget>[
             TextButton(
