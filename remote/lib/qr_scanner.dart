@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:mobile_scanner/mobile_scanner.dart';
-import 'package:remote/operations.dart';
-import 'package:remote/storage_util.dart';
-import 'package:remote/variables.dart';
+import 'package:rtkit/operations.dart';
+import 'package:rtkit/storage_util.dart';
+import 'package:rtkit/variables.dart';
 
 class QRScanner extends StatelessWidget {
   const QRScanner({Key? key}) : super(key: key);

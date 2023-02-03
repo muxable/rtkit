@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:http/http.dart';
-import 'package:remote/scenesnew.dart';
-import 'package:remote/settings.dart';
-import 'package:remote/variables.dart';
+import 'package:rtkit/scenesnew.dart';
+import 'package:rtkit/settings.dart';
+import 'package:rtkit/variables.dart';
 
 class Operations extends StatefulWidget {
   const Operations({Key? key}) : super(key: key);

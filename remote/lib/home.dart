@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:provider/provider.dart';
-import 'package:remote/operations.dart';
-import 'package:remote/qr_scanner.dart';
-import 'package:remote/size.dart';
-import 'package:remote/storage_util.dart';
-import 'package:remote/variables.dart';
+import 'package:rtkit/operations.dart';
+import 'package:rtkit/qr_scanner.dart';
+import 'package:rtkit/size.dart';
+import 'package:rtkit/storage_util.dart';
+import 'package:rtkit/variables.dart';
 
 import 'theme_model.dart';
 
