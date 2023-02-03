@@ -4,8 +4,8 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:http/http.dart';
-import 'package:remote/size.dart';
-import 'package:remote/variables.dart';
+import 'package:rtkit/size.dart';
+import 'package:rtkit/variables.dart';
 
 class Scenesnew extends StatefulWidget {
   const Scenesnew({Key? key}) : super(key: key);
