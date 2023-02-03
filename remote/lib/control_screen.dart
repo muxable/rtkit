@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:rtkit/adapter/channels_adapter.dart';
 import 'package:rtkit/control_api.dart';
+import 'package:rtkit/home.dart';
+import 'package:rtkit/settings.dart';
 
 const darkColor = Color.fromARGB(255, 38, 38, 38);
 const yellow = Color.fromARGB(255, 223, 251, 38);
@@ -114,7 +116,12 @@ class ControlScreen extends StatelessWidget {
                             withBorder: true,
                             accentColor: Colors.white,
                             icon: Icons.home_outlined,
-                            onTap: () {},
+                            onTap: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => const MainPage()));
+                            },
                           ),
                           _ControlBox(
                             title: 'Settings',
@@ -122,7 +129,12 @@ class ControlScreen extends StatelessWidget {
                             withBorder: true,
                             accentColor: Colors.white,
                             icon: Icons.settings,
-                            onTap: () {},
+                            onTap: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => const Settings()));
+                            },
                           )
                         ],
                       );
