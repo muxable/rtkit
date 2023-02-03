@@ -2,9 +2,9 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import 'package:remote/firebase_options.dart';
-import 'package:remote/home.dart';
-import 'package:remote/storage_util.dart';
+import 'package:rtkit/firebase_options.dart';
+import 'package:rtkit/home.dart';
+import 'package:rtkit/storage_util.dart';
 
 import 'theme_model.dart';
 
