@@ -13,6 +13,44 @@ class ControlScreen extends StatelessWidget {
   final String channelId;
   const ControlScreen({super.key, required this.channelId});
 
+  Future<void> _dialogBuilder(BuildContext context, String title,
+      List<String> options, Function(String, String) onTileTap) {
+    return showDialog<void>(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text(title),
+          content: ListView.builder(
+            shrinkWrap: true,
+            itemCount: options.length,
+            itemBuilder: (context, index) {
+              return ListTile(
+                title: Text(
+                  options[index],
+                ),
+                onTap: () {
+                  onTileTap(channelId, options[index]);
+                  Navigator.of(context).pop();
+                },
+              );
+            },
+          ),
+          actions: <Widget>[
+            TextButton(
+              style: TextButton.styleFrom(
+                textStyle: Theme.of(context).textTheme.labelLarge,
+              ),
+              child: const Text('Cancel'),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+          ],
+        );
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -101,14 +139,24 @@ class ControlScreen extends StatelessWidget {
                             subtitle: channelStatus.obsScene.name,
                             boxColor: purple,
                             icon: Icons.screenshot_monitor,
-                            onTap: () {},
+                            onTap: () => _dialogBuilder(
+                              context,
+                              'Select a Scene',
+                              channelStatus.obsScenes,
+                              setCurrentScene,
+                            ),
                           ),
                           _ControlBox(
                             title: 'Transition',
                             subtitle: channelStatus.obsTransition,
                             boxColor: purple,
                             icon: Icons.copy_all_outlined,
-                            onTap: () {},
+                            onTap: () => _dialogBuilder(
+                              context,
+                              'Select a Transition',
+                              channelStatus.obsTransitions,
+                              setCurrentTransition,
+                            ),
                           ),
                           _ControlBox(
                             title: 'Main Screen',
