@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:http/http.dart' as http;
 
 const baseURL = "https://kit.rtirl.com/api/";
@@ -39,11 +41,12 @@ void saveReplayBuffer(String channelId) {
 
 void setCurrentScene(String channelId, String sceneName) {
   http.post(Uri.parse("$baseURL$channelId/setCurrentScene"),
-      body: "[\"$sceneName\"]", headers: {"content-type": "application/json"});
+      body: jsonEncode([sceneName]),
+      headers: {"content-type": "application/json"});
 }
 
 void setCurrentTransition(String channelId, String transitionName) {
   http.post(Uri.parse("$baseURL$channelId/setCurrentTransition"),
-      body: "[\"$transitionName\"]",
+      body: jsonEncode([transitionName]),
       headers: {"content-type": "application/json"});
 }
