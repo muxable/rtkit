@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "985944975135",
+    "project_id": "rtkit-53e95",
+    "storage_bucket": "rtkit-53e95.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:985944975135:android:713c15fab9a5621fd9722a",
+        "android_client_info": {
+          "package_name": "com.rtirl.kit"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "985944975135-44mt9d1vfp4torbrhd3rr69u1bfmpvtg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBKa6NTybZO3BF-bctlGlVMjjGlTFErQFk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "985944975135-44mt9d1vfp4torbrhd3rr69u1bfmpvtg.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "985944975135-4kvo76upc10njb2q6tv5d6gj40ikqjne.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.rtirl.kit"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
