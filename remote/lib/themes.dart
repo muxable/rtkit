@@ -41,78 +41,38 @@ class Themes {
   static final mainTheme = ThemeData(
     fontFamily: "Oskari G2",
     textTheme: const TextTheme(
-      displayLarge: TextStyle(
-        fontSize: 72.0,
-        fontWeight: FontWeight.bold,
-        color: offBlackColor,
-      ),
-      displayMedium: TextStyle(
-        fontSize: 36.0,
-        fontWeight: FontWeight.bold,
-        color: offBlackColor,
-      ),
-      displaySmall: TextStyle(
-        fontSize: 24.0,
-        fontWeight: FontWeight.bold,
-        color: offBlackColor,
-      ),
-      headlineMedium: TextStyle(
-        fontSize: 18.0,
-        fontWeight: FontWeight.bold,
-        color: offBlackColor,
-      ),
-      headlineSmall: TextStyle(
-        fontSize: 14.0,
-        fontWeight: FontWeight.bold,
-        color: offBlackColor,
-      ),
-      titleLarge: TextStyle(
-        fontSize: 12.0,
-        fontWeight: FontWeight.bold,
-        color: offBlackColor,
-      ),
-      bodyLarge: TextStyle(
-        fontSize: 14.0,
-        color: offBlackColor,
-      ),
-      bodyMedium: TextStyle(
-        fontSize: 12.0,
-        color: offBlackColor,
-      ),
-    ),
-    inputDecorationTheme: InputDecorationTheme(
-      border: const OutlineInputBorder(
-          borderRadius: BorderRadius.all(Radius.circular(24)),
-          borderSide: BorderSide(color: Color(0xFF262626))),
-      focusedBorder: OutlineInputBorder(
-        borderSide: const BorderSide(color: Colors.black),
-        borderRadius: BorderRadius.circular(24),
-      ),
-      floatingLabelBehavior: FloatingLabelBehavior.never,
-      filled: true,
-      fillColor: Colors.white,
-      labelStyle: const TextStyle(
-        fontSize: 24,
-      ),
-      contentPadding: const EdgeInsets.symmetric(horizontal: 20),
-    ),
-    elevatedButtonTheme: ElevatedButtonThemeData(
-      style: TextButton.styleFrom(
-        foregroundColor: Colors.white,
-        backgroundColor: offBlackColor,
-        disabledForegroundColor: const Color(0xFFDDDDDD),
-        disabledBackgroundColor: const Color(0xFF828282),
-        textStyle: const TextStyle(
-          fontSize: 24.0,
+        displayMedium: TextStyle(
+          fontSize: 36,
           fontWeight: FontWeight.bold,
+          color: offBlackColor,
         ),
-        shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(24),
-            side: const BorderSide(color: Colors.black)),
-        minimumSize: const Size(270, 48),
-      ),
-    ),
+        headlineSmall: TextStyle(
+          fontSize: 14,
+          color: primaryTextColor,
+        ),
+        bodyMedium: TextStyle(
+          fontSize: 10,
+          color: primaryTextColor,
+        ),
+        bodySmall: TextStyle(
+          fontSize: 10,
+          color: secondaryTextColor,
+        ),
+        titleMedium: TextStyle(
+          fontSize: 14,
+          color: primaryTextColor,
+        ),
+        titleSmall: TextStyle(
+          fontSize: 14,
+          color: primaryTextColor,
+        )),
+    listTileTheme: const ListTileThemeData(iconColor: Colors.white),
     canvasColor: backgroundColor,
+    cardColor: backgroundColor,
+    dialogBackgroundColor: backgroundColor,
+    dialogTheme: DialogTheme(
+      titleTextStyle: TextStyle(color: primaryTextColor),
+    ),
     appBarTheme: const AppBarTheme(
       color: offBlackColor,
       iconTheme: IconThemeData(
@@ -120,74 +80,7 @@ class Themes {
       ),
     ),
     dividerColor: dividerColor,
-    checkboxTheme: CheckboxThemeData(
-      fillColor: MaterialStateProperty.resolveWith<Color?>(
-          (Set<MaterialState> states) {
-        if (states.contains(MaterialState.disabled)) {
-          return null;
-        }
-        if (states.contains(MaterialState.selected)) {
-          return primaryColor;
-        }
-        return null;
-      }),
-    ),
-    radioTheme: RadioThemeData(
-      fillColor: MaterialStateProperty.resolveWith<Color?>(
-          (Set<MaterialState> states) {
-        if (states.contains(MaterialState.disabled)) {
-          return null;
-        }
-        if (states.contains(MaterialState.selected)) {
-          return primaryColor;
-        }
-        return null;
-      }),
-    ),
-    switchTheme: SwitchThemeData(
-      thumbColor: MaterialStateProperty.resolveWith<Color?>(
-          (Set<MaterialState> states) {
-        if (states.contains(MaterialState.disabled)) {
-          return null;
-        }
-        if (states.contains(MaterialState.selected)) {
-          return primaryColor;
-        }
-        return null;
-      }),
-      trackColor: MaterialStateProperty.resolveWith<Color?>(
-          (Set<MaterialState> states) {
-        if (states.contains(MaterialState.disabled)) {
-          return null;
-        }
-        if (states.contains(MaterialState.selected)) {
-          return primaryColor;
-        }
-        return null;
-      }),
-    ),
     colorScheme: ColorScheme.fromSwatch(primarySwatch: Colors.blue)
         .copyWith(background: backgroundColor),
   );
-
-  static final textSelectionTheme = ThemeData(
-      fontFamily: "Oskari G2",
-      textSelectionTheme: const TextSelectionThemeData(
-        cursorColor: primaryColor,
-        selectionColor: selectionColor,
-        selectionHandleColor: primaryColor,
-      ),
-      inputDecorationTheme: InputDecorationTheme(
-        enabledBorder: OutlineInputBorder(
-          borderSide: const BorderSide(color: Color(0xFFF6F3ED)),
-          borderRadius: BorderRadius.circular(24),
-        ),
-        focusedBorder: OutlineInputBorder(
-          borderSide: const BorderSide(color: primaryColor),
-          borderRadius: BorderRadius.circular(24),
-        ),
-        fillColor: const Color(0xFF262626),
-        prefixIconColor: Colors.white,
-        hintStyle: const TextStyle(color: Color(0xFFCDCDCD)),
-      ));
 }
