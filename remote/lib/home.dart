@@ -1,12 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:http/http.dart' as http;
 import 'package:provider/provider.dart';
-import 'package:rtkit/operations.dart';
 import 'package:rtkit/qr_scanner.dart';
-import 'package:rtkit/size.dart';
-import 'package:rtkit/storage_util.dart';
 import 'package:rtkit/themes.dart';
-import 'package:rtkit/variables.dart';
 
 import 'theme_model.dart';
 

@@ -70,7 +70,7 @@ class Themes {
     canvasColor: backgroundColor,
     cardColor: backgroundColor,
     dialogBackgroundColor: backgroundColor,
-    dialogTheme: DialogTheme(
+    dialogTheme: const DialogTheme(
       titleTextStyle: TextStyle(color: primaryTextColor),
     ),
     appBarTheme: const AppBarTheme(
