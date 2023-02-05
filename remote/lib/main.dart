@@ -5,6 +5,7 @@ import 'package:provider/provider.dart';
 import 'package:rtkit/firebase_options.dart';
 import 'package:rtkit/home.dart';
 import 'package:rtkit/storage_util.dart';
+import 'package:rtkit/themes.dart';
 
 import 'theme_model.dart';
 
@@ -34,8 +35,7 @@ class _MyAppState extends State<MyApp> {
         child: Consumer(
           builder: (context, ThemeModel themeNotifier, child) {
             return MaterialApp(
-              theme:
-                  themeNotifier.isDark ? ThemeData.dark() : ThemeData.light(),
+              theme: Themes.mainTheme,
               debugShowCheckedModeBanner: false,
               title: 'RealtimeKit',
               home: const MainPage(),

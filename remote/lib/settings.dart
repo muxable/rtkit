@@ -18,8 +18,6 @@ class _SettingsState extends State<Settings> {
     return Scaffold(
         appBar: AppBar(
           title: const Text('Settings'),
-          centerTitle: true,
-          backgroundColor: const Color.fromARGB(255, 0, 0, 0),
         ),
         body: Consumer(
           builder: (context, layoutModel, child) {
