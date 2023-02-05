@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'package:rtkit/qr_scanner.dart';
 import 'package:rtkit/themes.dart';
-
-import 'theme_model.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({Key? key}) : super(key: key);
@@ -15,58 +12,58 @@ class MainPage extends StatefulWidget {
 class _MainPageState extends State<MainPage> {
   @override
   Widget build(BuildContext context) {
-    return Consumer(builder: (context, ThemeModel themeNotifier, child) {
-      return Scaffold(
-        resizeToAvoidBottomInset: false,
-        body: SafeArea(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: <Widget>[
-              Padding(
-                padding: const EdgeInsets.only(bottom: 50.0),
-                child: Text(
-                  'REALTIMEKIT',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    fontSize:
-                        Theme.of(context).textTheme.displayMedium!.fontSize,
-                    fontFamily: 'HansonBold',
-                    color: primaryColor,
-                  ),
+    return Scaffold(
+      resizeToAvoidBottomInset: false,
+      body: SafeArea(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: <Widget>[
+            Padding(
+              padding: const EdgeInsets.only(bottom: 50.0),
+              child: Text(
+                'REALTIMEKIT',
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontSize: Theme.of(context).textTheme.displayMedium!.fontSize,
+                  fontFamily: 'HansonBold',
+                  color: primaryColor,
                 ),
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  Center(
-                    child: FloatingActionButton.extended(
-                      backgroundColor: primaryColor,
-                      icon: const Icon(Icons.qr_code_scanner_sharp,
-                          color: offBlackColor),
-                      label: const Text(
-                        "SCAN QR CODE",
-                        style: TextStyle(
-                            color: offBlackColor,
-                            fontFamily: 'Oskari G2',
-                            fontWeight: FontWeight.bold),
-                      ),
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => const QRScanner(),
-                          ),
-                        );
-                      },
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Center(
+                  child: FloatingActionButton.extended(
+                    backgroundColor: primaryColor,
+                    icon: const Icon(
+                      Icons.qr_code_scanner_sharp,
+                      color: offBlackColor,
                     ),
+                    label: const Text(
+                      "SCAN QR CODE",
+                      style: TextStyle(
+                        color: offBlackColor,
+                        fontFamily: 'Oskari G2',
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const QRScanner(),
+                        ),
+                      );
+                    },
                   ),
-                ],
-              ),
-            ],
-          ),
+                ),
+              ],
+            ),
+          ],
         ),
-      );
-    });
+      ),
+    );
   }
 }
