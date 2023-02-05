@@ -41,31 +41,32 @@ class Themes {
   static final mainTheme = ThemeData(
     fontFamily: "Oskari G2",
     textTheme: const TextTheme(
-        displayMedium: TextStyle(
-          fontSize: 36,
-          fontWeight: FontWeight.bold,
-          color: offBlackColor,
-        ),
-        headlineSmall: TextStyle(
-          fontSize: 14,
-          color: primaryTextColor,
-        ),
-        bodyMedium: TextStyle(
-          fontSize: 10,
-          color: primaryTextColor,
-        ),
-        bodySmall: TextStyle(
-          fontSize: 10,
-          color: secondaryTextColor,
-        ),
-        titleMedium: TextStyle(
-          fontSize: 14,
-          color: primaryTextColor,
-        ),
-        titleSmall: TextStyle(
-          fontSize: 14,
-          color: primaryTextColor,
-        )),
+      displayMedium: TextStyle(
+        fontSize: 36,
+        fontWeight: FontWeight.bold,
+        color: offBlackColor,
+      ),
+      headlineSmall: TextStyle(
+        fontSize: 14,
+        color: primaryTextColor,
+      ),
+      bodyMedium: TextStyle(
+        fontSize: 10,
+        color: primaryTextColor,
+      ),
+      bodySmall: TextStyle(
+        fontSize: 10,
+        color: secondaryTextColor,
+      ),
+      titleMedium: TextStyle(
+        fontSize: 14,
+        color: primaryTextColor,
+      ),
+      titleSmall: TextStyle(
+        fontSize: 14,
+        color: primaryTextColor,
+      ),
+    ),
     listTileTheme: const ListTileThemeData(iconColor: Colors.white),
     canvasColor: backgroundColor,
     cardColor: backgroundColor,
@@ -75,12 +76,18 @@ class Themes {
     ),
     appBarTheme: const AppBarTheme(
       color: offBlackColor,
+      titleTextStyle: TextStyle(
+        fontSize: 14,
+        color: primaryTextColor,
+        fontFamily: 'Oskari G2',
+      ),
       iconTheme: IconThemeData(
         color: primaryColor,
       ),
     ),
     dividerColor: dividerColor,
-    colorScheme: ColorScheme.fromSwatch(primarySwatch: Colors.blue)
-        .copyWith(background: backgroundColor),
+    colorScheme: ColorScheme.fromSwatch(
+      primarySwatch: generateMaterialColor(primaryColor),
+    ).copyWith(background: backgroundColor),
   );
 }
