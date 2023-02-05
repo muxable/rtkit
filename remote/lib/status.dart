@@ -3,8 +3,8 @@ import 'dart:core';
 
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-import 'package:remote/size.dart';
-import 'package:remote/variables.dart';
+import 'package:rtkit/size.dart';
+import 'package:rtkit/variables.dart';
 
 Future<Result> fetchPost() async {
   String u = "https://kit.rtirl.com/api/$uuid";

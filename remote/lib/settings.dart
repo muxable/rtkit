@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:provider/provider.dart';
-import 'package:remote/status.dart';
-import 'package:remote/urls.dart';
+import 'package:rtkit/status.dart';
+import 'package:rtkit/urls.dart';
 
 //create new stateful widget settings
 class Settings extends StatefulWidget {
@@ -18,8 +18,6 @@ class _SettingsState extends State<Settings> {
     return Scaffold(
         appBar: AppBar(
           title: const Text('Settings'),
-          centerTitle: true,
-          backgroundColor: const Color.fromARGB(255, 0, 0, 0),
         ),
         body: Consumer(
           builder: (context, layoutModel, child) {
