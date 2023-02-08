@@ -15,6 +15,7 @@ class ChannelModel extends ChangeNotifier {
   }
 
   Future<String?> getChannelId() async {
-    return await preferences.getChannelId();
+    _channelId = await preferences.getChannelId();
+    return _channelId;
   }
 }
