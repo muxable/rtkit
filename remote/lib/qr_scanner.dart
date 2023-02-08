@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:mobile_scanner/mobile_scanner.dart';
+import 'package:provider/provider.dart';
+import 'package:rtkit/channel_provider.dart';
 import 'package:rtkit/control_screen.dart';
-import 'package:rtkit/storage_util.dart';
-import 'package:rtkit/variables.dart';
 
 class QRScanner extends StatelessWidget {
   const QRScanner({Key? key}) : super(key: key);
@@ -33,11 +33,13 @@ class QRScanner extends StatelessWidget {
               }
 
               final splitUrl = code.split('/');
-              uuid = splitUrl[3];
-              StorageUtil.putString("uuid", uuid!);
+              final channelId = splitUrl[3];
+
+              Provider.of<ChannelModel>(context, listen: false)
+                  .setChannelId(channelId);
 
               Navigator.of(context).pushReplacement(MaterialPageRoute(
-                  builder: (context) => ControlScreen(channelId: uuid!)));
+                  builder: (context) => ControlScreen(channelId: channelId)));
               return;
             }
             Navigator.of(context).pop();
