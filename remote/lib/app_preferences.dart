@@ -17,8 +17,7 @@ class AppPreferences {
   Future<String?> getChannelId() async {
     try {
       await getSharedPreferences();
-      var channelId = _prefs.getString('channelId');
-      return channelId;
+      return _prefs.getString('channelId');
     } catch (e) {
       return '';
     }
