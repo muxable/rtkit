@@ -1,2 +1,0 @@
-String? data;
-String? uuid;

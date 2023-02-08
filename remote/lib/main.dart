@@ -1,8 +1,11 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:rtkit/app_preferences.dart';
+import 'package:rtkit/channel_provider.dart';
+import 'package:rtkit/control_screen.dart';
 import 'package:rtkit/firebase_options.dart';
 import 'package:rtkit/home.dart';
-import 'package:rtkit/storage_util.dart';
 import 'package:rtkit/themes.dart';
 
 void main() async {
@@ -12,8 +15,12 @@ void main() async {
     options: DefaultFirebaseOptions.currentPlatform,
   );
 
-  await StorageUtil.getInstance();
-  runApp(const MyApp());
+  runApp(
+    ChangeNotifierProvider(
+      create: (context) => ChannelModel(preferences: AppPreferences()),
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatefulWidget {
@@ -30,7 +37,20 @@ class _MyAppState extends State<MyApp> {
       theme: Themes.mainTheme,
       debugShowCheckedModeBanner: false,
       title: 'RealtimeKit',
-      home: const MainPage(),
+      home: Consumer<ChannelModel>(
+        builder: (context, value, child) => FutureBuilder<String?>(
+          future: value.getChannelId(),
+          builder: (context, snapshot) {
+            final channelId = snapshot.data;
+
+            if (channelId == null) {
+              return const MainPage();
+            }
+
+            return ControlScreen(channelId: channelId);
+          },
+        ),
+      ),
     );
   }
 }
