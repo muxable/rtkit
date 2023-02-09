@@ -47,23 +47,21 @@ class Themes {
         color: offBlackColor,
       ),
       headlineSmall: TextStyle(
-        fontSize: 14,
+        color: primaryTextColor,
+      ),
+      bodyLarge: TextStyle(
         color: primaryTextColor,
       ),
       bodyMedium: TextStyle(
-        fontSize: 10,
         color: primaryTextColor,
       ),
       bodySmall: TextStyle(
-        fontSize: 10,
         color: secondaryTextColor,
       ),
       titleMedium: TextStyle(
-        fontSize: 14,
         color: primaryTextColor,
       ),
       titleSmall: TextStyle(
-        fontSize: 14,
         color: primaryTextColor,
       ),
     ),
