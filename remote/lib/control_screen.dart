@@ -18,37 +18,17 @@ class ControlScreen extends StatelessWidget {
     return showDialog<void>(
       context: context,
       builder: (BuildContext context) {
-        return AlertDialog(
+        return SimpleDialog(
           title: Text(title),
-          content: SizedBox(
-            width: double.maxFinite,
-            child: ListView.builder(
-              shrinkWrap: true,
-              itemCount: options.length,
-              itemBuilder: (context, index) {
-                return ListTile(
-                  title: Text(
-                    options[index],
-                  ),
-                  onTap: () {
-                    onTileTap(channelId, options[index]);
-                    Navigator.of(context).pop();
-                  },
-                );
-              },
-            ),
-          ),
-          actions: <Widget>[
-            TextButton(
-              style: TextButton.styleFrom(
-                textStyle: Theme.of(context).textTheme.labelLarge,
-              ),
-              child: const Text('Cancel'),
-              onPressed: () {
-                Navigator.of(context).pop();
-              },
-            ),
-          ],
+          children: options
+              .map((option) => SimpleDialogOption(
+                    child: Text(option),
+                    onPressed: () {
+                      onTileTap(channelId, option);
+                      Navigator.of(context).pop();
+                    },
+                  ))
+              .toList(),
         );
       },
     );
