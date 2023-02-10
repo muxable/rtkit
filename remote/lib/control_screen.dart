@@ -136,10 +136,9 @@ class ControlScreen extends StatelessWidget {
                                       ? 1
                                       : 0.4),
                               icon: Icons.save_alt,
-                              onTap: () =>
-                                  channelStatus.obsReplayBuffer == 'started'
-                                      ? saveReplayBuffer(channelId)
-                                      : null,
+                              onTap: channelStatus.obsReplayBuffer == 'started'
+                                  ? () => saveReplayBuffer(channelId)
+                                  : null,
                             ),
                             _ControlBox(
                               title: 'Scene',
@@ -227,13 +226,14 @@ class _ControlBox extends StatelessWidget {
   final Color boxColor;
   final bool? withBorder;
   final Color? accentColor;
-  final VoidCallback onTap;
+  final VoidCallback? onTap;
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
+    return InkWell(
+      borderRadius: BorderRadius.circular(16),
       onTap: onTap,
-      child: Container(
+      child: Ink(
         decoration: BoxDecoration(
             color: boxColor,
             borderRadius: BorderRadius.circular(16),
