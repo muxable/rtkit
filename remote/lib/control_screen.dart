@@ -19,7 +19,7 @@ class ControlScreen extends StatelessWidget {
       context: context,
       builder: (BuildContext context) {
         return SimpleDialog(
-          title: Text(title),
+          title: Text(title, style: const TextStyle(color: yellow)),
           children: options
               .map((option) => SimpleDialogOption(
                     child: Text(option),
