@@ -53,7 +53,8 @@ class DefaultFirebaseOptions {
     messagingSenderId: '985944975135',
     projectId: 'rtkit-53e95',
     storageBucket: 'rtkit-53e95.appspot.com',
-    iosClientId: '985944975135-4kvo76upc10njb2q6tv5d6gj40ikqjne.apps.googleusercontent.com',
+    iosClientId:
+        '985944975135-4kvo76upc10njb2q6tv5d6gj40ikqjne.apps.googleusercontent.com',
     iosBundleId: 'com.rtirl.kit',
   );
 }
