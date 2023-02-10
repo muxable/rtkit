@@ -22,7 +22,10 @@ class ControlScreen extends StatelessWidget {
           title: Text(title, style: const TextStyle(color: yellow)),
           children: options
               .map((option) => SimpleDialogOption(
-                    child: Text(option),
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 16.0),
+                      child: Text(option),
+                    ),
                     onPressed: () {
                       onTileTap(channelId, option);
                       Navigator.of(context).pop();
