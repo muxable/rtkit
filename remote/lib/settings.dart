@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:provider/provider.dart';
-import 'package:rtkit/status.dart';
 import 'package:rtkit/urls.dart';
 
-//create new stateful widget settings
 class Settings extends StatefulWidget {
   const Settings({Key? key}) : super(key: key);
 
@@ -23,16 +21,6 @@ class _SettingsState extends State<Settings> {
           builder: (context, layoutModel, child) {
             return ListView(
               children: [
-                ListTile(
-                  title: const Text("Status"),
-                  subtitle: const Text("View the current status of the server"),
-                  //on tap visit the status page
-                  onTap: () {
-                    Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => const Status()));
-                  },
-                ),
-                const Divider(),
                 ListTile(
                   title: const Text('RealtimeKit is open source!'),
                   subtitle: const Text("Find us on GitHub!"),

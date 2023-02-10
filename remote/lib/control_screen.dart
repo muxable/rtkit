@@ -59,141 +59,149 @@ class ControlScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: darkColor,
       body: SafeArea(
-        child: ListView(
-          children: [
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: StreamBuilder<ChannelStatus>(
-                stream:
-                    ChannelsAdapter.instance.retrieveChannelStatus(channelId),
-                builder: (context, snapshot) {
-                  switch (snapshot.connectionState) {
-                    case ConnectionState.waiting:
-                    case ConnectionState.none:
-                      return const Center(
-                        child: CircularProgressIndicator(),
-                      );
-                    case ConnectionState.active:
-                    case ConnectionState.done:
-                      final channelStatus = snapshot.data;
-                      if (channelStatus == null) {
-                        return const Center(
-                            child: Text('OBS has not reported its status'));
-                      }
-
-                      return GridView.count(
-                        crossAxisCount: 2,
-                        shrinkWrap: true,
-                        mainAxisSpacing: 10,
-                        crossAxisSpacing: 10,
-                        physics: const NeverScrollableScrollPhysics(),
-                        children: [
-                          _ControlBox(
-                            title: channelStatus.obsRecording == 'stopped'
-                                ? 'Start Recording'
-                                : 'Stop Recording',
-                            boxColor: channelStatus.obsRecording == 'stopped'
-                                ? yellow
-                                : red,
-                            icon: Icons.camera,
-                            onTap: () => channelStatus.obsRecording == 'stopped'
-                                ? startRecording(channelId)
-                                : stopRecording(channelId),
-                          ),
-                          _ControlBox(
-                            title: channelStatus.obsStreaming == 'stopped'
-                                ? 'Start Streaming'
-                                : 'Stop Streaming',
-                            boxColor: channelStatus.obsStreaming == 'stopped'
-                                ? yellow
-                                : red,
-                            icon: Icons.live_tv,
-                            onTap: () => channelStatus.obsStreaming == 'stopped'
-                                ? startStreaming(channelId)
-                                : stopStreaming(channelId),
-                          ),
-                          _ControlBox(
-                            title: channelStatus.obsReplayBuffer == 'stopped'
-                                ? 'Start Replay Buffer'
-                                : 'Stop Replay Buffer',
-                            boxColor: channelStatus.obsReplayBuffer == 'stopped'
-                                ? yellow
-                                : red,
-                            icon: Icons.replay,
-                            onTap: () =>
-                                channelStatus.obsReplayBuffer == 'stopped'
-                                    ? startReplayBuffer(channelId)
-                                    : stopReplayBuffer(channelId),
-                          ),
-                          _ControlBox(
-                            title: 'Save Replay',
-                            boxColor: yellow.withOpacity(
-                                channelStatus.obsReplayBuffer == 'started'
-                                    ? 1
-                                    : 0.4),
-                            icon: Icons.save_alt,
-                            onTap: () =>
-                                channelStatus.obsReplayBuffer == 'started'
-                                    ? saveReplayBuffer(channelId)
-                                    : null,
-                          ),
-                          _ControlBox(
-                            title: 'Scene',
-                            subtitle: channelStatus.obsScene.name,
-                            boxColor: purple,
-                            icon: Icons.switch_video,
-                            onTap: () => _dialogBuilder(
-                              context,
-                              'Select a Scene',
-                              channelStatus.obsScenes,
-                              setCurrentScene,
-                            ),
-                          ),
-                          _ControlBox(
-                            title: 'Transition',
-                            subtitle: channelStatus.obsTransition,
-                            boxColor: purple,
-                            icon: Icons.switch_access_shortcut,
-                            onTap: () => _dialogBuilder(
-                              context,
-                              'Select a Transition',
-                              channelStatus.obsTransitions,
-                              setCurrentTransition,
-                            ),
-                          ),
-                          _ControlBox(
-                            title: 'Main Screen',
-                            boxColor: Colors.transparent,
-                            withBorder: true,
-                            accentColor: Colors.white,
-                            icon: Icons.home_outlined,
-                            onTap: () {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => const MainPage()));
-                            },
-                          ),
-                          _ControlBox(
-                            title: 'Settings',
-                            boxColor: Colors.transparent,
-                            withBorder: true,
-                            accentColor: Colors.white,
-                            icon: Icons.settings,
-                            onTap: () {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => const Settings()));
-                            },
-                          )
-                        ],
-                      );
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: StreamBuilder<ChannelStatus>(
+            stream: ChannelsAdapter.instance.retrieveChannelStatus(channelId),
+            builder: (context, snapshot) {
+              switch (snapshot.connectionState) {
+                case ConnectionState.waiting:
+                case ConnectionState.none:
+                  return const Center(
+                    child: CircularProgressIndicator(),
+                  );
+                case ConnectionState.active:
+                case ConnectionState.done:
+                  final channelStatus = snapshot.data;
+                  if (channelStatus == null) {
+                    return const Center(
+                      child: Text('OBS has not reported its status'),
+                    );
                   }
-                },
-              ),
-            ),
-          ],
+
+                  return LayoutBuilder(
+                    builder: (context, constraints) {
+                      return SingleChildScrollView(
+                        child: GridView.count(
+                          crossAxisCount: constraints.maxWidth < 600 ? 2 : 4,
+                          shrinkWrap: true,
+                          mainAxisSpacing: 10,
+                          crossAxisSpacing: 10,
+                          physics: const NeverScrollableScrollPhysics(),
+                          children: [
+                            _ControlBox(
+                              title: channelStatus.obsRecording == 'stopped'
+                                  ? 'Start Recording'
+                                  : 'Stop Recording',
+                              boxColor: channelStatus.obsRecording == 'stopped'
+                                  ? yellow
+                                  : red,
+                              icon: Icons.camera,
+                              onTap: () =>
+                                  channelStatus.obsRecording == 'stopped'
+                                      ? startRecording(channelId)
+                                      : stopRecording(channelId),
+                            ),
+                            _ControlBox(
+                              title: channelStatus.obsStreaming == 'stopped'
+                                  ? 'Start Streaming'
+                                  : 'Stop Streaming',
+                              boxColor: channelStatus.obsStreaming == 'stopped'
+                                  ? yellow
+                                  : red,
+                              icon: Icons.live_tv,
+                              onTap: () =>
+                                  channelStatus.obsStreaming == 'stopped'
+                                      ? startStreaming(channelId)
+                                      : stopStreaming(channelId),
+                            ),
+                            _ControlBox(
+                              title: channelStatus.obsReplayBuffer == 'stopped'
+                                  ? 'Start Replay Buffer'
+                                  : 'Stop Replay Buffer',
+                              boxColor:
+                                  channelStatus.obsReplayBuffer == 'stopped'
+                                      ? yellow
+                                      : red,
+                              icon: Icons.replay,
+                              onTap: () =>
+                                  channelStatus.obsReplayBuffer == 'stopped'
+                                      ? startReplayBuffer(channelId)
+                                      : stopReplayBuffer(channelId),
+                            ),
+                            _ControlBox(
+                              title: 'Save Replay',
+                              boxColor: yellow.withOpacity(
+                                  channelStatus.obsReplayBuffer == 'started'
+                                      ? 1
+                                      : 0.4),
+                              icon: Icons.save_alt,
+                              onTap: channelStatus.obsReplayBuffer == 'started'
+                                  ? () => saveReplayBuffer(channelId)
+                                  : null,
+                            ),
+                            _ControlBox(
+                              title: 'Scene',
+                              subtitle: channelStatus.obsScene.name,
+                              boxColor: purple,
+                              icon: Icons.switch_video,
+                              onTap: () => _dialogBuilder(
+                                context,
+                                'Select a Scene',
+                                channelStatus.obsScenes,
+                                setCurrentScene,
+                              ),
+                            ),
+                            _ControlBox(
+                              title: 'Transition',
+                              subtitle: channelStatus.obsTransition,
+                              boxColor: purple,
+                              icon: Icons.switch_access_shortcut,
+                              onTap: () => _dialogBuilder(
+                                context,
+                                'Select a Transition',
+                                channelStatus.obsTransitions,
+                                setCurrentTransition,
+                              ),
+                            ),
+                            _ControlBox(
+                              title: 'Main Screen',
+                              boxColor: Colors.transparent,
+                              withBorder: true,
+                              accentColor: Colors.white,
+                              icon: Icons.home_outlined,
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => const MainPage(),
+                                  ),
+                                );
+                              },
+                            ),
+                            _ControlBox(
+                              title: 'Settings',
+                              boxColor: Colors.transparent,
+                              withBorder: true,
+                              accentColor: Colors.white,
+                              icon: Icons.settings,
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => const Settings(),
+                                  ),
+                                );
+                              },
+                            )
+                          ],
+                        ),
+                      );
+                    },
+                  );
+              }
+            },
+          ),
         ),
       ),
     );
@@ -218,13 +226,14 @@ class _ControlBox extends StatelessWidget {
   final Color boxColor;
   final bool? withBorder;
   final Color? accentColor;
-  final VoidCallback onTap;
+  final VoidCallback? onTap;
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
+    return InkWell(
+      borderRadius: BorderRadius.circular(16),
       onTap: onTap,
-      child: Container(
+      child: Ink(
         decoration: BoxDecoration(
             color: boxColor,
             borderRadius: BorderRadius.circular(16),

@@ -19,10 +19,9 @@ const Home: Component = () => {
       <div>Make sure it's configured like this:</div>
       <img src={obsSettingsImg} alt="configuration" />
       <div>Download a control app.</div>
-      <div>
-        (coming soon, in the mean time use the web interface{" "}
-        <Link href={`/${uuid()}`}>https://kit.rtirl.com/{uuid()}</Link>)
-      </div>
+      <Link href="https://play.google.com/store/apps/details?id=com.rtirl.kit" target="_blank">Android</Link>
+      <br/>
+      <Link href={`/${uuid()}`}>Web Interface</Link>
       <div>Make a new app with the API</div>
       <div>Ask on <a href="https://discord.gg/UKHJMQs74u">discord</a>{" "}, documentation isn't done yet.</div>
     </div>

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:mobile_scanner/mobile_scanner.dart';
+import 'package:provider/provider.dart';
+import 'package:rtkit/channel_provider.dart';
 import 'package:rtkit/control_screen.dart';
-import 'package:rtkit/storage_util.dart';
-import 'package:rtkit/variables.dart';
 
 class QRScanner extends StatelessWidget {
   const QRScanner({Key? key}) : super(key: key);
@@ -19,31 +19,31 @@ class QRScanner extends StatelessWidget {
         backgroundColor: Colors.transparent,
         elevation: 0,
       ),
-      body: Expanded(
-        child: MobileScanner(
-            allowDuplicates: false,
-            onDetect: (barcode, args) {
-              final code = barcode.rawValue;
-              if (code != null) {
-                if (!urlRegEx.hasMatch(code)) {
-                  ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-                    content:
-                        Text('This QR code is not valid, please check again!'),
-                  ));
-                  return;
-                }
-
-                final splitUrl = code.split('/');
-                uuid = splitUrl[3];
-                StorageUtil.putString("uuid", uuid!);
-
-                Navigator.of(context).pushReplacement(MaterialPageRoute(
-                    builder: (context) => ControlScreen(channelId: uuid!)));
+      body: MobileScanner(
+          allowDuplicates: false,
+          onDetect: (barcode, args) {
+            final code = barcode.rawValue;
+            if (code != null) {
+              if (!urlRegEx.hasMatch(code)) {
+                ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                  content:
+                      Text('This QR code is not valid, please check again!'),
+                ));
                 return;
               }
-              Navigator.of(context).pop();
-            }),
-      ),
+
+              final splitUrl = code.split('/');
+              final channelId = splitUrl[3];
+
+              Provider.of<ChannelModel>(context, listen: false)
+                  .setChannelId(channelId);
+
+              Navigator.of(context).pushReplacement(MaterialPageRoute(
+                  builder: (context) => ControlScreen(channelId: channelId)));
+              return;
+            }
+            Navigator.of(context).pop();
+          }),
     );
   }
 }
