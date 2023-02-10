@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:mobile_scanner/mobile_scanner.dart';
-import 'package:provider/provider.dart';
-import 'package:rtkit/channel_provider.dart';
 import 'package:rtkit/control_screen.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class QRScanner extends StatelessWidget {
-  const QRScanner({Key? key}) : super(key: key);
+  final SharedPreferences prefs;
+
+  const QRScanner({Key? key, required this.prefs}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -20,30 +21,36 @@ class QRScanner extends StatelessWidget {
         elevation: 0,
       ),
       body: MobileScanner(
-          allowDuplicates: false,
-          onDetect: (barcode, args) {
-            final code = barcode.rawValue;
-            if (code != null) {
-              if (!urlRegEx.hasMatch(code)) {
-                ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+        allowDuplicates: false,
+        onDetect: (barcode, args) {
+          final code = barcode.rawValue;
+          if (code != null) {
+            if (!urlRegEx.hasMatch(code)) {
+              ScaffoldMessenger.of(context).showSnackBar(
+                const SnackBar(
                   content:
                       Text('This QR code is not valid, please check again!'),
-                ));
-                return;
-              }
-
-              final splitUrl = code.split('/');
-              final channelId = splitUrl[3];
-
-              Provider.of<ChannelModel>(context, listen: false)
-                  .setChannelId(channelId);
-
-              Navigator.of(context).pushReplacement(MaterialPageRoute(
-                  builder: (context) => ControlScreen(channelId: channelId)));
+                ),
+              );
               return;
             }
-            Navigator.of(context).pop();
-          }),
+
+            final splitUrl = code.split('/');
+            final channelId = splitUrl[3];
+
+            prefs.setString('channelId', channelId);
+
+            Navigator.of(context).pushReplacement(
+              MaterialPageRoute(
+                builder: (context) =>
+                    ControlScreen(channelId: channelId, prefs: prefs),
+              ),
+            );
+            return;
+          }
+          Navigator.of(context).pop();
+        },
+      ),
     );
   }
 }

@@ -1,12 +1,10 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-import 'package:rtkit/app_preferences.dart';
-import 'package:rtkit/channel_provider.dart';
 import 'package:rtkit/control_screen.dart';
 import 'package:rtkit/firebase_options.dart';
 import 'package:rtkit/home.dart';
 import 'package:rtkit/themes.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -15,42 +13,43 @@ void main() async {
     options: DefaultFirebaseOptions.currentPlatform,
   );
 
+  final prefs = await SharedPreferences.getInstance();
+
   runApp(
-    ChangeNotifierProvider(
-      create: (context) => ChannelModel(preferences: AppPreferences()),
-      child: const MyApp(),
+    MyApp(
+      prefs: prefs,
     ),
   );
 }
 
 class MyApp extends StatefulWidget {
-  const MyApp({Key? key}) : super(key: key);
+  final SharedPreferences prefs;
+
+  const MyApp({Key? key, required this.prefs}) : super(key: key);
 
   @override
   State<MyApp> createState() => _MyAppState();
 }
 
 class _MyAppState extends State<MyApp> {
+  late String? _channelId;
+
+  @override
+  void initState() {
+    super.initState();
+
+    _channelId = widget.prefs.getString('channelId');
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: Themes.mainTheme,
       debugShowCheckedModeBanner: false,
       title: 'RealtimeKit',
-      home: Consumer<ChannelModel>(
-        builder: (context, value, child) => FutureBuilder<String?>(
-          future: value.getChannelId(),
-          builder: (context, snapshot) {
-            final channelId = snapshot.data;
-
-            if (channelId == null) {
-              return const MainPage();
-            }
-
-            return ControlScreen(channelId: channelId);
-          },
-        ),
-      ),
+      home: _channelId != null
+          ? ControlScreen(channelId: _channelId!, prefs: widget.prefs)
+          : MainPage(prefs: widget.prefs),
     );
   }
 }

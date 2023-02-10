@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:rtkit/qr_scanner.dart';
 import 'package:rtkit/themes.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class MainPage extends StatefulWidget {
-  const MainPage({Key? key}) : super(key: key);
+  final SharedPreferences prefs;
+
+  const MainPage({Key? key, required this.prefs}) : super(key: key);
 
   @override
   State<MainPage> createState() => _MainPageState();
@@ -31,35 +34,30 @@ class _MainPageState extends State<MainPage> {
                 ),
               ),
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Center(
-                  child: FloatingActionButton.extended(
-                    backgroundColor: primaryColor,
-                    icon: const Icon(
-                      Icons.qr_code_scanner_sharp,
-                      color: offBlackColor,
-                    ),
-                    label: const Text(
-                      "SCAN QR CODE",
-                      style: TextStyle(
-                        color: offBlackColor,
-                        fontFamily: 'Oskari G2',
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const QRScanner(),
-                        ),
-                      );
-                    },
+            Center(
+              child: FloatingActionButton.extended(
+                backgroundColor: primaryColor,
+                icon: const Icon(
+                  Icons.qr_code_scanner_sharp,
+                  color: offBlackColor,
+                ),
+                label: const Text(
+                  "SCAN QR CODE",
+                  style: TextStyle(
+                    color: offBlackColor,
+                    fontFamily: 'Oskari G2',
+                    fontWeight: FontWeight.bold,
                   ),
                 ),
-              ],
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => QRScanner(prefs: widget.prefs),
+                    ),
+                  );
+                },
+              ),
             ),
           ],
         ),

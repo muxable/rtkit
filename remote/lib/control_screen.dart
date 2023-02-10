@@ -3,6 +3,7 @@ import 'package:rtkit/adapter/channels_adapter.dart';
 import 'package:rtkit/control_api.dart';
 import 'package:rtkit/home.dart';
 import 'package:rtkit/settings.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 const darkColor = Color.fromARGB(255, 38, 38, 38);
 const yellow = Color.fromARGB(255, 223, 251, 38);
@@ -11,7 +12,10 @@ const purple = Color.fromARGB(255, 145, 133, 247);
 
 class ControlScreen extends StatelessWidget {
   final String channelId;
-  const ControlScreen({super.key, required this.channelId});
+  final SharedPreferences prefs;
+
+  const ControlScreen(
+      {super.key, required this.channelId, required this.prefs});
 
   Future<void> _dialogBuilder(BuildContext context, String title,
       List<String> options, Function(String, String) onTileTap) {
@@ -175,7 +179,8 @@ class ControlScreen extends StatelessWidget {
                                 Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                    builder: (context) => const MainPage(),
+                                    builder: (context) =>
+                                        MainPage(prefs: prefs),
                                   ),
                                 );
                               },
