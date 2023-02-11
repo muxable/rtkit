@@ -74,8 +74,17 @@ class ControlScreen extends StatelessWidget {
                 case ConnectionState.done:
                   final channelStatus = snapshot.data;
                   if (channelStatus == null) {
-                    return const Center(
-                      child: Text('OBS has not reported its status'),
+                    return Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        const Center(
+                            child: Text('OBS has not reported its status')),
+                        TextButton(
+                          child: const Text('Go Back'),
+                          onPressed: () => Navigator.of(context).pop(),
+                        ),
+                      ],
                     );
                   }
 
