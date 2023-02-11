@@ -248,21 +248,27 @@ class _ControlBox extends StatelessWidget {
             children: [
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  if (subtitle != null)
+                    Expanded(
+                      child: Padding(
+                        padding: const EdgeInsets.fromLTRB(4, 8, 12, 0),
+                        child: Text(
+                          subtitle!,
+                          style: Theme.of(context)
+                              .textTheme
+                              .bodyLarge!
+                              .copyWith(color: accentColor),
+                        ),
+                      ),
+                    ),
                   Icon(
                     icon,
                     color: accentColor,
                   )
                 ],
               ),
-              if (subtitle != null)
-                Text(
-                  subtitle!,
-                  style: Theme.of(context)
-                      .textTheme
-                      .bodyLarge!
-                      .copyWith(color: accentColor),
-                ),
               Text(
                 title,
                 style: Theme.of(context)
