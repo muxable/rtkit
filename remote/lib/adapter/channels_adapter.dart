@@ -62,6 +62,10 @@ class ChannelsAdapter {
     final query = db.collection('channels').doc(channelId);
     return query.snapshots().map((snapshot) {
       final channelInfo = snapshot.data() as Map<String, dynamic>;
+
+      final sourceActive = channelInfo['obsSourceActive'];
+      final sourceVisisble = channelInfo['obsSourceVisible'];
+
       return ChannelStatus(
         obsRecording: channelInfo['obsRecording'] as String,
         obsReplayBuffer: channelInfo['obsReplaybuffer'] as String,
@@ -70,8 +74,10 @@ class ChannelsAdapter {
             name: channelInfo['obsScene']['name'] as String,
             width: channelInfo['obsScene']['width'] as num),
         obsScenes: List.from(channelInfo['obsScenes']),
-        obsSourceActive: channelInfo['obsSourceActive']['active'] as bool,
-        obsSourceVisible: channelInfo['obsSourceVisible']['visible'] as bool,
+        obsSourceActive:
+            sourceActive != null ? sourceActive['active'] as bool : false,
+        obsSourceVisible:
+            sourceVisisble != null ? sourceVisisble['visible'] as bool : false,
         obsStreaming: channelInfo['obsStreaming'] as String,
         obsTransition: channelInfo['obsTransition'] as String,
         obsTransitions: List.from(channelInfo['obsTransitions']),
