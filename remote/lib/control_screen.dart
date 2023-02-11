@@ -76,7 +76,6 @@ class ControlScreen extends StatelessWidget {
                   if (channelStatus == null) {
                     return Column(
                       mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         const Center(
                             child: Text('OBS has not reported its status')),
