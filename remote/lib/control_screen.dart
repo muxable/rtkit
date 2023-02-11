@@ -82,7 +82,12 @@ class ControlScreen extends StatelessWidget {
                             child: Text('OBS has not reported its status')),
                         TextButton(
                           child: const Text('Go Back'),
-                          onPressed: () => Navigator.of(context).pop(),
+                          onPressed: () =>
+                              Navigator.of(context).pushReplacement(
+                            MaterialPageRoute(
+                              builder: (context) => const MainPage(),
+                            ),
+                          ),
                         ),
                       ],
                     );
