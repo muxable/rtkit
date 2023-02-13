@@ -19,11 +19,26 @@ const Home: Component = () => {
       <div>Make sure it's configured like this:</div>
       <img src={obsSettingsImg} alt="configuration" />
       <div>Download a control app.</div>
-      <Link href="https://play.google.com/store/apps/details?id=com.rtirl.kit" target="_blank">Android</Link>
-      <br/>
+      <Link
+        href="https://play.google.com/store/apps/details?id=com.rtirl.kit"
+        target="_blank"
+      >
+        Android
+      </Link>
+      <br />
+      <Link
+        href="https://apps.apple.com/us/app/realtimekit/id6443628121"
+        target="_blank"
+      >
+        iOS
+      </Link>
+      <br />
       <Link href={`/${uuid()}`}>Web Interface</Link>
       <div>Make a new app with the API</div>
-      <div>Ask on <a href="https://discord.gg/UKHJMQs74u">discord</a>{" "}, documentation isn't done yet.</div>
+      <div>
+        Ask on <a href="https://discord.gg/UKHJMQs74u">discord</a> ,
+        documentation isn't done yet.
+      </div>
     </div>
   );
 };
