@@ -11,7 +11,8 @@
    <application
         android:label="RealtimeKit"
         android:name="${applicationName}"
-        android:icon="@mipmap/launcer_icon">
+        android:icon="@mipmap/launcer_icon"
+        android:roundIcon="@mipmap/ic_launcher_round">
         <activity
             android:name=".MainActivity"
             android:exported="true"
