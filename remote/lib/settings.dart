@@ -22,7 +22,7 @@ class _SettingsState extends State<Settings> {
             return ListView(
               children: [
                 ListTile(
-                  title: const Text('RealtimeKit is open source!'),
+                  title: const Text('RealtimeKit is open source'),
                   subtitle: const Text("Find us on GitHub!"),
                   trailing: const Icon(Icons.terminal),
                   onTap: () =>
