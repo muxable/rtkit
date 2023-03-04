@@ -78,8 +78,21 @@ class ControlScreen extends StatelessWidget {
                 case ConnectionState.done:
                   final channelStatus = snapshot.data;
                   if (channelStatus == null) {
-                    return const Center(
-                      child: Text('OBS has not reported its status'),
+                    return Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        const Center(
+                            child: Text('OBS has not reported its status')),
+                        TextButton(
+                          child: const Text('Go Back'),
+                          onPressed: () =>
+                              Navigator.of(context).pushReplacement(
+                            MaterialPageRoute(
+                              builder: (context) => const MainPage(),
+                            ),
+                          ),
+                        ),
+                      ],
                     );
                   }
 
@@ -140,10 +153,9 @@ class ControlScreen extends StatelessWidget {
                                       ? 1
                                       : 0.4),
                               icon: Icons.save_alt,
-                              onTap: () =>
-                                  channelStatus.obsReplayBuffer == 'started'
-                                      ? saveReplayBuffer(channelId)
-                                      : null,
+                              onTap: channelStatus.obsReplayBuffer == 'started'
+                                  ? () => saveReplayBuffer(channelId)
+                                  : null,
                             ),
                             _ControlBox(
                               title: 'Scene',
@@ -232,13 +244,14 @@ class _ControlBox extends StatelessWidget {
   final Color boxColor;
   final bool? withBorder;
   final Color? accentColor;
-  final VoidCallback onTap;
+  final VoidCallback? onTap;
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
+    return InkWell(
+      borderRadius: BorderRadius.circular(16),
       onTap: onTap,
-      child: Container(
+      child: Ink(
         decoration: BoxDecoration(
             color: boxColor,
             borderRadius: BorderRadius.circular(16),
@@ -253,21 +266,27 @@ class _ControlBox extends StatelessWidget {
             children: [
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  if (subtitle != null)
+                    Expanded(
+                      child: Padding(
+                        padding: const EdgeInsets.fromLTRB(4, 8, 12, 0),
+                        child: Text(
+                          subtitle!,
+                          style: Theme.of(context)
+                              .textTheme
+                              .bodyLarge!
+                              .copyWith(color: accentColor),
+                        ),
+                      ),
+                    ),
                   Icon(
                     icon,
                     color: accentColor,
                   )
                 ],
               ),
-              if (subtitle != null)
-                Text(
-                  subtitle!,
-                  style: Theme.of(context)
-                      .textTheme
-                      .bodyLarge!
-                      .copyWith(color: accentColor),
-                ),
               Text(
                 title,
                 style: Theme.of(context)
