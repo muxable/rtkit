@@ -35,12 +35,6 @@ class _SettingsState extends State<Settings> {
                   onTap: () =>
                       openUrl(Uri.parse("https://discord.gg/UKHJMQs74u")),
                 ),
-                ListTile(
-                  title: const Text("Website"),
-                  subtitle: const Text("Get a browser source for OBS"),
-                  trailing: const Icon(Icons.launch),
-                  onTap: () => openUrl(Uri.parse("https://kit.rtirl.com")),
-                ),
                 Padding(
                   padding: const EdgeInsets.all(16),
                   child: Text(
