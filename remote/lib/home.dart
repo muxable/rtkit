@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:rtkit/qr_scanner.dart';
+import 'package:rtkit/setup.dart';
 import 'package:rtkit/themes.dart';
 
 class MainPage extends StatefulWidget {
@@ -34,30 +35,63 @@ class _MainPageState extends State<MainPage> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                Center(
-                  child: FloatingActionButton.extended(
-                    backgroundColor: primaryColor,
-                    icon: const Icon(
-                      Icons.qr_code_scanner_sharp,
-                      color: offBlackColor,
-                    ),
-                    label: const Text(
-                      "SCAN QR CODE",
-                      style: TextStyle(
-                        color: offBlackColor,
-                        fontFamily: 'Oskari G2',
-                        fontWeight: FontWeight.bold,
+                Column(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: FloatingActionButton.extended(
+                        heroTag: null,
+                        backgroundColor: primaryColor,
+                        icon: const Icon(
+                          Icons.info_outline,
+                          color: offBlackColor,
+                        ),
+                        label: const Text(
+                          "SETUP APP",
+                          style: TextStyle(
+                            color: offBlackColor,
+                            fontFamily: 'Oskari G2',
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const Setup(),
+                            ),
+                          );
+                        },
                       ),
                     ),
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const QRScanner(),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: FloatingActionButton.extended(
+                        heroTag: null,
+                        backgroundColor: primaryColor,
+                        icon: const Icon(
+                          Icons.qr_code_scanner_sharp,
+                          color: offBlackColor,
                         ),
-                      );
-                    },
-                  ),
+                        label: const Text(
+                          "SCAN QR CODE",
+                          style: TextStyle(
+                            color: offBlackColor,
+                            fontFamily: 'Oskari G2',
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const QRScanner(),
+                            ),
+                          );
+                        },
+                      ),
+                    ),
+                  ],
                 ),
               ],
             ),
