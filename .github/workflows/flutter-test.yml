@@ -1,0 +1,25 @@
+name: flutter test
+
+on:
+  push:
+    paths:
+      - "remote/**"
+    branches:
+      - main
+  pull_request:
+    paths:
+      - "remote/**"
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  analyze:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Set up Flutter
+        uses: subosito/flutter-action@v1
+      - run: flutter test
+        working-directory: beacon
