@@ -3,10 +3,11 @@ name: Release to App Store
 on:
   push:
     paths:
+      - "remote/**"
       - "remote/ios/**"
       - "remote/assets/**"
       - "remote/lib/**"
-      - "pubspec.lock"
+      - "remote/pubspec.lock"
       - "remote/pubspec.yaml"
     branches:
       - main
