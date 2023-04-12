@@ -48,6 +48,7 @@ jobs:
           keychain add-certificates
           xcode-project use-profiles --export-options-plist=$RUNNER_TEMP/export_options.plist
           flutter pub get
+          find . -name "Podfile" -execdir pod install \;
           flutter build ipa --release --build-name=${{ steps.semantic.outputs.version }} --build-number=$(date +%Y%m%d%H%M) --export-options-plist=$RUNNER_TEMP/export_options.plist
           keychain use-login
       - uses: actions/upload-artifact@v2
