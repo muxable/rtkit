@@ -15,8 +15,11 @@ class _SetupState extends State<Setup> {
         title: const Text('Setup'),
       ),
       body: const Center(
-        child: Text(
-            'Visit kit.rtirl.com on your computer to setup the app then scan the QR code with the mobile app and follow the instructions.'),
+        child: Padding(
+          padding: EdgeInsets.all(8.0),
+          child: Text(
+              'Visit kit.rtirl.com on your computer to setup OBS, then scan the QR code with the mobile app.'),
+        ),
       ),
     );
   }
