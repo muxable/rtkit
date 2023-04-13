@@ -760,7 +760,7 @@ PODS:
     - Flutter
     - FlutterMacOS
   - PromisesObjC (2.2.0)
-  - Protobuf (3.22.1)
+  - Protobuf (3.22.3)
   - shared_preferences_foundation (0.0.1):
     - Flutter
     - FlutterMacOS
@@ -854,7 +854,7 @@ SPEC CHECKSUMS:
   package_info_plus: 6c92f08e1f853dc01228d6f553146438dafcd14e
   path_provider_foundation: c68054786f1b4f3343858c1e1d0caaded73f0be9
   PromisesObjC: 09985d6d70fbe7878040aa746d78236e6946d2ef
-  Protobuf: d7f7c8329edf5eb8af65547a8ba3e9c1cee927d5
+  Protobuf: d03938d5f7e974a97964fb0567771e36fbe9ecce
   shared_preferences_foundation: 297b3ebca31b34ec92be11acd7fb0ba932c822ca
   url_launcher_ios: 839c58cdb4279282219f5e248c3321761ff3c4de
 
