@@ -38,7 +38,7 @@ dependencies:
   provider: 
   settings_ui: 
   http: 
-  mobile_scanner: ^2.1.0
+  mobile_scanner: ^3.2.o
   firebase_core: ^2.11.0
   cloud_firestore: ^4.6.0
 
