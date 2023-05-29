@@ -21,8 +21,8 @@ class QRScanner extends StatelessWidget {
       ),
       body: MobileScanner(
           allowDuplicates: false,
-          onDetect: (barcode, args) {
-            final code = barcode.rawValue;
+          onDetect: (BarcodeCapture barcode) {
+            final code = barcode.raw;
             if (code != null) {
               if (!urlRegEx.hasMatch(code)) {
                 ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
