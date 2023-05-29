@@ -19,31 +19,28 @@ class QRScanner extends StatelessWidget {
         backgroundColor: Colors.transparent,
         elevation: 0,
       ),
-      body: MobileScanner(
-          allowDuplicates: false,
-          onDetect: (BarcodeCapture barcode) {
-            final code = barcode.raw;
-            if (code != null) {
-              if (!urlRegEx.hasMatch(code)) {
-                ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-                  content:
-                      Text('This QR code is not valid, please check again!'),
-                ));
-                return;
-              }
+      body: MobileScanner(onDetect: (BarcodeCapture barcode) {
+        final code = barcode.raw;
+        if (code != null) {
+          if (!urlRegEx.hasMatch(code)) {
+            ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+              content: Text('This QR code is not valid, please check again!'),
+            ));
+            return;
+          }
 
-              final splitUrl = code.split('/');
-              final channelId = splitUrl[3];
+          final splitUrl = code.split('/');
+          final channelId = splitUrl[3];
 
-              Provider.of<ChannelModel>(context, listen: false)
-                  .setChannelId(channelId);
+          Provider.of<ChannelModel>(context, listen: false)
+              .setChannelId(channelId);
 
-              Navigator.of(context).pushReplacement(MaterialPageRoute(
-                  builder: (context) => ControlScreen(channelId: channelId)));
-              return;
-            }
-            Navigator.of(context).pop();
-          }),
+          Navigator.of(context).pushReplacement(MaterialPageRoute(
+              builder: (context) => ControlScreen(channelId: channelId)));
+          return;
+        }
+        Navigator.of(context).pop();
+      }),
     );
   }
 }
