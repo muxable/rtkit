@@ -4,6 +4,9 @@ A tool to control OBS remotely.
 
 https://kit.rtirl.com/
 
+<a href='https://play.google.com/store/apps/details?id=com.rtirl.kit&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'><img alt='Get it on Google Play' height="85" src='./assets/google-play-badge.png'/></a>
+<a href="https://apps.apple.com/app/id1567720948"><img alt='Download on the App Store' height="85" src="./assets/apple-download.svg"></a>
+
 ## Contributing
 
 Communication is done through [our Discord server](https://discord.gg/UKHJMQs74u). Come by and say hi! Otherwise, feel free to browse our issues list for contribution ideas.
