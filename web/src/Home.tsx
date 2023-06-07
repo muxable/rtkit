@@ -40,7 +40,6 @@ const Home: Component = () => {
       <br />
       <div>Scan the QR code in the app and enjoy</div>
       <div>The app might have some delays for best reliability use the <Link href={`/${uuid()}`} target="_blank">Web Interface</Link> and save the link for later</div>
-      <div><Link href={`/${uuid()}`} target="_blank">Web Interface</Link> (most reliable)</div>
       <div>Make a new app with the API</div>
       <div>
         Ask on <a href="https://discord.gg/UKHJMQs74u">discord</a>,
