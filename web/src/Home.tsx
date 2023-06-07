@@ -12,7 +12,7 @@ const Home: Component = () => {
     <div>
       <div><h1>RealtimeKit</h1></div>
       <div><h2>Control OBS remotely without setting up obs-websocket</h2></div>
-      <div>Add a browser source in OBS: <Link href={`/${uuid()}`}>{uuid()}</Link></div>
+      <div>Add a browser source in OBS: <Link href={`/${uuid()}`}>https://kit.rtirl.com/{uuid()}</Link></div>
       <img
         src={`https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${url()}`}
         alt="qr code"
