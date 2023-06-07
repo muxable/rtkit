@@ -1,6 +1,6 @@
 # RealtimeKit
 
-A tool to control OBS remotely.
+Control OBS remotely without setting up obs-websocket!
 
 https://kit.rtirl.com/
 
