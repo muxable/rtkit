@@ -21,7 +21,7 @@ const Home: Component = () => {
       <img src={obsSettingsImg} alt="configuration" />
       <div>Download a control app</div>
       <Link
-        href="https://play.google.com/store/apps/details?id=com.rtirl.chat&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1"
+        href="https://play.google.com/store/apps/details?id=com.rtirl.kit&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1"
         target="_blank"><img
         id="google-play"
         alt="Get it on Google Play"
@@ -30,7 +30,7 @@ const Home: Component = () => {
       /></Link>
       <br />
       <Link
-        href="https://apps.apple.com/app/id1567720948"
+        href="https://apps.apple.com/app/id6443628121"
         target="_blank"><img
         id="app-store"
         alt="Download on the app store"
