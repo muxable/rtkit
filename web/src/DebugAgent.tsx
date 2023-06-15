@@ -27,6 +27,10 @@ const DebugAgent: Component<{ channelId: string }> = ({ channelId }) => {
   return (
     <div>
       <div>This is a debug page for {channelId}</div>
+      <img
+        src={`https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https%3A%2F%2Fkit.rtirl.com/${channelId}`}
+        alt="qr code"
+      />
       <pre>
         {JSON.stringify(
           state(),
