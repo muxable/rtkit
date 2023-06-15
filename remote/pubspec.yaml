@@ -30,7 +30,7 @@ dependencies:
   flutter:
     sdk: flutter
   url_launcher: ^6.1.11
-  package_info_plus: ^4.0.1
+  package_info_plus: ^4.0.2
   path_provider: ^2.0.15
   flutter_custom_tabs: ^1.0.4
   cupertino_icons: ^1.0.5
@@ -39,8 +39,8 @@ dependencies:
   settings_ui: 
   http: 
   mobile_scanner: ^2.1.0
-  firebase_core: ^2.13.1
-  cloud_firestore: ^4.8.0
+  firebase_core: ^2.14.0
+  cloud_firestore: ^4.8.1
 
 dev_dependencies:
   flutter_lints: ^2.0.1
