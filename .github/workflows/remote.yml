@@ -19,7 +19,7 @@ jobs:
     with:
       working-directory: remote
       environment-name: remote-ios-${{ github.event_name == 'release' && 'app-store' || 'testflight' }}
-      environment-url: https://appstoreconnect.apple.com/apps/1558493719/${{ github.event_name == 'release' && 'appstore' || 'testflight' }}
+      environment-url: https://appstoreconnect.apple.com/apps/6443628121/${{ github.event_name == 'release' && 'appstore' || 'testflight' }}
     secrets:
       APPSTORE_API_PRIVATE_KEY: ${{ secrets.APPSTORE_API_PRIVATE_KEY }}
       APPLE_CERTIFICATE_PRIVATE_KEY: ${{ secrets.APPLE_CERTIFICATE_PRIVATE_KEY }}
@@ -31,7 +31,7 @@ jobs:
     with:
       working-directory: remote
       environment-name: remote-android-${{ github.event_name == 'release' && 'production' || 'internal' }}
-      environment-url: https://play.google.com/console/developers/8168733962061318282/app/4972805132160922137/tracks/${{ github.event_name == 'release' && 'production' || 'internal-testing' }}
+      environment-url: https://play.google.com/console/developers/8168733962061318282/app/4974769186575273826/tracks/${{ github.event_name == 'release' && 'production' || 'internal-testing' }}
     secrets:
       UPLOAD_KEYSTORE: ${{ secrets.UPLOAD_KEYSTORE }}
       UPLOAD_KEYSTORE_PASSWORD: ${{ secrets.UPLOAD_KEYSTORE_PASSWORD }}
