@@ -29,7 +29,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  url_launcher: ^6.1.11
+  url_launcher: ^6.1.12
   package_info_plus: ^4.0.2
   path_provider: ^2.0.15
   flutter_custom_tabs: ^1.0.4
@@ -37,10 +37,10 @@ dependencies:
   shared_preferences:
   provider: 
   settings_ui: 
-  http: 
-  mobile_scanner: ^2.1.0
-  firebase_core: ^2.14.0
-  cloud_firestore: ^4.8.1
+  http:
+  mobile_scanner: ^3.3.0
+  firebase_core: ^2.15.0
+  cloud_firestore: ^4.8.3
 
 dev_dependencies:
   flutter_lints: ^2.0.1
