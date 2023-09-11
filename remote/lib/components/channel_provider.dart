@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:rtkit/app_preferences.dart';
+import 'package:rtkit/components/app_preferences.dart';
 
 class ChannelModel extends ChangeNotifier {
   AppPreferences preferences;
