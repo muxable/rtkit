@@ -13,7 +13,7 @@ dependencies:
   cloud_firestore: ^4.9.1
   cupertino_icons: ^1.0.6
   firebase_core: ^2.15.1
-  flutter_custom_tabs: ^1.0.4
+  flutter_custom_tabs: ^1.2.0
   http: ^1.1.0
   mobile_scanner: ^3.4.1
   package_info_plus: ^4.1.0
