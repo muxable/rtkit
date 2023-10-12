@@ -39,11 +39,11 @@ dependencies:
   path_provider: ^2.1.1
   provider: ^6.0.5
   settings_ui: ^2.0.2
-  shared_preferences: ^2.2.1
+  shared_preferences: ^2.2.2
   url_launcher: ^6.1.14
 
 dev_dependencies:
-  flutter_lints: ^2.0.2
+  flutter_lints: ^2.0.3
   flutter_launcher_icons:
   flutter_test:
     sdk: flutter
