@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:mobile_scanner/mobile_scanner.dart';
 import 'package:provider/provider.dart';
-import 'package:rtkit/channel_provider.dart';
-import 'package:rtkit/control_screen.dart';
+import 'package:rtkit/components/channel_provider.dart';
+import 'package:rtkit/screens/control_screen.dart';
 
 class QRScanner extends StatelessWidget {
   const QRScanner({Key? key}) : super(key: key);

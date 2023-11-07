@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:rtkit/qr_scanner.dart';
-import 'package:rtkit/setup.dart';
+import 'package:rtkit/screens/qr_scanner.dart';
+import 'package:rtkit/screens/settings.dart';
 import 'package:rtkit/themes.dart';
 
 class MainPage extends StatefulWidget {
@@ -58,7 +58,7 @@ class _MainPageState extends State<MainPage> {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => const Setup(),
+                              builder: (context) => const Settings(),
                             ),
                           );
                         },

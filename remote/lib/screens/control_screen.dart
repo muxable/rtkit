@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:rtkit/adapter/channels_adapter.dart';
-import 'package:rtkit/control_api.dart';
-import 'package:rtkit/home.dart';
-import 'package:rtkit/settings.dart';
+import 'package:rtkit/models/adapter/channels_adapter.dart';
+import 'package:rtkit/models/control_api.dart';
+import 'package:rtkit/screens/home.dart';
+import 'package:rtkit/screens/settings.dart';
 
 const darkColor = Color.fromARGB(255, 38, 38, 38);
 const yellow = Color.fromARGB(255, 223, 251, 38);

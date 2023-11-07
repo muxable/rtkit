@@ -1,11 +1,11 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:rtkit/app_preferences.dart';
-import 'package:rtkit/channel_provider.dart';
-import 'package:rtkit/control_screen.dart';
+import 'package:rtkit/components/app_preferences.dart';
+import 'package:rtkit/components/channel_provider.dart';
+import 'package:rtkit/screens/control_screen.dart';
 import 'package:rtkit/firebase_options.dart';
-import 'package:rtkit/home.dart';
+import 'package:rtkit/screens/home.dart';
 import 'package:rtkit/themes.dart';
 
 void main() async {
