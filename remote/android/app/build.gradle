@@ -41,7 +41,7 @@ apply plugin: 'kotlin-android'
 apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
 
 android {
-    compileSdkVersion 33
+    compileSdkVersion 34
     ndkVersion flutter.ndkVersion
 
     compileOptions {
@@ -60,7 +60,7 @@ android {
     defaultConfig {
         applicationId "com.rtirl.kit"
         minSdkVersion 21
-        targetSdkVersion flutter.targetSdkVersion
+        targetSdkVersion 34
         versionCode vcode
         versionName flutterVersionName
     }

@@ -36,7 +36,7 @@ devDependencies:
     version: 4.6.4
   vite:
     specifier: ^2.9.9
-    version: 2.9.9
+    version: 2.9.17
   vite-plugin-solid:
     specifier: ^2.2.6
     version: 2.2.6
@@ -1764,7 +1764,7 @@ packages:
       merge-anything: 5.0.2
       solid-js: 1.4.2
       solid-refresh: 0.4.0(solid-js@1.4.2)
-      vite: 2.9.9
+      vite: 2.9.17
     transitivePeerDependencies:
       - less
       - sass
@@ -1772,8 +1772,8 @@ packages:
       - supports-color
     dev: true
 
-  /vite@2.9.9:
-    resolution: {integrity: sha512-ffaam+NgHfbEmfw/Vuh6BHKKlI/XIAhxE5QSS7gFLIngxg171mg1P3a4LSRME0z2ZU1ScxoKzphkipcYwSD5Ew==}
+  /vite@2.9.17:
+    resolution: {integrity: sha512-XxcRzra6d7xrKXH66jZUgb+srThoPu+TLJc06GifUyKq9JmjHkc1Numc8ra0h56rju2jfVWw3B3fs5l3OFMvUw==}
     engines: {node: '>=12.2.0'}
     hasBin: true
     peerDependencies:
