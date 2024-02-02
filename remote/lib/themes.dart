@@ -39,6 +39,7 @@ Color tintColor(Color color, double factor) => Color.fromRGBO(
 
 class Themes {
   static final mainTheme = ThemeData(
+    useMaterial3: false,
     fontFamily: "Oskari G2",
     textTheme: const TextTheme(
       displayMedium: TextStyle(
