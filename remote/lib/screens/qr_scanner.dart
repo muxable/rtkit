@@ -12,12 +12,11 @@ class QRScanner extends StatefulWidget {
 }
 
 class _QRScannerState extends State<QRScanner> {
-
-   MobileScannerController scanController = MobileScannerController(
-      // facing: CameraFacing.back,
-      // torchEnabled: false,
-      detectionSpeed: DetectionSpeed.noDuplicates,
-    );
+  MobileScannerController scanController = MobileScannerController(
+    // facing: CameraFacing.back,
+    // torchEnabled: false,
+    detectionSpeed: DetectionSpeed.noDuplicates,
+  );
 
   TorchState value = TorchState.off;
 
@@ -26,25 +25,22 @@ class _QRScannerState extends State<QRScanner> {
     final urlRegEx = RegExp(
         r'https?:\/\/?kit.rtirl.com\/(?:[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12})');
 
-   
-
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: AppBar(
         leading: const BackButton(),
-        actions : [
+        actions: [
           IconButton(
-              onPressed: () {
-                setState(() {
-                  value = value == TorchState.on ? TorchState.off : TorchState.on;
-                   scanController.toggleTorch();
-                });
-               
-              } ,
-              icon: Icon(
-                value == TorchState.on ? Icons.flash_off : Icons.flash_on,
-              ),
+            onPressed: () {
+              setState(() {
+                value = value == TorchState.on ? TorchState.off : TorchState.on;
+                scanController.toggleTorch();
+              });
+            },
+            icon: Icon(
+              value == TorchState.on ? Icons.flash_off : Icons.flash_on,
             ),
+          ),
         ],
         backgroundColor: Colors.transparent,
         elevation: 0,
@@ -77,7 +73,6 @@ class _QRScannerState extends State<QRScanner> {
                 }
                 Navigator.of(context).pop();
               }),
-         
         ],
       ),
     );
