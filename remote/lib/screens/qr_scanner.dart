@@ -53,8 +53,6 @@ class QRScanner extends StatelessWidget {
                   return;
                 }
                 Navigator.of(context).pop();
-
-                
               }),
           Positioned(
             top: 50,
