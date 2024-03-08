@@ -4,8 +4,21 @@ import 'package:provider/provider.dart';
 import 'package:rtkit/components/channel_provider.dart';
 import 'package:rtkit/screens/control_screen.dart';
 
-class QRScanner extends StatelessWidget {
+class QRScanner extends StatefulWidget {
   const QRScanner({Key? key}) : super(key: key);
+
+  @override
+  State<QRScanner> createState() => _QRScannerState();
+}
+
+class _QRScannerState extends State<QRScanner> {
+  MobileScannerController scanController = MobileScannerController(
+    // facing: CameraFacing.back,
+    // torchEnabled: false,
+    detectionSpeed: DetectionSpeed.noDuplicates,
+  );
+
+  TorchState value = TorchState.off;
 
   @override
   Widget build(BuildContext context) {
@@ -16,31 +29,52 @@ class QRScanner extends StatelessWidget {
       extendBodyBehindAppBar: true,
       appBar: AppBar(
         leading: const BackButton(),
+        actions: [
+          IconButton(
+            onPressed: () {
+              setState(() {
+                value = value == TorchState.on ? TorchState.off : TorchState.on;
+                scanController.toggleTorch();
+              });
+            },
+            icon: Icon(
+              value == TorchState.on ? Icons.flash_off : Icons.flash_on,
+            ),
+          ),
+        ],
         backgroundColor: Colors.transparent,
         elevation: 0,
       ),
-      body: MobileScanner(onDetect: (BarcodeCapture barcode) {
-        final code = barcode.raw;
-        if (code != null) {
-          if (!urlRegEx.hasMatch(code)) {
-            ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-              content: Text('This QR code is not valid, please check again!'),
-            ));
-            return;
-          }
+      body: Stack(
+        children: [
+          MobileScanner(
+              controller: scanController,
+              onDetect: (BarcodeCapture barcode) {
+                final code = barcode.raw;
+                if (code != null) {
+                  if (!urlRegEx.hasMatch(code)) {
+                    ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                      content: Text(
+                          'This QR code is not valid, please check again!'),
+                    ));
+                    return;
+                  }
 
-          final splitUrl = code.split('/');
-          final channelId = splitUrl[3];
+                  final splitUrl = code.split('/');
+                  final channelId = splitUrl[3];
 
-          Provider.of<ChannelModel>(context, listen: false)
-              .setChannelId(channelId);
+                  Provider.of<ChannelModel>(context, listen: false)
+                      .setChannelId(channelId);
 
-          Navigator.of(context).pushReplacement(MaterialPageRoute(
-              builder: (context) => ControlScreen(channelId: channelId)));
-          return;
-        }
-        Navigator.of(context).pop();
-      }),
+                  Navigator.of(context).pushReplacement(MaterialPageRoute(
+                      builder: (context) =>
+                          ControlScreen(channelId: channelId)));
+                  return;
+                }
+                Navigator.of(context).pop();
+              }),
+        ],
+      ),
     );
   }
 }
