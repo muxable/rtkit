@@ -87,6 +87,6 @@ class Themes {
     dividerColor: dividerColor,
     colorScheme: ColorScheme.fromSwatch(
       primarySwatch: generateMaterialColor(primaryColor),
-    ).copyWith(background: backgroundColor),
+    ).copyWith(surface: backgroundColor),
   );
 }
