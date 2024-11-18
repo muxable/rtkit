@@ -18,7 +18,7 @@
     "vite-plugin-solid": "^2.2.6"
   },
   "dependencies": {
-    "firebase": "^9.8.1",
+    "firebase": "^10.9.0",
     "solid-app-router": "^0.3.3",
     "solid-js": "^1.4.2",
     "solid-styled-components": "^0.28.1",
