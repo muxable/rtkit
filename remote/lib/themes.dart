@@ -69,6 +69,7 @@ class Themes {
     listTileTheme: const ListTileThemeData(iconColor: Colors.white),
     canvasColor: backgroundColor,
     cardColor: backgroundColor,
+    dialogBackgroundColor: backgroundColor,
     dialogTheme: const DialogTheme(
       titleTextStyle: TextStyle(color: primaryTextColor),
     ),
