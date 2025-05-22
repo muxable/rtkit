@@ -38,7 +38,7 @@ class _QRScannerState extends State<QRScanner> {
               });
             },
             icon: Icon(
-              value == TorchState.on ? Icons.flash_off : Icons.flash_on,
+              value == TorchState.off ? Icons.flash_off : Icons.flash_on,
             ),
           ),
         ],
