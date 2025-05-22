@@ -13,7 +13,7 @@ Future<void> openUrl(Uri url) async {
       safariVCOptions: const customtabs.SafariViewControllerOptions(
         barCollapsingEnabled: true,
         dismissButtonStyle:
-        customtabs.SafariViewControllerDismissButtonStyle.close,
+            customtabs.SafariViewControllerDismissButtonStyle.close,
       ),
     );
   } else if (url.isScheme("http") || url.isScheme("https")) {
