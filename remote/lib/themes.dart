@@ -14,7 +14,7 @@ const detailColor = Color(0xFF121312);
 const textFieldBgColor = Color(0xFFF6F3ED);
 
 MaterialColor generateMaterialColor(Color color) {
-  return MaterialColor(color.value, {
+  return MaterialColor(color.toARGB32(), {
     50: tintColor(color, 0.5),
     100: tintColor(color, 0.4),
     200: tintColor(color, 0.3),
@@ -32,9 +32,9 @@ int tintValue(int value, double factor) =>
     max(0, min((value + ((255 - value) * factor)).round(), 255));
 
 Color tintColor(Color color, double factor) => Color.fromRGBO(
-    tintValue(color.red, factor),
-    tintValue(color.green, factor),
-    tintValue(color.blue, factor),
+    tintValue((color.r * 255).round(), factor),
+    tintValue((color.g * 255).round(), factor),
+    tintValue((color.b * 255).round(), factor),
     1);
 
 class Themes {
@@ -69,8 +69,7 @@ class Themes {
     listTileTheme: const ListTileThemeData(iconColor: Colors.white),
     canvasColor: backgroundColor,
     cardColor: backgroundColor,
-    dialogBackgroundColor: backgroundColor,
-    dialogTheme: const DialogTheme(
+    dialogTheme: const DialogThemeData(
       titleTextStyle: TextStyle(color: primaryTextColor),
     ),
     appBarTheme: const AppBarTheme(
